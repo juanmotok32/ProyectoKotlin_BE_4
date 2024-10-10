@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import ar.com.be_tp3_g4.navigation.AppNavigation
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
@@ -13,7 +15,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BE_TP3_G4Theme {
-                AppNavigation()
+                Surface(color = MaterialTheme.colorScheme.secondary) {
+                    AppNavigation()
+                }
             }
         }
     }
