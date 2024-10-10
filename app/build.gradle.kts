@@ -1,6 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+
+    //Aplicar el Plugin de Serializacion de Kotlin
+    alias(libs.plugins.kotlin.serialization)
+
+    //el compiler que me pide la version 2.0.0 de kotlin
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -50,7 +56,20 @@ android {
 }
 
 dependencies {
+    //cono de filtro, es lo mas parecido que encontre
     implementation("androidx.compose.material:material-icons-extended")
+
+    // Compose Navigation
+    implementation(libs.androidx.navigation.compose)
+
+    //Serialization
+    implementation(libs.kotlin.serialization)
+    implementation(libs.kotlinx.serialization.json)
+
+    // Compose ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
