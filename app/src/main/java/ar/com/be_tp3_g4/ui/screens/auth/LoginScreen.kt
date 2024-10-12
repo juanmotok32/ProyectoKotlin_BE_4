@@ -1,9 +1,7 @@
 package ar.com.be_tp3_g4.ui.screens.auth
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
@@ -20,7 +17,6 @@ import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,6 +24,7 @@ import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.helpers.WindowSizeHelper
 import ar.com.be_tp3_g4.ui.components.Btn
 import ar.com.be_tp3_g4.ui.components.InputField
+import ar.com.be_tp3_g4.ui.components.LogoZanahoria
 import ar.com.be_tp3_g4.ui.components.TittleSub
 
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
@@ -60,7 +57,7 @@ fun LoginScreen(
             )
             .verticalScroll(scrollState)
     ) {
-        LogoImg()
+        LogoZanahoria()
 
         TittleSub(tittle = R.string.sign_in, sub = R.string.enter_email)
 
@@ -96,7 +93,7 @@ fun LoginScreen(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {   //IMPORTANTE! para centrar un elemento horizontamente, hagan que ocupe tod el ancho, sinoi se van a romper la cabeza 10 hs como yo
-            Text(text = stringResource(id = R.string.no_acount))
+            Text(text = stringResource(id = R.string.no_acount), color = MaterialTheme.colorScheme.inversePrimary)
             Text(
                 text = "SingUp",
                 color = MaterialTheme.colorScheme.secondary,
@@ -118,27 +115,4 @@ fun LoginScreenPreview() {
 }
 
 
-@Composable
-private fun LogoImg() {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(220.dp)
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.zanahoria_naranja),
-            contentDescription = null,
-            modifier = Modifier
-                .size(50.dp)
-                .align(Alignment.Center)
-        )
-    }
-}
 
-/*
-@Preview
-@Composable
-fun LogoImgPreview() {
-    LogoImg()
-}
-*/

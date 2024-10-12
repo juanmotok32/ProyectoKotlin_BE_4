@@ -51,7 +51,8 @@ fun AppNavigation(authViewModel: AuthViewModel) {
         composable<NavDestinations.Register> {
             RegisterScreen(
                 authViewModel = authViewModel,
-                signIn = { navController.navigate(NavDestinations.Login) }
+                signIn = { navController.navigate(NavDestinations.Login) },
+                windowSizeHelper = windowSizeHelper
             )
         }
     }

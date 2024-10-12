@@ -28,4 +28,5 @@
 
     <string name="log_in">Log In</string>
     <string name="no_acount">Don\'t have an account?</string>
+    <string name="has_account">Already have an account?</string>
 </resources>
