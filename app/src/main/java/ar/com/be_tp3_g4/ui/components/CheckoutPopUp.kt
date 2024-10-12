@@ -68,7 +68,7 @@ fun CheckoutDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                     TermsAndConditionsText()
 
                     Button(
-                        onClick = { /*funcion*/ },
+                        onClick = { /*func*/ },
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50)),
                         modifier = Modifier
                             .fillMaxWidth()
