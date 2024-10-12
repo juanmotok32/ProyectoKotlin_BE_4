@@ -36,9 +36,6 @@ fun Card(
     description: String,
     addToCart: () -> Unit
 ) {
-
-    val borderColor = Color(0xFFE2E2E2)
-
     OutlinedCard(
         onClick = goToDetails,
         modifier = Modifier
@@ -46,9 +43,8 @@ fun Card(
             .height(248.dp),
 
         shape = RoundedCornerShape(18.dp),
-        border = BorderStroke(1.dp, borderColor),
-    )
-    {
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary),
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -67,7 +63,10 @@ fun Card(
 
 
             )
-            Text(text = title)
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleLarge
+            )
             Text(text = description)
             Spacer(modifier = Modifier.weight(3f))
 
@@ -77,10 +76,10 @@ fun Card(
 
             ) {
                 Text(
-                    text = price,
-                    modifier = Modifier
+                    text = price, modifier = Modifier
                         .weight(3f)
-                        .align(Alignment.CenterVertically)
+                        .align(Alignment.CenterVertically),
+                    style = MaterialTheme.typography.bodyLarge
                 )
                 Spacer(modifier = Modifier.weight(3f))
 
@@ -114,8 +113,7 @@ fun Card() {
         val price = "11,2"
         val description = "1kg, Price"
 
-        Card(
-            goToDetails = { /*TODO*/ },
+        Card(goToDetails = { /*TODO*/ },
             title = pescado,
             price = price,
             description = description,

@@ -22,7 +22,9 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 fun Btn(onClick: () -> Unit, @StringRes text: Int, modifier: Modifier = Modifier) {
     Button(
         onClick = onClick,
-        modifier = modifier.fillMaxWidth().height(67.dp),
+        modifier = modifier
+            .fillMaxWidth()
+            .height(67.dp),
         shape = RoundedCornerShape(19.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.secondary

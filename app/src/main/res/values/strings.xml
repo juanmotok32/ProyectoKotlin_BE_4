@@ -7,4 +7,6 @@
     <string name="find_products">Find Products</string>
     <string name="search_desc">Search Field</string>
     <string name="filtrar">Filtrar</string>
+    <string name="please_try_again">Please Try Again</string>
+    <string name="back_to_home">Back to home</string>
 </resources>
