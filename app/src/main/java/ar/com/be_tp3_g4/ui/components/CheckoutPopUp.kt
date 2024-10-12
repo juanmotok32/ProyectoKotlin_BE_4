@@ -61,25 +61,15 @@ fun CheckoutDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                         )
                     }
 
-                    // Sección de entrega
                     CheckoutRow("Delivery", "Select Method")
-
-                    // Sección de pago
-                    CheckoutRow("Payment", "", icon = R.drawable.img) // Icono ficticio
-
-                    // Sección de código promocional
+                    CheckoutRow("Payment", "", icon = R.drawable.payment)
                     CheckoutRow("Promo Code", "Pick discount")
-
-                    // Sección de costo total
                     CheckoutRow("Total Cost", "$13.97")
-
-                    // Sección de términos y condiciones
                     TermsAndConditionsText()
 
-                    // Botón de realizar pedido
                     Button(
-                        onClick = { /*PLACE_ORDER_FUNCTION*/ },
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50)), // Verde personalizado
+                        onClick = { /*funcion*/ },
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50)),
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 16.dp)
