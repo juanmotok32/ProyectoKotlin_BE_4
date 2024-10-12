@@ -56,7 +56,10 @@ android {
 }
 
 dependencies {
-    //cono de filtro, es lo mas parecido que encontre
+    //window size
+    implementation("androidx.compose.material3:material3-window-size-class:1.3.0")
+
+    //icono de filtro, es lo mas parecido que encontre
     implementation("androidx.compose.material:material-icons-extended")
 
     // Compose Navigation
