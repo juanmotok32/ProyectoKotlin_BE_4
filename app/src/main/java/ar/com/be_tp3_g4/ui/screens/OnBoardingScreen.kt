@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,33 +36,31 @@ private fun OnBoardingSection(
         Image(
             painter = painterResource(id = R.drawable.zanahoria_logo),
             contentDescription = null,
-            modifier = Modifier.size(60.dp),
-            contentScale = ContentScale.Crop // Esto hace q la imagen ocupe toda la pantalla
+            modifier = Modifier.size(60.dp)
         )
+        Spacer(modifier = Modifier.padding(5.dp))
         Text(
             text = "Welcome",
-            fontSize = 50.sp,
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold
+            style = MaterialTheme.typography.displayLarge
         )
         Text(
             text = "to our store",
-            fontSize = 50.sp,
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.SemiBold
+            style = MaterialTheme.typography.displayLarge
         )
         Text(
-            text = "Get your groceries in as fast as one hour",
-            fontSize = 17.sp,
+            text = stringResource(id = R.string.onBoarding_subtittle),
             color = MaterialTheme.colorScheme.tertiary,
-            fontWeight = FontWeight.Medium
+            style = MaterialTheme.typography.displaySmall
+
         )
         Spacer(modifier = Modifier.padding(20.dp))
         Btn(onClick = getStarted, text = R.string.get_started)
     }
 }
 
-
+/*
 @Preview()
 @Composable
 fun OnBoardingSectionPreview() {
@@ -69,6 +68,7 @@ fun OnBoardingSectionPreview() {
         OnBoardingSection(getStarted = {})
     }
 }
+ */
 
 @Composable
 private fun BackgroundImage() {
@@ -76,10 +76,11 @@ private fun BackgroundImage() {
         painter = painterResource(id = R.drawable.back_img_edited),
         contentDescription = null,
         modifier = Modifier.fillMaxSize(),
-        contentScale = ContentScale.Crop // Esto hace q la imagen ocupe toda la pantalla
+        contentScale = ContentScale.Crop // Esto hace q la imagen ocupe toda la pantalla, junto con el fill maxsize
     )
 }
 
+/*
 @Preview
 @Composable
 fun BackgroundImagePreview() {
@@ -87,6 +88,7 @@ fun BackgroundImagePreview() {
         BackgroundImage()
     }
 }
+ */
 
 
 @Composable
@@ -103,6 +105,7 @@ private fun OnboardingScreenPortrait(getStarted: () -> Unit) {
 }
 
 
+
 @Preview
 @Composable
 fun OnboardingScreenPreview() {
@@ -110,6 +113,7 @@ fun OnboardingScreenPreview() {
         OnboardingScreenPortrait(getStarted = {})
     }
 }
+
 
 @Composable
 fun OnboardingScreen(windowSizeHelper: WindowSizeHelper, getStarted: () -> Unit) {
@@ -128,9 +132,11 @@ fun OnboardingScreen(windowSizeHelper: WindowSizeHelper, getStarted: () -> Unit)
 
 @Composable
 private fun OnboardingScreenLandsCape(getStarted: () -> Unit) {
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(MaterialTheme.colorScheme.onSurface)) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.onSurface)
+    ) {
         OnBoardingSection(
             getStarted = getStarted,
             modifier = Modifier
@@ -140,6 +146,7 @@ private fun OnboardingScreenLandsCape(getStarted: () -> Unit) {
     }
 }
 
+/*
 @Preview
 @Composable
 fun OnboardingScreenLandsCapePreview() {
@@ -147,5 +154,6 @@ fun OnboardingScreenLandsCapePreview() {
         OnboardingScreenLandsCape(getStarted = {})
     }
 }
+ */
 
 

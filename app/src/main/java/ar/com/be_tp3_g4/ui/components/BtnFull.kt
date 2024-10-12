@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,13 +23,20 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 fun Btn(onClick: () -> Unit, @StringRes text: Int, modifier: Modifier = Modifier) {
     Button(
         onClick = onClick,
-        modifier = modifier.fillMaxWidth().height(67.dp),
+        modifier = modifier
+            .fillMaxWidth()
+            .height(67.dp),
         shape = RoundedCornerShape(19.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.secondary
         )
     ) {
-        Text(stringResource(text), fontSize = 18.sp, fontWeight = FontWeight(600))
+        Text(
+            stringResource(text),
+            fontSize = 18.sp,
+            fontWeight = FontWeight(600),
+            color = MaterialTheme.colorScheme.primary
+        )
     }
 }
 

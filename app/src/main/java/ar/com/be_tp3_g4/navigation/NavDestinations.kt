@@ -12,4 +12,10 @@ sealed interface NavDestinations {
 
     @Serializable
     data object Onboarding: NavDestinations
+
+    @Serializable
+    data object Login: NavDestinations
+
+    @Serializable
+    data object Register: NavDestinations
 }

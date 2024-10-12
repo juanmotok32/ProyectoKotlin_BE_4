@@ -40,14 +40,16 @@ private val DarkColorScheme = darkColorScheme(
     primary = white,
     secondary = green,
     tertiary = gray,
-    onSurface = darkGreen
+    onSurface = darkGreen,
+    inversePrimary = black
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = white,
     secondary = green,
     tertiary = gray,
-    onSurface = darkGreen
+    onSurface = darkGreen,
+    inversePrimary = black
 )
 
 
