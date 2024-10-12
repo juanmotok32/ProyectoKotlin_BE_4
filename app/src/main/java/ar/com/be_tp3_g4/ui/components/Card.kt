@@ -20,20 +20,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ar.com.be_tp3_g4.R
+import ar.com.be_tp3_g4.model.Producto
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
 fun Card(
     goToDetails: () -> Unit,
     modifier: Modifier = Modifier,
-    title: String,
-    price: String,
-    description: String,
+    producto: Producto,
     addToCart: () -> Unit
 ) {
     OutlinedCard(
@@ -64,10 +62,10 @@ fun Card(
 
             )
             Text(
-                text = title,
+                text = producto.nombre,
                 style = MaterialTheme.typography.titleLarge
             )
-            Text(text = description)
+            Text(text = producto.descripcion, color = MaterialTheme.colorScheme.tertiary)
             Spacer(modifier = Modifier.weight(3f))
 
 
@@ -76,10 +74,10 @@ fun Card(
 
             ) {
                 Text(
-                    text = price, modifier = Modifier
+                    text = "$${producto.precio}", modifier = Modifier
                         .weight(3f)
                         .align(Alignment.CenterVertically),
-                    style = MaterialTheme.typography.bodyLarge
+                    color = MaterialTheme.colorScheme.inversePrimary
                 )
                 Spacer(modifier = Modifier.weight(3f))
 
@@ -106,20 +104,17 @@ fun Card(
 @Composable
 fun Card() {
 
+    val producto = Producto(
+        nombre = "Pescado",
+        precio = 11.2,
+        imagen = "hola",
+        descripcion = "1kg, Price"
+    )
 
     BE_TP3_G4Theme {
-
-        val pescado = "Pescado"
-        val price = "11,2"
-        val description = "1kg, Price"
-
         Card(goToDetails = { /*TODO*/ },
-            title = pescado,
-            price = price,
-            description = description,
+            producto = producto,
             addToCart = {})
-
-
     }
 }
 
