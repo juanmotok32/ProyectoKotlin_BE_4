@@ -1,9 +1,6 @@
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.ClickableText
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -12,7 +9,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,6 +18,8 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
+import ar.com.be_tp3_g4.ui.components.Btn
+
 
 @Composable
 fun CheckoutDialog(showDialog: Boolean, onDismiss: () -> Unit) {
@@ -67,19 +65,11 @@ fun CheckoutDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                     CheckoutRow("Total Cost", "$13.97")
                     TermsAndConditionsText()
 
-                    Button(
+                    Btn(
                         onClick = { /*func*/ },
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50)),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 16.dp)
-                    ) {
-                        Text(
-                            text = "Place Order",
-                            color = Color.White,
-                            style = MaterialTheme.typography.bodyLarge
-                        )
-                    }
+                        text = R.string.place_order
+                    )
+
                 }
             }
         }
