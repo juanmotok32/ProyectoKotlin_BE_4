@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -18,6 +19,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
@@ -43,7 +46,7 @@ fun ErrorDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                 Column(
                     modifier = Modifier.padding(16.dp),
                 ) {
-                    Text(text = "X", Modifier.clickable {onDismiss},
+                    Text(text = "X", Modifier.clickable {onDismiss()},
                             color = MaterialTheme.colorScheme.tertiary)
 
                     Column(
@@ -61,15 +64,17 @@ fun ErrorDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                                 .weight(4f)
                         )
                         Text(
-                            text = "Oops! Order Failed",
+                            text = stringResource(id = R.string.order_fail),
                             style = MaterialTheme.typography.headlineLarge,
                             modifier = Modifier.weight(1f),
+                            textAlign = TextAlign.Center,
                             color = MaterialTheme.colorScheme.tertiary
 
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "Something went tembly wrong.",
+                            text = stringResource(id = R.string.something_wrong),
+                            textAlign = TextAlign.Center,
                             modifier = Modifier.weight(1f),
                             color = MaterialTheme.colorScheme.tertiary
                         )
@@ -78,7 +83,12 @@ fun ErrorDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                                 .height(16.dp)
                                 .weight(1f)
                         )
-                        Btn(onClick = {onDismiss}, text = R.string.please_try_again)
+                        /*Button(onClick = { onDismiss() },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = MaterialTheme.colorScheme.secondary
+                            )){
+                        }*/
+                        Btn(onClick = {onDismiss()}, text = R.string.please_try_again)
 
                         Btn(onClick = {/*NAVIGATE_HOME_FUN*/}, text = R.string.back_to_home)  //CAMBIAR POR BOTON BLANCO
 

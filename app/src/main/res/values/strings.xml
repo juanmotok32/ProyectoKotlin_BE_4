@@ -9,4 +9,13 @@
     <string name="filtrar">Filtrar</string>
     <string name="please_try_again">Please Try Again</string>
     <string name="back_to_home">Back to home</string>
+    <string name="order_accepted">Your Order has been accepted</string>
+    <string name="order_accepted_2">Your items has been placed and is on
+it’s way to being processed</string>
+    <string name="track_order">Track Order</string>
+    <string name="something_wrong">Something went tembly wrong.</string>
+    <string name="order_fail">Oops! Order Failed.</string>
+
+
+
 </resources>
