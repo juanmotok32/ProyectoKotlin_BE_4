@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">BE_TP3_G4</string>
-
     <string name="get_started">Get Started</string>
+    <string name="agregar">+</string>
+    <string name="quitar">-</string>
     <string name="onBoarding_subtittle">Get your groceries in as fast as one hour</string>
 
 
