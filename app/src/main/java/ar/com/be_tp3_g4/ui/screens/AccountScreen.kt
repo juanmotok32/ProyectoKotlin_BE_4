@@ -2,6 +2,7 @@ package ar.com.be_tp3_g4.ui.screens
 
 import CustomBottomNavBarPreview
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -25,7 +26,6 @@ data class MenuItem(val title: String, val iconRes: Int, val isSwitch: Boolean =
 
 @Composable
 fun AccountScreen(account: Account) {
-
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.account, menu = { })
@@ -34,7 +34,11 @@ fun AccountScreen(account: Account) {
             CustomBottomNavBarPreview()
         },
         content = { paddingValues ->
-            Column(modifier = Modifier.padding(paddingValues)) {
+            Column(
+                modifier = Modifier
+                    .padding(paddingValues)
+                    .background(Color(0xFFFCFCFC))
+            ) {
                 DetailsAccount(account)
                 Spacer(modifier = Modifier.height(16.dp))
                 MenuScreen()
@@ -71,7 +75,6 @@ fun DetailsAccount(account: Account) {
                     modifier = Modifier.fillMaxSize()
                 )
             }
-
             Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -104,7 +107,6 @@ fun MenuScreen() {
         MenuItem("Help", R.drawable.help),
         MenuItem("Dark mode", R.drawable.darkmode, isSwitch = true)
     )
-
     Column(modifier = Modifier.padding(16.dp)) {
         menuItems.forEachIndexed { index, item ->
             MenuItemView(item)
@@ -132,7 +134,6 @@ fun MenuItemView(item: MenuItem) {
         Spacer(modifier = Modifier.width(16.dp))
         Text(text = item.title, style = MaterialTheme.typography.bodyLarge)
         Spacer(modifier = Modifier.weight(1f))
-
         if (item.isSwitch) {
             val switchState = remember { false }
             Switch(
