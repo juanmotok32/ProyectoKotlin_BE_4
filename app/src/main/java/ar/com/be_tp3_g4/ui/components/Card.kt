@@ -72,7 +72,6 @@ fun Card(
                     text = "$${product.price}0",
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier
-                        .weight(3f)
                         .align(Alignment.CenterVertically),
                     color = MaterialTheme.colorScheme.inversePrimary
                 )
