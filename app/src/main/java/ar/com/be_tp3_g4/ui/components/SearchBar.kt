@@ -3,6 +3,7 @@ package ar.com.be_tp3_g4.ui.components
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
@@ -20,6 +21,7 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 //un import extra q saque de chat para el icono de filtro (hay q meterlo como dependency)
 import androidx.compose.material.icons.filled.FilterList
+import androidx.compose.ui.graphics.Color
 
 
 //los value (statte) y lasa funciones (modifican el state) se reciben x parametro, x mas quee dsps no las usemos xq no lo piden
@@ -35,6 +37,7 @@ fun SearchBar(
         modifier = modifier
             .fillMaxWidth()
             .height(56.dp),
+        shape = RoundedCornerShape(19.dp),
 
         //icono del principio (lupita)
         leadingIcon = {
@@ -44,8 +47,8 @@ fun SearchBar(
             )
         },
         colors = TextFieldDefaults.colors(
-            unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-            focusedContainerColor = MaterialTheme.colorScheme.surface
+            unfocusedContainerColor = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.15f),
+            focusedContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f)
         ),
         placeholder = {
             Text(stringResource(R.string.placeholder_search))
