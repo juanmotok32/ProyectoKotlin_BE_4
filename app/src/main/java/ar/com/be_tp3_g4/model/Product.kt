@@ -8,6 +8,6 @@ data class Product(
     val price: Float,
     @DrawableRes val image: Int,
     val description: String,
-    val content: String
+    val content: String,
     /*agregar de ser necesario*/
 )
