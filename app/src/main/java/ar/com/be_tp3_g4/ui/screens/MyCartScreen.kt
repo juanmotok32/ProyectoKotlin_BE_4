@@ -20,7 +20,8 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 import ar.com.be_tp3_g4.ui.components.Btn
 import ar.com.be_tp3_g4.ui.components.BtnCant
 import ar.com.be_tp3_g4.ui.components.TopAppBar
-
+import ar.com.be_tp3_g4.ui.components.CartProductItem
+import ar.com.be_tp3_g4.data.productList
 
 data class CartItem(val name: String, val details: String, val price: String, val imageRes: Int, var quantity: Int)
 
@@ -52,8 +53,14 @@ fun CartScreen() {
                         .weight(1f)
                         .padding(16.dp)
                 ) {
-                    items(cartItems.value) { item ->
-                        CartItemRow(item = item)
+                    items(productList) { item ->
+                        CartProductItem(
+                            name = item.name,
+                            image = item.image,
+                            price = item.price,
+                            content = item.content,
+
+                        )
                     }
                 }
 
@@ -67,89 +74,6 @@ fun CartScreen() {
             }
         }
     )
-}
-
-@Composable
-fun CartItemRow(item: CartItem) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(150.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.weight(1f),
-        ) {
-            Image(
-                painter = painterResource(id = item.imageRes),
-                contentDescription = item.name,
-                modifier = Modifier.size(80.dp)
-            )
-
-        }
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.weight(2f),
-        ) {
-            Column{
-                Text(text = item.name, style = MaterialTheme.typography.bodyLarge)
-                Text(text = item.details, style = MaterialTheme.typography.bodySmall)
-                Spacer(modifier = Modifier.height(10.dp))
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    BtnCant(
-                        onClick = { /* fnc */ },
-                        modifier = Modifier.size(50.dp),
-                        text = R.string.quitar,
-                        textColor = MaterialTheme.colorScheme.inversePrimary,
-                        color = MaterialTheme.colorScheme.primary,
-                        borderColor = Color.Black,
-
-                        )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = "${item.quantity}", fontSize = 18.sp)
-                    Spacer(modifier = Modifier.width(8.dp))
-                    BtnCant(
-                        onClick = { /* fnc */ },
-                        modifier = Modifier.size(50.dp),
-                        text = R.string.agregar,
-                        textColor = MaterialTheme.colorScheme.secondary,
-                        color = MaterialTheme.colorScheme.primary,
-                        borderColor = Color.Black
-                    )
-                }
-
-            }
-
-        }
-        Column(
-            horizontalAlignment = Alignment.End
-        ) {
-            Text(
-                text = "✕",
-                modifier = Modifier.clickable { /* fnc */ },
-                fontSize = 20.sp,
-                color = Color.Gray
-            )
-
-            Spacer(modifier = Modifier.height(40.dp))
-            Text(
-                text = item.price,
-                style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.padding(start = 16.dp)
-            )
-
-
-        }
-
-
-    }
 }
 
 @Preview
