@@ -49,7 +49,7 @@ fun logout() {
     BE_TP3_G4Theme {
         Btn(
             onClick = { /*TODO*/ },
-            text = R.string.get_started,
+            text = R.string.logout,
             icon = painterResource(id = R.drawable.logout)
         )
     }
