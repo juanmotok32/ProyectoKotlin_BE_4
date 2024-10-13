@@ -71,7 +71,6 @@ fun ExploreScreen() {
 @Composable
 fun showScreen() {
 
-
     BE_TP3_G4Theme {
         ExploreScreen()
     }

@@ -2,11 +2,13 @@ package ar.com.be_tp3_g4.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import ar.com.be_tp3_g4.helpers.WindowSizeHelper
+import ar.com.be_tp3_g4.repository.UserRepositoryImp
 import ar.com.be_tp3_g4.ui.screens.ExploreScreen
 import ar.com.be_tp3_g4.ui.screens.OnboardingScreen
 import ar.com.be_tp3_g4.ui.screens.SelectLocationScreen
@@ -18,9 +20,10 @@ import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.seconds
 
 @Composable
-fun AppNavigation(authViewModel: AuthViewModel) {
+fun AppNavigation(userRepository: UserRepositoryImp) {
     val navController = rememberNavController()
     val windowSizeHelper = WindowSizeHelper()
+    val authViewModel: AuthViewModel = viewModel(factory = AuthViewModel.AuthViewModelFactory(userRepository))
 
     NavHost(
         navController = navController,
@@ -47,7 +50,9 @@ fun AppNavigation(authViewModel: AuthViewModel) {
             LoginScreen(
                 authViewModel = authViewModel,
                 signUp = { navController.navigate(NavDestinations.Register) },
-                windowSizeHelper = windowSizeHelper
+                windowSizeHelper = windowSizeHelper,
+                userRepository = userRepository,
+                successLogin = { navController.navigate(NavDestinations.Onboarding)}
             )
         }
 
@@ -56,7 +61,8 @@ fun AppNavigation(authViewModel: AuthViewModel) {
                 authViewModel = authViewModel,
                 signIn = { navController.navigate(NavDestinations.Login) },
                 windowSizeHelper = windowSizeHelper,
-                goToLocation = { navController.navigate(NavDestinations.Location)}
+                goToLocation = { navController.navigate(NavDestinations.Location)},
+                userRepository = userRepository
             )
         }
 
@@ -71,7 +77,6 @@ fun AppNavigation(authViewModel: AuthViewModel) {
 
         composable<NavDestinations.ExploreScreen> {
             ExploreScreen()
-
         }
 
     }
