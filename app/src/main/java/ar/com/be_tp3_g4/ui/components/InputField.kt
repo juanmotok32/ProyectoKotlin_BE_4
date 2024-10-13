@@ -42,8 +42,8 @@ fun InputField(
         colors = TextFieldDefaults.colors(
             unfocusedContainerColor = MaterialTheme.colorScheme.primary,    //fondo cuando no escribo
             focusedContainerColor = MaterialTheme.colorScheme.primary,       //fondo escribiendo
-            unfocusedIndicatorColor = MaterialTheme.colorScheme.tertiary, // Color del borde desenfocado
-            focusedIndicatorColor = MaterialTheme.colorScheme.tertiary     // borde enfocado
+            /*unfocusedIndicatorColor = MaterialTheme.colorScheme.tertiary,*/ // Color del borde desenfocado
+            focusedIndicatorColor = MaterialTheme.colorScheme.tertiary    // borde enfocado
         ),
         /*
         placeholder = {

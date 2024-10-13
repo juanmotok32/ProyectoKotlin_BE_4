@@ -22,15 +22,10 @@ it’s way to being processed</string>
     <string name="order_fail">Oops! Order Failed.</string>
 
 
-
-
-
     <string name="sign_up">Sign Up</string>
     <string name="sign_in">Sign In</string>
     <string name="enter_email">Enter your email and password</string>
     <string name="enter_credentials">Enter your credentials to continue</string>
-    <string name="location_tittle">Select Your Location</string>
-    <string name="location_subtittle">Switch on your location to stay in tune with what\'s happening in your area</string>
 
     <string name="email">Email</string>
     <string name="username">Username</string>
@@ -41,4 +36,11 @@ it’s way to being processed</string>
     <string name="log_in">Log In</string>
     <string name="no_acount">Don\'t have an account?</string>
     <string name="has_account">Already have an account?</string>
+
+
+    <string name="zone">Your Zone</string>
+    <string name="area">Your Area</string>
+    <string name="submit">Submit</string>
+    <string name="location_tittle">Select Your Location</string>
+    <string name="location_subtittle">Switch on your location to stay in tune with what\'s happening in your area</string>
 </resources>

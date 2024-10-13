@@ -19,14 +19,14 @@ import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
-fun BtnPlus(onClick: () -> Unit, @StringRes text: Int, color: Color = MaterialTheme.colorScheme.secondary,
+fun BtnCant(onClick: () -> Unit, @StringRes text: Int, color: Color = MaterialTheme.colorScheme.secondary,
     textColor: Color = Color.White, modifier: Modifier = Modifier
 ) {
     Button(
         onClick = onClick,
         modifier = modifier
             .size(60.dp),
-        shape = RoundedCornerShape(20.dp),
+        shape = RoundedCornerShape(17.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = color
         )
@@ -38,7 +38,7 @@ fun BtnPlus(onClick: () -> Unit, @StringRes text: Int, color: Color = MaterialTh
             Text(
                 text = stringResource(text),
                 fontSize = 24.sp,
-                color = textColor //
+                color = textColor
             )
         }
     }
@@ -48,7 +48,7 @@ fun BtnPlus(onClick: () -> Unit, @StringRes text: Int, color: Color = MaterialTh
 @Composable
 fun BtnPlusPreview() {
     BE_TP3_G4Theme {
-        BtnPlus(
+        BtnCant(
             onClick = { /*TODO*/ }, text = R.string.agregar,
             color = MaterialTheme.colorScheme.secondary, textColor = Color.White
         )
