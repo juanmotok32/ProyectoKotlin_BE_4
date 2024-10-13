@@ -40,7 +40,8 @@ fun Card(
         onClick = goToDetails,
         modifier = Modifier
             .width(174.dp)
-            .height(248.dp),
+            .height(248.dp)
+            .padding(4.dp),
 
         shape = RoundedCornerShape(18.dp),
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary),
