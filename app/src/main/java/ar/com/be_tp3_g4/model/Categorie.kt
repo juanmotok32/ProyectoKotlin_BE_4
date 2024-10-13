@@ -4,7 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.Color
 import kotlin.random.Random
 
-data class Category(
+data class Categorie(
 
     val name: String,
     @DrawableRes val image: Int,

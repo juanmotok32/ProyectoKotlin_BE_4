@@ -4,8 +4,11 @@ import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.model.Product
 
 val productList = listOf(
+
+
     Product(
         name = "Coca-Cola",
+        brand = "Coca-Cola",
         price = 1.50f,
         image = R.drawable.product01,
         description = "Refresco gaseoso sabor cola",
@@ -13,6 +16,7 @@ val productList = listOf(
     ),
     Product(
         name = "Papas fritas Lay's",
+        brand = "Lay's",
         price = 2.00f,
         image = R.drawable.product01,
         description = "Papas fritas clásicas",
@@ -20,6 +24,7 @@ val productList = listOf(
     ),
     Product(
         name = "Cerveza Heineken",
+        brand = "Heineken",
         price = 2.50f,
         image = R.drawable.product01,
         description = "Cerveza premium lager",
@@ -27,6 +32,7 @@ val productList = listOf(
     ),
     Product(
         name = "Galletas Oreo",
+        brand = "Oreo",
         price = 1.20f,
         image = R.drawable.product01,
         description = "Galletas de chocolate con crema",
@@ -34,6 +40,7 @@ val productList = listOf(
     ),
     Product(
         name = "Leche La Serenísima",
+        brand = "La Serenísima",
         price = 1.30f,
         image = R.drawable.product01,
         description = "Leche entera pasteurizada",
@@ -41,6 +48,7 @@ val productList = listOf(
     ),
     Product(
         name = "Café Nescafé",
+        brand = "Nescafé",
         price = 3.00f,
         image = R.drawable.product01,
         description = "Café soluble instantáneo",
@@ -48,6 +56,7 @@ val productList = listOf(
     ),
     Product(
         name = "Yogurt Ser",
+        brand = "Ser",
         price = 0.90f,
         image = R.drawable.product01,
         description = "Yogurt descremado sabor frutilla",
@@ -55,6 +64,7 @@ val productList = listOf(
     ),
     Product(
         name = "Atún en lata",
+        brand = "La Campagnola",
         price = 2.75f,
         image = R.drawable.product01,
         description = "Atún en aceite",
@@ -62,6 +72,7 @@ val productList = listOf(
     ),
     Product(
         name = "Arroz Gallo Oro",
+        brand = "Gallo",
         price = 1.40f,
         image = R.drawable.product01,
         description = "Arroz largo fino",
@@ -69,6 +80,7 @@ val productList = listOf(
     ),
     Product(
         name = "Aceite de oliva Natura",
+        brand = "Natura",
         price = 5.20f,
         image = R.drawable.product01,
         description = "Aceite de oliva extra virgen",
@@ -76,6 +88,7 @@ val productList = listOf(
     ),
     Product(
         name = "Azúcar Ledesma",
+        brand = "Ledesma",
         price = 1.10f,
         image = R.drawable.product01,
         description = "Azúcar blanca refinada",
@@ -83,6 +96,7 @@ val productList = listOf(
     ),
     Product(
         name = "Harina Blancaflor",
+        brand = "Blancaflor",
         price = 0.95f,
         image = R.drawable.product01,
         description = "Harina leudante",
@@ -90,6 +104,7 @@ val productList = listOf(
     ),
     Product(
         name = "Manteca Sancor",
+        brand = "Sancor",
         price = 2.00f,
         image = R.drawable.product01,
         description = "Manteca sin sal",
@@ -97,6 +112,7 @@ val productList = listOf(
     ),
     Product(
         name = "Dulce de leche La Serenísima",
+        brand = "La Serenísima",
         price = 2.40f,
         image = R.drawable.product01,
         description = "Dulce de leche clásico",
@@ -104,6 +120,7 @@ val productList = listOf(
     ),
     Product(
         name = "Jugo Tang sabor naranja",
+        brand = "Tang",
         price = 0.50f,
         image = R.drawable.product01,
         description = "Jugo en polvo sabor naranja",
@@ -111,6 +128,7 @@ val productList = listOf(
     ),
     Product(
         name = "Sal Fina Celusal",
+        brand = "Celusal",
         price = 0.70f,
         image = R.drawable.product01,
         description = "Sal fina común",
@@ -118,6 +136,7 @@ val productList = listOf(
     ),
     Product(
         name = "Fideos Lucchetti",
+        brand = "Lucchetti",
         price = 1.10f,
         image = R.drawable.product01,
         description = "Fideos tirabuzón",
@@ -125,6 +144,7 @@ val productList = listOf(
     ),
     Product(
         name = "Queso rallado Sancor",
+        brand = "Sancor",
         price = 2.50f,
         image = R.drawable.product01,
         description = "Queso parmesano rallado",
@@ -132,6 +152,7 @@ val productList = listOf(
     ),
     Product(
         name = "Chocolate Águila",
+        brand = "Águila",
         price = 3.20f,
         image = R.drawable.product01,
         description = "Chocolate para repostería",
@@ -139,6 +160,7 @@ val productList = listOf(
     ),
     Product(
         name = "Helado Frigor",
+        brand = "Frigor",
         price = 5.00f,
         image = R.drawable.product01,
         description = "Helado de crema sabor vainilla y chocolate",

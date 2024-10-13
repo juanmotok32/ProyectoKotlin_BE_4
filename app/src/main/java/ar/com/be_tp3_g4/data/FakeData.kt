@@ -2,7 +2,7 @@ package ar.com.be_tp3_g4.data
 
 import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.model.randomColor
-import ar.com.be_tp3_g4.model.Category
+import ar.com.be_tp3_g4.model.Categorie
 
 val Lugares: List<String> = listOf("Olivos", "Martinez", "Moreno", "San Martin", "Tres de Febrero")
 
@@ -11,62 +11,62 @@ val Areas: List<String> = listOf("Villa Bosh", "Billinghurst", "Caseros", "La Re
 
 
 val categories = listOf(
-    Category(
+    Categorie(
         name = "Fresh fruit & vegetables",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Cooking Oil & Ghee",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Meat & Fish",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Bakery & Snack",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Dairy & Eggs",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Beverages",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Frozen Foods",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Snacks",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Care Products",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Deli",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Condiment",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
     ),
-    Category(
+    Categorie(
         name = "Cleaning",
         image = R.drawable.category01, // Reemplaza con el recurso correcto
         color = randomColor()
