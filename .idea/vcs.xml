@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+<<<<<<< HEAD
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> favorites_screen
+=======
+>>>>>>> a8222f02b937d16592636761575bd15abd3436c0
     <mapping directory="" vcs="Git" />
 >>>>>>> 9143295eaca07e1f445eaf3e3f0b571c617a7773
   </component>
