@@ -1,0 +1,154 @@
+Index: ../components/Card.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ar.com.be_tp3_g4.ui.components\r\n\r\nimport androidx.compose.foundation.BorderStroke\r\nimport androidx.compose.foundation.Image\r\nimport androidx.compose.foundation.layout.Arrangement\r\nimport androidx.compose.foundation.layout.Column\r\nimport androidx.compose.foundation.layout.Row\r\nimport androidx.compose.foundation.layout.Spacer\r\nimport androidx.compose.foundation.layout.fillMaxSize\r\nimport androidx.compose.foundation.layout.height\r\nimport androidx.compose.foundation.layout.padding\r\nimport androidx.compose.foundation.layout.size\r\nimport androidx.compose.foundation.layout.width\r\nimport androidx.compose.foundation.shape.RoundedCornerShape\r\nimport androidx.compose.material3.MaterialTheme\r\nimport androidx.compose.material3.OutlinedCard\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.res.painterResource\r\nimport androidx.compose.ui.unit.dp\r\nimport ar.com.be_tp3_g4.R\r\nimport ar.com.be_tp3_g4.model.Product\r\n\r\n@Composable\r\nfun Card(\r\n    goToDetails: () -> Unit,\r\n    addToCart: () -> Unit,\r\n    product: Product,\r\n\r\n    ) {\r\n    OutlinedCard(\r\n        onClick = goToDetails,\r\n        modifier = Modifier\r\n            .width(174.dp)\r\n            .height(248.dp)\r\n            .padding(4.dp),\r\n\r\n        shape = RoundedCornerShape(18.dp),\r\n        border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary),\r\n    ) {\r\n        Column(\r\n            modifier = Modifier\r\n                .fillMaxSize()\r\n                .padding(16.dp),\r\n            verticalArrangement = Arrangement.Center\r\n\r\n        ) {\r\n            Image(\r\n                painter = painterResource(product.image),\r\n                contentDescription = \"imagenCategoria1\",\r\n                modifier = Modifier\r\n                    .size(100.dp)\r\n                    .align((Alignment.CenterHorizontally))\r\n                    .padding(10.dp)\r\n                    .weight(5f)\r\n\r\n\r\n            )\r\n            Text(\r\n                text = product.name,\r\n                style = MaterialTheme.typography.titleLarge,\r\n                modifier = Modifier.weight(3f)\r\n            )\r\n            Text(text = product.content, color = MaterialTheme.colorScheme.tertiary)\r\n\r\n            Row(\r\n                modifier = Modifier.weight(2f)\r\n            ) {\r\n                Text(\r\n                    text = \"$${product.price}0\",\r\n                    style = MaterialTheme.typography.titleMedium,\r\n                    modifier = Modifier\r\n                        .align(Alignment.CenterVertically),\r\n                    color = MaterialTheme.colorScheme.inversePrimary\r\n                )\r\n                Spacer(modifier = Modifier.weight(3f))\r\n\r\n                BtnCant(onClick = { addToCart() }, text = R.string.agregar)\r\n\r\n            }\r\n\r\n        }\r\n\r\n    }\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../components/Card.kt b/../components/Card.kt
+--- a/../components/Card.kt	
++++ b/../components/Card.kt	
+@@ -7,83 +7,112 @@
+ import androidx.compose.foundation.layout.Row
+ import androidx.compose.foundation.layout.Spacer
+ import androidx.compose.foundation.layout.fillMaxSize
++import androidx.compose.foundation.layout.fillMaxWidth
+ import androidx.compose.foundation.layout.height
+ import androidx.compose.foundation.layout.padding
+ import androidx.compose.foundation.layout.size
+ import androidx.compose.foundation.layout.width
+ import androidx.compose.foundation.shape.RoundedCornerShape
++import androidx.compose.material3.Button
++import androidx.compose.material3.ButtonDefaults
+ import androidx.compose.material3.MaterialTheme
+ import androidx.compose.material3.OutlinedCard
+ import androidx.compose.material3.Text
+ import androidx.compose.runtime.Composable
+ import androidx.compose.ui.Alignment
+ import androidx.compose.ui.Modifier
++import androidx.compose.ui.graphics.Color
+ import androidx.compose.ui.res.painterResource
++import androidx.compose.ui.tooling.preview.Preview
+ import androidx.compose.ui.unit.dp
+ import ar.com.be_tp3_g4.R
+ import ar.com.be_tp3_g4.model.Product
++import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
+ 
+ @Composable
+ fun Card(
+     goToDetails: () -> Unit,
+-    addToCart: () -> Unit,
+-    product: Product,
+-
+-    ) {
++    modifier: Modifier = Modifier,
++    producto: Product,
++    addToCart: () -> Unit
++) {
+     OutlinedCard(
+         onClick = goToDetails,
+         modifier = Modifier
+-            .width(174.dp)
+-            .height(248.dp)
++            .width(200.dp)
++            .height(275.dp)
+             .padding(4.dp),
+-
+         shape = RoundedCornerShape(18.dp),
+         border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary),
+     ) {
+         Column(
+             modifier = Modifier
+                 .fillMaxSize()
+-                .padding(16.dp),
+-            verticalArrangement = Arrangement.Center
+-
++                .padding(16.dp), // Padding general
++            verticalArrangement = Arrangement.SpaceBetween // Espacio entre los elementos
+         ) {
++
++            // Imagen
+             Image(
+-                painter = painterResource(product.image),
++                painter = painterResource(id = R.drawable.product01),
+                 contentDescription = "imagenCategoria1",
+                 modifier = Modifier
+-                    .size(100.dp)
+-                    .align((Alignment.CenterHorizontally))
+-                    .padding(10.dp)
+-                    .weight(5f)
+-
++                    .size(100.dp) // Reducir el tamaño de la imagen
++                    .align(Alignment.CenterHorizontally)
++                    .padding(bottom = 4.dp) // Espaciado entre la imagen y el texto
++            )
+ 
+-            )
++            // Nombre del producto
+             Text(
+-                text = product.name,
++                text = producto.name,
+                 style = MaterialTheme.typography.titleLarge,
+-                modifier = Modifier.weight(3f)
++                modifier = Modifier.padding(bottom = 1.dp) // Reducir el espaciado
++            )
++
++            // Descripción del producto
++            Text(
++                text = producto.description,
++                color = MaterialTheme.colorScheme.tertiary,
++                modifier = Modifier.padding(bottom = 1.dp) // Espaciado entre la descripción y el precio
+             )
+-            Text(text = product.content, color = MaterialTheme.colorScheme.tertiary)
++
+ 
++            Spacer(modifier = Modifier.weight(5f)) // Mandar al fondo el boton
++
++            // Fila con precio y botón
+             Row(
+-                modifier = Modifier.weight(2f)
++                modifier = Modifier.fillMaxWidth(),
++                verticalAlignment = Alignment.CenterVertically,
++                horizontalArrangement = Arrangement.SpaceBetween
+             ) {
+                 Text(
+-                    text = "$${product.price}0",
+-                    style = MaterialTheme.typography.titleMedium,
+-                    modifier = Modifier
+-                        .align(Alignment.CenterVertically),
+-                    color = MaterialTheme.colorScheme.inversePrimary
++                    text = "$${producto.price}",
++                    color = MaterialTheme.colorScheme.inversePrimary,
++                    style = MaterialTheme.typography.titleLarge
+                 )
+-                Spacer(modifier = Modifier.weight(3f))
+-
+-                BtnCant(onClick = { addToCart() }, text = R.string.agregar)
++                BtnCant(
++                    onClick = addToCart,
++                    text = R.string.agregar,
++                    color = MaterialTheme.colorScheme.secondary,
++                    textColor = Color.White,
+ 
++                    )
+             }
+-
+         }
+-
+     }
+ }
+ 
++@Preview
++@Composable
++fun CardPreview() {
++    val producto = Product(
++        name = "Apple & Grape Juice",
++        price = 11.20f,
++        image = "hola",
++        description = "1kg, Price"
++    )
+ 
++    BE_TP3_G4Theme {
++        Card(goToDetails = { /*TODO*/ }, producto = producto, addToCart = {})
++    }
++}

@@ -1,0 +1,106 @@
+Index: Categories.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Categories.kt b/Categories.kt
+new file mode 100644
+--- /dev/null	
++++ b/Categories.kt	
+@@ -0,0 +1,96 @@
++package ar.com.be_tp3_g4.ui.screens
++
++import androidx.compose.foundation.layout.PaddingValues
++import androidx.compose.foundation.layout.fillMaxSize
++import androidx.compose.foundation.layout.height
++import androidx.compose.foundation.layout.padding
++import androidx.compose.foundation.layout.width
++import androidx.compose.runtime.Composable
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.tooling.preview.Preview
++import androidx.compose.ui.unit.dp
++import androidx.compose.foundation.lazy.grid.GridCells
++import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
++import androidx.compose.foundation.lazy.grid.items
++import ar.com.be_tp3_g4.model.Product
++import ar.com.be_tp3_g4.ui.components.Card
++import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
++
++@Composable
++fun Categories() {
++    val products = listOf(
++        Product(
++            name = "Diet Coke",
++            brand = "Coca Cola",
++            price = 1.99f,
++            image = R.drawable.diet_coke, // Asegúrate de que tengas un drawable correspondiente
++            description = "355ml",
++            content = "Price"
++        ),
++        Product(
++            name = "Sprite Can",
++            brand = "Sprite",
++            price = 1.50f,
++            image = R.drawable.sprite_can, // Asegúrate de que tengas un drawable correspondiente
++            description = "325ml",
++            content = "Price"
++        ),
++        Product(
++            name = "Apple & Grape Juice",
++            brand = "Juice Brand",
++            price = 15.99f,
++            image = R.drawable.apple_grape_juice, // Asegúrate de que tengas un drawable correspondiente
++            description = "2L",
++            content = "Price"
++        ),
++        Product(
++            name = "Orange Juice",
++            brand = "Juice Brand",
++            price = 15.99f,
++            image = R.drawable.orange_juice, // Asegúrate de que tengas un drawable correspondiente
++            description = "2L",
++            content = "Price"
++        ),
++        Product(
++            name = "Coca Cola Can",
++            brand = "Coca Cola",
++            price = 4.99f,
++            image = R.drawable.coca_cola_can, // Asegúrate de que tengas un drawable correspondiente
++            description = "325ml",
++            content = "Price"
++        ),
++        Product(
++            name = "Pepsi Can",
++            brand = "Pepsi",
++            price = 4.99f,
++            image = R.drawable.pepsi_can, // Asegúrate de que tengas un drawable correspondiente
++            description = "330ml",
++            content = "Price"
++        )
++    LazyVerticalGrid(
++        columns = GridCells.Fixed(2),
++        modifier = Modifier
++            .fillMaxSize()
++            .padding(top = 18.dp), //Bajar la lista
++        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
++    )  {
++        items(products) { product ->
++            Card(
++                goToDetails = { /* Detalles? */ },
++                producto = product,
++                addToCart = { /* Agregar al carrito? */ },
++                modifier = Modifier
++                    .padding(8.dp)
++                    .width(150.dp)
++                    .height(200.dp)
++            )
++        }
++    }
++}
++@Preview(showBackground = true)
++@Composable
++fun PreviewCategories() {
++    BE_TP3_G4Theme {
++        Categories()
++    }
++}
