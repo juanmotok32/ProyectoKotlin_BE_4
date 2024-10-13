@@ -8,13 +8,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
-import ar.com.be_tp3_g4.api.LoginResponse
 import ar.com.be_tp3_g4.api.LoginResult
-import ar.com.be_tp3_g4.repository.UserRepository
 import ar.com.be_tp3_g4.repository.UserRepositoryImp
 import kotlinx.coroutines.launch
 

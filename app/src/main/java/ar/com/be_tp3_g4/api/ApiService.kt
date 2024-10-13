@@ -19,5 +19,5 @@ interface ApiService {
 
     /*OBLIGATORIO*/
     @POST("auth/login") //lo "variable" (lo que cambia de la URL
-    suspend fun login(@Body request: LoginRequest): Response<LoginResponse>     // le paso un @Body de tipo LoginRequest, me devuelve un LoginResponse
+    suspend fun login(@Body request: LoginRequest): Response<LoginResult>     // le paso un @Body de tipo LoginRequest, me devuelve un LoginResponse
 }

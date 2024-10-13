@@ -75,7 +75,7 @@ fun LoginScreen(
                 successLogin()
             } else {
                 // Puedes manejar el error aquí si es necesario
-                Log.e("LoginScreen", "Error en el login: ${it.errorMessage}")
+                Log.e("LoginScreen", "${it.errorMessage}")
             }
         }
     }
