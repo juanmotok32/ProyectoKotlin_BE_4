@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import ar.com.be_tp3_g4.navigation.AppNavigation
+import ar.com.be_tp3_g4.ui.screens.HomeScreen
 import ar.com.be_tp3_g4.ui.screens.auth.AuthViewModel
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
