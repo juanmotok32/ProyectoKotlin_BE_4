@@ -1,6 +1,7 @@
 package ar.com.be_tp3_g4.ui.components
 
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -21,23 +22,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
-fun CardCategory(onClick: () -> Unit, modifier: Modifier = Modifier, title: String) {
+fun CardCategory(name: String, @DrawableRes image: Int, color: Color) {
 
-    val mainColor = Color(0xFF53B175)
-
-    val borderColor = mainColor.copy(alpha = 0.7f)  // 70% opacidad
-    val backgroundColor = mainColor.copy(alpha = 0.1f)  // 10% opacidad
+    val borderColor = color.copy(alpha = 0.7f)  // 70% opacidad
+    val backgroundColor = color.copy(alpha = 0.1f)  // 10% opacidad
     OutlinedCard(
-        onClick = onClick,
+        onClick = { /* GO TO CATEGORY DETAIL*/ },
         modifier = Modifier
             .width(174.dp)
-            .height(189.dp),
+            .height(189.dp)
+            .padding(4.dp),
+
 
         shape = RoundedCornerShape(18.dp),
         colors = CardDefaults.cardColors(
@@ -46,8 +48,7 @@ fun CardCategory(onClick: () -> Unit, modifier: Modifier = Modifier, title: Stri
         border = BorderStroke(1.dp, borderColor),
 
 
-        )
-    {
+        ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -62,11 +63,9 @@ fun CardCategory(onClick: () -> Unit, modifier: Modifier = Modifier, title: Stri
                 contentDescription = "imagenCategoria1",
                 modifier = Modifier.size(100.dp)
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            //Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = title,
-                style = MaterialTheme.typography.titleLarge
-            )
+                text = name, style = MaterialTheme.typography.titleLarge, textAlign = TextAlign.Center)
 
         }
 
@@ -75,13 +74,15 @@ fun CardCategory(onClick: () -> Unit, modifier: Modifier = Modifier, title: Stri
 
 @Preview
 @Composable
-fun CardCategory() {
+fun SeeCardCategory() {
 
 
     BE_TP3_G4Theme {
+/*
 
         val pescado = "Pescado"
-        CardCategory(onClick = { /*TODO*/ }, title = pescado)
+        CardCategory(name = pescado, )
+*/
 
 
     }

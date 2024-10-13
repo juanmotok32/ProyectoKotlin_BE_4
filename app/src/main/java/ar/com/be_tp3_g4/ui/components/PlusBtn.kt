@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -19,7 +20,8 @@ import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
-fun BtnPlus(onClick: () -> Unit, @StringRes text: Int, color: Color = MaterialTheme.colorScheme.secondary,
+fun BtnPlus(
+    onClick: () -> Unit, @StringRes text: Int, color: Color = MaterialTheme.colorScheme.secondary,
     textColor: Color = Color.White, modifier: Modifier = Modifier
 ) {
     Button(
@@ -37,6 +39,7 @@ fun BtnPlus(onClick: () -> Unit, @StringRes text: Int, color: Color = MaterialTh
         ) {
             Text(
                 text = stringResource(text),
+                textAlign = TextAlign.Center,
                 fontSize = 24.sp,
                 color = textColor //
             )

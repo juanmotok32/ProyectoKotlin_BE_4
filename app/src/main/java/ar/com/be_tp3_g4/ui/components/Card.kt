@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
@@ -21,24 +19,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ar.com.be_tp3_g4.R
-import ar.com.be_tp3_g4.model.Producto
-import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
+import ar.com.be_tp3_g4.model.Product
 
 @Composable
 fun Card(
     goToDetails: () -> Unit,
-    modifier: Modifier = Modifier,
-    producto: Producto,
-    addToCart: () -> Unit
-) {
+    addToCart: () -> Unit,
+    product: Product,
+
+    ) {
     OutlinedCard(
         onClick = goToDetails,
         modifier = Modifier
             .width(174.dp)
-            .height(248.dp),
+            .height(248.dp)
+            .padding(4.dp),
 
         shape = RoundedCornerShape(18.dp),
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary),
@@ -50,49 +47,38 @@ fun Card(
             verticalArrangement = Arrangement.Center
 
         ) {
-
             Image(
-                painter = painterResource(id = R.drawable.product01),
+                painter = painterResource(product.image),
                 contentDescription = "imagenCategoria1",
                 modifier = Modifier
-                    .size(120.dp)
+                    .size(100.dp)
                     .align((Alignment.CenterHorizontally))
                     .padding(10.dp)
+                    .weight(5f)
 
 
             )
             Text(
-                text = producto.nombre,
-                style = MaterialTheme.typography.titleLarge
+                text = product.name, style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(3f)
             )
-            Text(text = producto.descripcion, color = MaterialTheme.colorScheme.tertiary)
-            Spacer(modifier = Modifier.weight(3f))
+            Text(text = product.content,style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.tertiary, modifier = Modifier.weight(1f))
 
 
-            Row(
 
-
+            Row( modifier = Modifier.weight(2f)
             ) {
                 Text(
-                    text = "$${producto.precio}", modifier = Modifier
+                    text = "$${product.price}0",
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier
                         .weight(3f)
                         .align(Alignment.CenterVertically),
                     color = MaterialTheme.colorScheme.inversePrimary
                 )
                 Spacer(modifier = Modifier.weight(3f))
 
-                Button(
-                    onClick = { addToCart },
-                    modifier = Modifier
-                        .weight(2f)
-                        .padding(1.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.secondary
-                    )
+                BtnPlus(onClick = { addToCart() }, text = R.string.agregar)
 
-                ) {
-
-                }
             }
 
         }
@@ -100,21 +86,4 @@ fun Card(
     }
 }
 
-@Preview
-@Composable
-fun Card() {
-
-    val producto = Producto(
-        nombre = "Pescado",
-        precio = 11.2,
-        imagen = "hola",
-        descripcion = "1kg, Price"
-    )
-
-    BE_TP3_G4Theme {
-        Card(goToDetails = { /*TODO*/ },
-            producto = producto,
-            addToCart = {})
-    }
-}
 

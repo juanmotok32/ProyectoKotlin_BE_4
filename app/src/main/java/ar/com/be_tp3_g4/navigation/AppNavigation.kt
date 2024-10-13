@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import ar.com.be_tp3_g4.helpers.WindowSizeHelper
+import ar.com.be_tp3_g4.ui.screens.ExploreScreen
 import ar.com.be_tp3_g4.ui.screens.OnboardingScreen
 import ar.com.be_tp3_g4.ui.screens.SplashScreen
 import ar.com.be_tp3_g4.ui.screens.auth.AuthViewModel
@@ -55,5 +56,13 @@ fun AppNavigation(authViewModel: AuthViewModel) {
                 windowSizeHelper = windowSizeHelper
             )
         }
+
+        composable<NavDestinations.ExploreScreen> {
+            ExploreScreen()
+
+        }
+
     }
+
+
 }
