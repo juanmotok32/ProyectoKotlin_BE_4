@@ -19,8 +19,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.helpers.WindowSizeHelper
+import ar.com.be_tp3_g4.repository.UserRepositoryImp
 import ar.com.be_tp3_g4.ui.components.Btn
 import ar.com.be_tp3_g4.ui.components.InputField
 import ar.com.be_tp3_g4.ui.components.LogoZanahoria
@@ -29,7 +31,8 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
 fun RegisterScreen(
-    authViewModel: AuthViewModel,
+    userRepository: UserRepositoryImp,
+    authViewModel: AuthViewModel = viewModel(factory = AuthViewModel.AuthViewModelFactory(userRepository)),
     signIn: () -> Unit,
     windowSizeHelper: WindowSizeHelper,
     goToLocation: () -> Unit
@@ -111,8 +114,10 @@ fun RegisterScreen(
 @Composable
 fun RegisterScreenPreview() {
     BE_TP3_G4Theme {
+        val userRepository = UserRepositoryImp()
         RegisterScreen(
-            authViewModel = AuthViewModel(),
+            userRepository = userRepository,
+            authViewModel = AuthViewModel(userRepository),
             signIn = { /*TODO*/ },
             windowSizeHelper = WindowSizeHelper(),
             goToLocation = {}
