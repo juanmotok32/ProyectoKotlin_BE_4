@@ -7,7 +7,9 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,15 +23,14 @@ fun TopAppBar(
     @StringRes tittle: Int,
     menu: () -> Unit,
 ) {
-    CenterAlignedTopAppBar(title = { Text(text = stringResource(tittle)) },
-        navigationIcon = {
-            IconButton(onClick = { menu() }) {
-                Icon(
-                    imageVector = Icons.Filled.Menu,
-                    contentDescription = stringResource(id = R.string.menu_icon_desc)
-                )
-            }
-        })
+    CenterAlignedTopAppBar(title = { Text(text = stringResource(tittle)) }, navigationIcon = {
+        IconButton(onClick = { menu() }) {
+            Icon(
+                imageVector = Icons.Filled.Menu,
+                contentDescription = stringResource(id = R.string.menu_icon_desc)
+            )
+        }
+    })
 }
 
 
@@ -37,9 +38,7 @@ fun TopAppBar(
 @Composable
 fun TopApVarPreview() {
     BE_TP3_G4Theme {
-        TopAppBar(
-            tittle = R.string.shop,
-            menu = {}   /*en la vista, esta funcion despliega el pop up*/
-        )
+        TopAppBar(tittle = R.string.shop,
+            menu = {}   /*en la vista, esta funcion despliega el pop up*/)
     }
 }
