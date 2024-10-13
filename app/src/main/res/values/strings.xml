@@ -42,4 +42,5 @@ it’s way to being processed</string>
     <string name="no_acount">Don\'t have an account?</string>
     <string name="has_account">Already have an account?</string>
     <string name="place_order">Place Order</string>
+    <string name="favorites_btn">Add All To Cart</string>
 </resources>
