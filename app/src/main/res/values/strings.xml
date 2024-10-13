@@ -43,7 +43,7 @@ it’s way to being processed</string>
     <string name="zone">Your Zone</string>
     <string name="area">Your Area</string>
     <string name="submit">Submit</string>
-    <string name="location_tittle">Select Your Location</string>
+    <string name="location_tittle">Select Your Location</string>string
     <string name="location_subtittle">Switch on your location to stay in tune with what\'s happening in your area</string>
     <string name="favorites_btn">Add All To Cart</string>
-
+    </resources>
