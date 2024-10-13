@@ -25,7 +25,7 @@ fun CustomBottomNavBar(
                     Icon(
                         painter = painterResource(id = item.icon),
                         contentDescription = item.label,
-                        modifier = Modifier.size(35.dp)
+                        modifier = Modifier.size(20.dp)
                     )
                 },
                 label = { Text(item.label) },

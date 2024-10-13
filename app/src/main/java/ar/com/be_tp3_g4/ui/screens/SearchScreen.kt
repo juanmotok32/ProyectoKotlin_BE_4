@@ -1,5 +1,6 @@
 package ar.com.be_tp3_g4.ui.screens
 
+import CustomBottomNavBarPreview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,7 +29,7 @@ fun SearchScreen() {
         },
 
         bottomBar = {
-            TopAppBar(tittle = R.string.find_products, menu = { })
+            CustomBottomNavBarPreview()
         },
 
         content = { padding ->
