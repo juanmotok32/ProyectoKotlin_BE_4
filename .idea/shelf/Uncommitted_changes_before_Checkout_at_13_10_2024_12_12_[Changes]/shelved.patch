@@ -1,0 +1,548 @@
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
++++ /dev/null	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: .idea/kotlinc.xml
+===================================================================
+diff --git a/.idea/kotlinc.xml b/.idea/kotlinc.xml
+deleted file mode 100644
+--- a/.idea/kotlinc.xml	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
++++ /dev/null	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="KotlinJpsPluginSettings">
+-    <option name="version" value="2.0.0" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/deviceManager.xml
+===================================================================
+diff --git a/.idea/deviceManager.xml b/.idea/deviceManager.xml
+deleted file mode 100644
+--- a/.idea/deviceManager.xml	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
++++ /dev/null	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
+@@ -1,17 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="DeviceTable">
+-    <option name="columnSorters">
+-      <list>
+-        <ColumnSorterState>
+-          <option name="column" value="API" />
+-          <option name="order" value="ASCENDING" />
+-        </ColumnSorterState>
+-        <ColumnSorterState>
+-          <option name="column" value="Name" />
+-          <option name="order" value="ASCENDING" />
+-        </ColumnSorterState>
+-      </list>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/deploymentTargetSelector.xml
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+deleted file mode 100644
+--- a/.idea/deploymentTargetSelector.xml	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
++++ /dev/null	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
+@@ -1,21 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="deploymentTargetSelector">
+-    <selectionStates>
+-      <SelectionState runConfigName="app">
+-        <option name="selectionMode" value="DROPDOWN" />
+-        <DropdownSelection timestamp="2024-10-12T20:55:20.750828100Z">
+-          <Target type="DEFAULT_BOOT">
+-            <handle>
+-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Usuario\.android\avd\Pixel_8_API_35.avd" />
+-            </handle>
+-          </Target>
+-        </DropdownSelection>
+-        <DialogSelection />
+-      </SelectionState>
+-      <SelectionState runConfigName="MainActivity">
+-        <option name="selectionMode" value="DROPDOWN" />
+-      </SelectionState>
+-    </selectionStates>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+deleted file mode 100644
+--- a/.idea/inspectionProfiles/Project_Default.xml	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
++++ /dev/null	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
+@@ -1,41 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <profile version="1.0">
+-    <option name="myName" value="Project Default" />
+-    <inspection_tool class="PreviewAnnotationInFunctionWithParameters" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewApiLevelMustBeValid" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewDimensionRespectsLimit" enabled="true" level="WARNING" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewFontScaleMustBeGreaterThanZero" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewMultipleParameterProviders" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewMustBeTopLevelFunction" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewNeedsComposableAnnotation" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewNotSupportedInUnitTestFiles" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewPickerAnnotation" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-  </profile>
+-</component>
+\ No newline at end of file
+Index: app/src/main/java/ar/com/be_tp3_g4/ui/components/BotonBar.kt
+===================================================================
+diff --git a/app/src/main/java/ar/com/be_tp3_g4/ui/components/BotonBar.kt b/app/src/main/java/ar/com/be_tp3_g4/ui/components/BotonBar.kt
+deleted file mode 100644
+--- a/app/src/main/java/ar/com/be_tp3_g4/ui/components/BotonBar.kt	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
++++ /dev/null	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
+@@ -1,2 +0,0 @@
+-package ar.com.be_tp3_g4.ui.components
+-
+Index: app/src/main/res/drawable/cart.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/cart.xml b/app/src/main/res/drawable/cart.xml
+new file mode 100644
+--- /dev/null	(date 1728831421519)
++++ b/app/src/main/res/drawable/cart.xml	(date 1728831421519)
+@@ -0,0 +1,10 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="800dp"
++    android:height="800dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++  <path
++      android:pathData="M14,2C14,1.448 13.552,1 13,1C12.448,1 12,1.448 12,2V8.586L9.707,6.293C9.317,5.902 8.683,5.902 8.293,6.293C7.902,6.683 7.902,7.317 8.293,7.707L12.293,11.707C12.683,12.098 13.317,12.098 13.707,11.707L17.707,7.707C18.098,7.317 18.098,6.683 17.707,6.293C17.317,5.902 16.683,5.902 16.293,6.293L14,8.586V2ZM1,3C1,2.448 1.448,2 2,2H2.472C3.825,2 5.011,2.905 5.367,4.211L5.783,5.737L7.764,13H18.236L20.215,5.737C20.36,5.204 20.91,4.89 21.443,5.035C21.976,5.18 22.29,5.73 22.145,6.263L20.166,13.526C19.928,14.396 19.138,15 18.236,15H8V16C8,16.552 8.448,17 9,17H16.5H18C18.552,17 19,17.448 19,18C19,18.212 18.934,18.409 18.822,18.57C18.937,18.858 19,19.171 19,19.5C19,20.881 17.881,22 16.5,22C15.119,22 14,20.881 14,19.5C14,19.329 14.017,19.162 14.05,19H10.95C10.983,19.162 11,19.329 11,19.5C11,20.881 9.881,22 8.5,22C7.119,22 6,20.881 6,19.5C6,18.863 6.238,18.282 6.63,17.84C6.235,17.332 6,16.694 6,16V14.134L3.853,6.263L3.437,4.737C3.319,4.302 2.923,4 2.472,4H2C1.448,4 1,3.552 1,3ZM16,19.5C16,19.224 16.224,19 16.5,19C16.776,19 17,19.224 17,19.5C17,19.776 16.776,20 16.5,20C16.224,20 16,19.776 16,19.5ZM8,19.5C8,19.224 8.224,19 8.5,19C8.776,19 9,19.224 9,19.5C9,19.776 8.776,20 8.5,20C8.224,20 8,19.776 8,19.5Z"
++      android:fillColor="#000000"
++      android:fillType="evenOdd"/>
++</vector>
+Index: app/src/main/res/drawable/account.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/account.xml b/app/src/main/res/drawable/account.xml
+new file mode 100644
+--- /dev/null	(date 1728831421518)
++++ b/app/src/main/res/drawable/account.xml	(date 1728831421518)
+@@ -0,0 +1,16 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="800dp"
++    android:height="800dp"
++    android:viewportWidth="24"
++    android:viewportHeight="24">
++  <path
++      android:pathData="M12,7.25m-5.73,0a5.73,5.73 0,1 1,11.46 0a5.73,5.73 0,1 1,-11.46 0"
++      android:strokeWidth="1.91"
++      android:fillColor="#00000000"
++      android:strokeColor="#020202"/>
++  <path
++      android:pathData="M1.5,23.48l0.37,-2.05A10.3,10.3 0,0 1,12 13h0a10.3,10.3 0,0 1,10.13 8.45l0.37,2.05"
++      android:strokeWidth="1.91"
++      android:fillColor="#00000000"
++      android:strokeColor="#020202"/>
++</vector>
+Index: app/src/main/res/drawable/favorite.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/favorite.xml b/app/src/main/res/drawable/favorite.xml
+new file mode 100644
+--- /dev/null	(date 1728831421521)
++++ b/app/src/main/res/drawable/favorite.xml	(date 1728831421521)
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="800dp"
++    android:height="800dp"
++    android:viewportWidth="455"
++    android:viewportHeight="455">
++  <path
++      android:pathData="M326.63,10.35c-38.73,0 -74.99,17.54 -99.13,46.92c-24.14,-29.38 -60.4,-46.92 -99.13,-46.92C57.59,10.35 0,67.93 0,138.71c0,55.43 33.05,119.54 98.23,190.55c50.16,54.65 104.73,96.96 120.26,108.63l9.01,6.77l9.01,-6.77c15.53,-11.67 70.1,-53.98 120.26,-108.63C421.95,258.25 455,194.14 455,138.71C455,67.93 397.41,10.35 326.63,10.35zM334.67,308.97c-41.26,44.95 -85.65,81.28 -107.17,98.03c-21.52,-16.75 -65.91,-53.08 -107.17,-98.03C61.24,244.59 30,185.72 30,138.71c0,-54.24 44.13,-98.37 98.37,-98.37c35.69,0 68.65,19.45 86.01,50.77l13.12,23.67l13.12,-23.67c17.36,-31.32 50.32,-50.77 86.01,-50.77c54.24,0 98.37,44.13 98.37,98.37C425,185.72 393.76,244.59 334.67,308.97z"
++      android:fillColor="#000000"/>
++</vector>
+Index: app/src/main/res/drawable/logout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/logout.xml b/app/src/main/res/drawable/logout.xml
+new file mode 100644
+--- /dev/null	(date 1728831421522)
++++ b/app/src/main/res/drawable/logout.xml	(date 1728831421522)
+@@ -0,0 +1,27 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="21dp"
++    android:height="21dp"
++    android:viewportWidth="21"
++    android:viewportHeight="21">
++  <path
++      android:pathData="M7.751,19.882H3.751C3.22,19.882 2.712,19.672 2.337,19.296C1.961,18.921 1.751,18.413 1.751,17.882V3.882C1.751,3.352 1.961,2.843 2.337,2.468C2.712,2.093 3.22,1.882 3.751,1.882H7.751"
++      android:strokeLineJoin="round"
++      android:strokeWidth="2"
++      android:fillColor="#00000000"
++      android:strokeColor="#53B175"
++      android:strokeLineCap="round"/>
++  <path
++      android:pathData="M14.751,15.882L19.751,10.882L14.751,5.882"
++      android:strokeLineJoin="round"
++      android:strokeWidth="2"
++      android:fillColor="#00000000"
++      android:strokeColor="#53B175"
++      android:strokeLineCap="round"/>
++  <path
++      android:pathData="M19.751,10.882H7.751"
++      android:strokeLineJoin="round"
++      android:strokeWidth="2"
++      android:fillColor="#00000000"
++      android:strokeColor="#53B175"
++      android:strokeLineCap="round"/>
++</vector>
+Index: app/src/main/res/drawable/shop.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/shop.xml b/app/src/main/res/drawable/shop.xml
+new file mode 100644
+--- /dev/null	(date 1728831421523)
++++ b/app/src/main/res/drawable/shop.xml	(date 1728831421523)
+@@ -0,0 +1,15 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="800dp"
++    android:height="800dp"
++    android:viewportWidth="511"
++    android:viewportHeight="511">
++  <path
++      android:pathData="M503.5,440H479V207.43c13.84,-3.49 24,-16.5 24,-31.93v-104c0,-8.55 -6.95,-15.5 -15.5,-15.5h-464C14.95,56 8,62.95 8,71.5v104c0,15.43 10.16,28.45 24,31.93V440H7.5c-4.14,0 -7.5,3.36 -7.5,7.5s3.36,7.5 7.5,7.5h496c4.14,0 7.5,-3.36 7.5,-7.5S507.64,440 503.5,440zM488,71.5v104c0,9.38 -7,17.38 -15.6,17.83c-4.59,0.23 -8.94,-1.36 -12.25,-4.51c-3.32,-3.15 -5.14,-7.4 -5.14,-11.97V71h32.5C487.78,71 488,71.22 488,71.5zM71,71h33v105.86c0,9.1 -7.4,16.5 -16.5,16.5s-16.5,-7.4 -16.5,-16.5V71zM119,71h33v105.86c0,9.1 -7.4,16.5 -16.5,16.5s-16.5,-7.4 -16.5,-16.5V71zM167,71h33v105.86c0,9.1 -7.4,16.5 -16.5,16.5s-16.5,-7.4 -16.5,-16.5V71zM215,71h33v105.86c0,9.1 -7.4,16.5 -16.5,16.5s-16.5,-7.4 -16.5,-16.5V71zM263,71h33v105.86c0,9.1 -7.4,16.5 -16.5,16.5s-16.5,-7.4 -16.5,-16.5V71zM311,71h33v105.86c0,9.1 -7.4,16.5 -16.5,16.5s-16.5,-7.4 -16.5,-16.5V71zM359,71h33v105.86c0,9.1 -7.4,16.5 -16.5,16.5s-16.5,-7.4 -16.5,-16.5V71zM407,71h33v105.86c0,9.1 -7.4,16.5 -16.5,16.5s-16.5,-7.4 -16.5,-16.5V71zM23,175.5v-104c0,-0.28 0.22,-0.5 0.5,-0.5H56v105.86c0,4.57 -1.83,8.82 -5.14,11.97c-3.31,3.15 -7.66,4.74 -12.25,4.51C30,192.88 23,184.88 23,175.5zM47,207.46c5.27,-1.28 10.13,-3.91 14.18,-7.75c0.82,-0.78 1.6,-1.6 2.33,-2.46c5.78,6.79 14.39,11.11 23.99,11.11c9.6,0 18.22,-4.32 24,-11.12c5.78,6.8 14.4,11.12 24,11.12s18.22,-4.32 24,-11.12c5.78,6.8 14.4,11.12 24,11.12s18.22,-4.32 24,-11.12c5.78,6.8 14.4,11.12 24,11.12s18.22,-4.32 24,-11.12c5.78,6.8 14.4,11.12 24,11.12s18.22,-4.32 24,-11.12c5.78,6.8 14.4,11.12 24,11.12s18.22,-4.32 24,-11.12c5.78,6.8 14.4,11.12 24,11.12s18.22,-4.32 24,-11.12c5.78,6.8 14.4,11.12 24,11.12c9.6,0 18.21,-4.32 23.99,-11.11c0.73,0.86 1.5,1.68 2.33,2.46c4.05,3.85 8.91,6.48 14.18,7.76V440h-33V263.5c0,-8.55 -6.95,-15.5 -15.5,-15.5h-96c-8.55,0 -15.5,6.95 -15.5,15.5V440H47V207.46zM416,440h-97V263.5c0,-0.28 0.22,-0.5 0.5,-0.5h96c0.28,0 0.5,0.22 0.5,0.5V440z"
++      android:fillColor="#000000"/>
++  <path
++      android:pathData="M343.5,336c-4.14,0 -7.5,3.36 -7.5,7.5v16c0,4.14 3.36,7.5 7.5,7.5s7.5,-3.36 7.5,-7.5v-16C351,339.36 347.64,336 343.5,336z"
++      android:fillColor="#000000"/>
++  <path
++      android:pathData="M262.5,248h-174c-4.69,0 -8.5,3.81 -8.5,8.5v142c0,4.69 3.81,8.5 8.5,8.5h174c4.69,0 8.5,-3.81 8.5,-8.5v-142C271,251.81 267.19,248 262.5,248zM256,392H95V263h161V392z"
++      android:fillColor="#000000"/>
++</vector>
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n<<<<<<< HEAD\r\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\r\n=======\r\n>>>>>>> favorites_screen\r\n    <mapping directory=\"\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
++++ b/.idea/vcs.xml	(date 1728832300485)
+@@ -1,10 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-<<<<<<< HEAD
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-=======
+->>>>>>> favorites_screen
+     <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"jbr-17\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveExternalAnnotations\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
++++ b/.idea/gradle.xml	(date 1728832111710)
+@@ -4,7 +4,7 @@
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="gradleJvm" value="jbr-17" />
++        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
+Index: app/src/main/java/ar/com/be_tp3_g4/ui/components/BottomNavigation.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ar/com/be_tp3_g4/ui/components/BottomNavigation.kt b/app/src/main/java/ar/com/be_tp3_g4/ui/components/BottomNavigation.kt
+new file mode 100644
+--- /dev/null	(date 1728831421516)
++++ b/app/src/main/java/ar/com/be_tp3_g4/ui/components/BottomNavigation.kt	(date 1728831421516)
+@@ -0,0 +1,62 @@
++import androidx.compose.foundation.layout.size
++import androidx.compose.material3.*
++import androidx.compose.runtime.*
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.graphics.Color
++import androidx.compose.ui.res.painterResource
++import androidx.compose.ui.tooling.preview.Preview
++import androidx.compose.ui.unit.dp
++import ar.com.be_tp3_g4.R
++import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
++
++@OptIn(ExperimentalMaterial3Api::class)
++@Composable
++fun CustomBottomNavBar(
++    items: List<BottomNavItem>,
++    onItemSelected: (Int) -> Unit
++) {
++    var selectedIndex by remember { mutableStateOf(0) }
++
++    NavigationBar(
++    ) {
++        items.forEachIndexed { index, item ->
++            NavigationBarItem(
++                icon = {
++                    Icon(
++                        painter = painterResource(id = item.icon),
++                        contentDescription = item.label,
++                        modifier = Modifier.size(35.dp)
++                    )
++                },
++                label = { Text(item.label) },
++                selected = selectedIndex == index,
++                onClick = {
++                    selectedIndex = index
++                    onItemSelected(index)
++                },
++                colors = NavigationBarItemDefaults.colors(
++                    selectedIconColor = Color.Green, // Aca se selecciona el icono y se pone en verde
++                    unselectedIconColor = Color.Black
++                )
++            )
++        }
++    }
++}
++
++data class BottomNavItem(val label: String, val icon: Int)
++
++@Preview(showBackground = true)
++@Composable
++fun CustomBottomNavBarPreview() {
++    val items = listOf(
++        BottomNavItem("Shop", R.drawable.shop),
++        BottomNavItem("Explore", R.drawable.explore),
++        BottomNavItem("Cart", R.drawable.cart),
++        BottomNavItem("Favorite", R.drawable.favorite),
++        BottomNavItem("Account", R.drawable.account)
++    )
++
++    BE_TP3_G4Theme {
++        CustomBottomNavBar(items = items, onItemSelected = {})
++    }
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"jbr-17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 9143295eaca07e1f445eaf3e3f0b571c617a7773)
++++ b/.idea/misc.xml	(date 1728832200923)
+@@ -1,6 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17">
++    <output url="file://$PROJECT_DIR$/build/classes" />
++  </component>
++  <component name="ProjectType">
++    <option name="id" value="Android" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: app/src/main/java/ar/com/be_tp3_g4/ui/components/GotoCheckout.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ar/com/be_tp3_g4/ui/components/GotoCheckout.kt b/app/src/main/java/ar/com/be_tp3_g4/ui/components/GotoCheckout.kt
+new file mode 100644
+--- /dev/null	(date 1728831421518)
++++ b/app/src/main/java/ar/com/be_tp3_g4/ui/components/GotoCheckout.kt	(date 1728831421518)
+@@ -0,0 +1,53 @@
++import androidx.compose.foundation.background
++import androidx.compose.foundation.layout.*
++import androidx.compose.foundation.shape.RoundedCornerShape
++import androidx.compose.material3.*
++import androidx.compose.runtime.Composable
++import androidx.compose.ui.Alignment
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.tooling.preview.Preview
++import androidx.compose.ui.unit.dp
++import androidx.compose.ui.unit.sp
++import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
++
++@Composable
++fun Btn(onClick: () -> Unit, prices: List<Float>, modifier: Modifier = Modifier) {
++    val totalSum = prices.sum()
++    Button(
++        onClick = onClick,
++        modifier = modifier.fillMaxWidth(),
++        shape = RoundedCornerShape(19.dp),
++        colors = ButtonDefaults.buttonColors(
++            containerColor = MaterialTheme.colorScheme.secondary
++        )
++    ) {
++        Row(
++            modifier = Modifier.fillMaxWidth(),
++            verticalAlignment = Alignment.CenterVertically
++        ) {
++            Text(
++                text = "                     Go to Checkout",
++                fontSize = 18.sp,
++            )
++            Box(
++                modifier = Modifier
++                    .padding(8.dp)
++                    .background(MaterialTheme.colorScheme.secondary, RoundedCornerShape(8.dp))
++                    .padding(horizontal = 12.dp, vertical = 4.dp)
++            ) {
++                Text(
++                    text = "$${"%.2f".format(totalSum)}",
++                    fontSize = 14.sp
++                )
++            }
++        }
++    }
++}
++
++@Preview
++@Composable
++fun BtnPreview() {
++    BE_TP3_G4Theme {
++        Btn(onClick = { /*TODO*/ }, prices = listOf(10.99f, 20.50f, 5.75f))
++    }
++}
+Index: app/src/main/java/ar/com/be_tp3_g4/ui/components/BtnInversoLogout.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/ar/com/be_tp3_g4/ui/components/BtnInversoLogout.kt b/app/src/main/java/ar/com/be_tp3_g4/ui/components/BtnInversoLogout.kt
+new file mode 100644
+--- /dev/null	(date 1728831421517)
++++ b/app/src/main/java/ar/com/be_tp3_g4/ui/components/BtnInversoLogout.kt	(date 1728831421517)
+@@ -0,0 +1,56 @@
++import androidx.annotation.StringRes
++import androidx.compose.foundation.Image
++import androidx.compose.foundation.layout.*
++import androidx.compose.foundation.shape.RoundedCornerShape
++import androidx.compose.material3.Button
++import androidx.compose.material3.ButtonDefaults
++import androidx.compose.material3.Text
++import androidx.compose.runtime.Composable
++import androidx.compose.ui.Alignment
++import androidx.compose.ui.Modifier
++import androidx.compose.ui.graphics.Color
++import androidx.compose.ui.graphics.painter.Painter
++import androidx.compose.ui.res.painterResource
++import androidx.compose.ui.res.stringResource
++import androidx.compose.ui.tooling.preview.Preview
++import androidx.compose.ui.unit.dp
++import ar.com.be_tp3_g4.R
++import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
++
++@Composable
++fun Btn(onClick: () -> Unit, @StringRes text: Int, icon: Painter, modifier: Modifier = Modifier) {
++    Button(
++        onClick = onClick,
++        modifier = modifier.fillMaxWidth(),
++        shape = RoundedCornerShape(19.dp),
++        colors = ButtonDefaults.buttonColors(
++            containerColor = Color.White,
++            contentColor = Color(0xFF53B175)
++        )
++    ) {
++        Row(
++            verticalAlignment = Alignment.CenterVertically,
++            horizontalArrangement = Arrangement.Center
++        ) {
++            Image(
++                painter = icon,
++                contentDescription = null,
++                modifier = Modifier.size(24.dp)
++            )
++            Spacer(modifier = Modifier.width(8.dp))
++            Text(stringResource(text))
++        }
++    }
++}
++
++@Preview
++@Composable
++fun logout() {
++    BE_TP3_G4Theme {
++        Btn(
++            onClick = { /*TODO*/ },
++            text = R.string.get_started,
++            icon = painterResource(id = R.drawable.logout)
++        )
++    }
++}
+Index: app/src/main/res/drawable/explore.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/explore.xml b/app/src/main/res/drawable/explore.xml
+new file mode 100644
+--- /dev/null	(date 1728831421520)
++++ b/app/src/main/res/drawable/explore.xml	(date 1728831421520)
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="800dp"
++    android:height="800dp"
++    android:viewportWidth="512.01"
++    android:viewportHeight="512.01">
++  <path
++      android:pathData="M491.95,398.61L365.7,274.41c11.89,-24.97 18.55,-52.91 18.55,-82.41c0,-106.03 -85.97,-192 -192,-192s-192,85.97 -192,192s85.97,192 192,192c29.24,0 56.94,-6.55 81.75,-18.24l124.4,126.44c25.73,26.24 67.98,26.43 93.99,0.42C518.39,466.62 518.19,424.38 491.95,398.61zM42.91,192c0,-82.47 66.86,-149.33 149.33,-149.33S341.58,109.53 341.58,192c0,26.7 -7.01,51.75 -19.29,73.44c-0.5,0.66 -0.96,1.35 -1.39,2.08c-13.04,22.13 -31.52,40.55 -53.65,53.46c-0.69,0.4 -1.34,0.84 -1.96,1.3c-21.59,12.13 -46.5,19.06 -73.03,19.06C109.78,341.33 42.91,274.47 42.91,192zM462.22,462.45c-9.24,9.24 -24.25,9.17 -33.39,-0.15L311.18,342.73c11.61,-9.18 22.14,-19.67 31.35,-31.25l119.51,117.57C471.38,438.21 471.45,453.22 462.22,462.45z"
++      android:fillColor="#000000"/>
++</vector>
