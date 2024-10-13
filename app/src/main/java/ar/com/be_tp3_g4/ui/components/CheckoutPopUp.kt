@@ -40,7 +40,7 @@ fun CheckoutDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                     modifier = Modifier.padding(16.dp),
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
-                    // Header de Checkout con botón de cerrar
+
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,

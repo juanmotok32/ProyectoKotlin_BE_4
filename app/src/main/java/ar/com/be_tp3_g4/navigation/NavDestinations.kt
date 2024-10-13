@@ -18,4 +18,10 @@ sealed interface NavDestinations {
 
     @Serializable
     data object Register: NavDestinations
+
+    @Serializable
+    data object Location: NavDestinations
+
+    @Serializable
+    data object ExploreScreen: NavDestinations
 }

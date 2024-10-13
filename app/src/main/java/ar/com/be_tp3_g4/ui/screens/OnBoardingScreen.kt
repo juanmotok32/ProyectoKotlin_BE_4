@@ -144,14 +144,5 @@ private fun OnboardingScreenLandsCape(getStarted: () -> Unit) {
     }
 }
 
-/*
-@Preview
-@Composable
-fun OnboardingScreenLandsCapePreview() {
-    BE_TP3_G4Theme {
-        OnboardingScreenLandsCape(getStarted = {})
-    }
-}
- */
 
 
