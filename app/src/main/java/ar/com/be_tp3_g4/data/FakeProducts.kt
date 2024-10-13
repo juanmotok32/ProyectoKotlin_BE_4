@@ -7,11 +7,51 @@ val productList = listOf(
 
 
     Product(
-        name = "Coca-Cola",
-        brand = "Coca-Cola",
+        name = "Diet Coke",
+        brand = "Coke Diet",
+        price = 1.99f,
+        image = R.drawable.product01,
+        description = "Refresco Coca",
+        content = "335ml"
+    ),
+    Product(
+        name = "Sprite Can",
+        brand = "Sprite Diet",
         price = 1.50f,
         image = R.drawable.product01,
-        description = "Refresco gaseoso sabor cola",
+        description = "Refresco Sprite",
+        content = "330ml"
+    ),
+    Product(
+        name = "Apple & Grape Juice",
+        brand = "Apple & Grape Juice",
+        price = 15.99f,
+        image = R.drawable.product01,
+        description = "Apple & Grape Juice",
+        content = "2L"
+    ),
+    Product(
+        name = "Orange Juice",
+        brand = "Orange Juice",
+        price = 15.99f,
+        image = R.drawable.product01,
+        description = "Orange Juice",
+        content = "2L"
+    ),
+    Product(
+        name = "Coca Cola Can",
+        brand = "Coca Cola Can",
+        price = 4.99f,
+        image = R.drawable.product01,
+        description = "Coca cola Can",
+        content = "325ml"
+    ),
+    Product(
+        name = "Pepsi Can",
+        brand = "Pepsi Can",
+        price = 4.99f,
+        image = R.drawable.product01,
+        description = "Refresco pepsi",
         content = "330ml"
     ),
     Product(
@@ -166,4 +206,5 @@ val productList = listOf(
         description = "Helado de crema sabor vainilla y chocolate",
         content = "1L"
     )
+
 )
