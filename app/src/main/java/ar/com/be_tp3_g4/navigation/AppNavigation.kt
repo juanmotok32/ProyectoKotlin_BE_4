@@ -4,9 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import ar.com.be_tp3_g4.helpers.WindowSizeHelper
 import ar.com.be_tp3_g4.ui.screens.OnboardingScreen
+import ar.com.be_tp3_g4.ui.screens.SelectLocationScreen
 import ar.com.be_tp3_g4.ui.screens.SplashScreen
 import ar.com.be_tp3_g4.ui.screens.auth.AuthViewModel
 import ar.com.be_tp3_g4.ui.screens.auth.LoginScreen
@@ -52,7 +54,17 @@ fun AppNavigation(authViewModel: AuthViewModel) {
             RegisterScreen(
                 authViewModel = authViewModel,
                 signIn = { navController.navigate(NavDestinations.Login) },
-                windowSizeHelper = windowSizeHelper
+                windowSizeHelper = windowSizeHelper,
+                goToLocation = { navController.navigate(NavDestinations.Location)}
+            )
+        }
+
+        composable<NavDestinations.Location> {
+            SelectLocationScreen(/*
+                authViewModel = authViewModel,
+                signIn = { navController.navigate(NavDestinations.Login) },
+                windowSizeHelper = windowSizeHelper*/
+                goBack = {navController.popBackStack()} /*ver como hacer para volver atras, no navegar*/
             )
         }
     }

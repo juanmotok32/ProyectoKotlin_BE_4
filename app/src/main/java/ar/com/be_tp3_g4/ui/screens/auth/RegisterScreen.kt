@@ -31,7 +31,8 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 fun RegisterScreen(
     authViewModel: AuthViewModel,
     signIn: () -> Unit,
-    windowSizeHelper: WindowSizeHelper
+    windowSizeHelper: WindowSizeHelper,
+    goToLocation: () -> Unit
 ) {
     val windowSize = windowSizeHelper.getWindowSizeClass()
     var paddingValue = 0.dp
@@ -89,7 +90,7 @@ fun RegisterScreen(
 
         Spacer(modifier = Modifier.height(22.dp))
 
-        Btn(onClick = { /*authViewModel.onRegister*/ }, text = R.string.sign_up)
+        Btn(onClick = { goToLocation() }, text = R.string.sign_up)    /*como no hay logica de registro en el vm todavia, solo lo navego a location*/
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -113,7 +114,8 @@ fun RegisterScreenPreview() {
         RegisterScreen(
             authViewModel = AuthViewModel(),
             signIn = { /*TODO*/ },
-            windowSizeHelper = WindowSizeHelper()
+            windowSizeHelper = WindowSizeHelper(),
+            goToLocation = {}
         )
     }
 }
