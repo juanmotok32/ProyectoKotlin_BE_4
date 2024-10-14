@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -28,7 +29,9 @@ import ar.com.be_tp3_g4.ui.components.Card
 import ar.com.be_tp3_g4.ui.components.HorizontalList
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    goToExplore : () -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.search_screen_name, menu = { })
@@ -60,6 +63,9 @@ fun HomeScreen() {
                             style = MaterialTheme.typography.titleMedium
 
                         )
+                        Button(onClick = { goToExplore() }) {
+                         Text(text = "APRETA Y GANA PAPA")   
+                        }
                     }
 
                 }
@@ -118,6 +124,7 @@ fun HomeScreen() {
     )
 }
 
+/*
 
 @Preview
 @Composable
@@ -126,4 +133,4 @@ fun showHomeScreen() {
     BE_TP3_G4Theme {
         HomeScreen()
     }
-}
+}*/

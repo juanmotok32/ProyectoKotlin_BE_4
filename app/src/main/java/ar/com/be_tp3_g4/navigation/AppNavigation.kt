@@ -91,7 +91,7 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
         }
 
         composable<NavDestinations.Home> {
-            HomeScreen()
+            HomeScreen(goToExplore = {navController.navigate(NavDestinations.Explore)})
         }
 
         composable<NavDestinations.Explore> {

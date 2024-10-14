@@ -23,7 +23,7 @@ sealed interface NavDestinations {
     data object Location: NavDestinations
 
     @Serializable
-    data object Home: NavDestinations
+    data object Home : NavDestinations
 
     @Serializable
     data object Explore: NavDestinations
