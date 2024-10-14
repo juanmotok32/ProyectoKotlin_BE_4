@@ -111,6 +111,7 @@ fun CartProductItem(name: String, content: String, @DrawableRes image: Int, pric
 
     }
 }
+/*
 
 @Preview
 @Composable
@@ -118,4 +119,4 @@ fun PreviewCartScreen() {
     BE_TP3_G4Theme {
         CartScreen()
     }
-}
+}*/

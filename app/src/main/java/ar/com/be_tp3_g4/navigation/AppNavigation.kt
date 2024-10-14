@@ -1,8 +1,6 @@
 package ar.com.be_tp3_g4.navigation
 
-import CartScreen
 import CustomBottomNavBar
-import FavoritesScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -15,7 +13,9 @@ import ar.com.be_tp3_g4.model.Product
 import ar.com.be_tp3_g4.model.User
 import ar.com.be_tp3_g4.repository.UserRepositoryImp
 import ar.com.be_tp3_g4.ui.screens.AccountScreen
+import ar.com.be_tp3_g4.ui.screens.CartScreen
 import ar.com.be_tp3_g4.ui.screens.ExploreScreen
+import ar.com.be_tp3_g4.ui.screens.FavoritesScreen
 import ar.com.be_tp3_g4.ui.screens.HomeScreen
 import ar.com.be_tp3_g4.ui.screens.OnboardingScreen
 import ar.com.be_tp3_g4.ui.screens.ProductDetailScreen
@@ -38,7 +38,7 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
 
     NavHost(
         navController = navController,
-        startDestination = NavDestinations.Login   /*la primera screen en visualizarse va a ser la de splash*/
+        startDestination = NavDestinations.Onboarding   /*la primera screen en visualizarse va a ser la de splash*/
     ) {
 
         composable<NavDestinations.Splash> {
