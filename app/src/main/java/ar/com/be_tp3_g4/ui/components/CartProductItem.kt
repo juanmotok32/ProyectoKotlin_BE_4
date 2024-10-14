@@ -1,6 +1,5 @@
 package ar.com.be_tp3_g4.ui.components
 
-import CartItem
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

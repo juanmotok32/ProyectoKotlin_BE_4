@@ -18,29 +18,20 @@ import androidx.compose.ui.unit.sp
 import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 import ar.com.be_tp3_g4.ui.components.Btn
-import ar.com.be_tp3_g4.ui.components.BtnCant
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.ui.components.CartProductItem
 import ar.com.be_tp3_g4.data.productList
-
-data class CartItem(val name: String, val details: String, val price: String, val imageRes: Int, var quantity: Int)
+import CustomBottomNavBarPreview
 
 @Composable
 fun CartScreen() {
-    val cartItems = remember {
-        mutableStateOf(
-            listOf(
-                CartItem("Bell Pepper Red", "1kg, Price", "$4.99", R.drawable.coke, 1),
-                CartItem("Egg Chicken Red", "4pcs, Price", "$1.99", R.drawable.diet_coke, 1),
-                CartItem("Organic Bananas", "12kg, Price", "$3.00", R.drawable.coke, 1),
-                CartItem("Ginger", "250gm, Price", "$2.99", R.drawable.coke, 1)
-            )
-        )
-    }
 
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.myCart_topbar, menu = { })
+        },
+        bottomBar = {
+            CustomBottomNavBarPreview()
         },
         content = { paddingValues ->
             Column(
