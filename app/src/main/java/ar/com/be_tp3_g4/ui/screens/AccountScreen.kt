@@ -44,7 +44,7 @@ fun AccountScreen(navController : NavController,user: User,) {
                     .padding(paddingValues)
                     .background(Color(0xFFFCFCFC))
             ) {
-                DetailsAccount(user)
+                DetailsAccount() // user
                 Spacer(modifier = Modifier.height(16.dp))
                 MenuScreen()
             }
@@ -56,7 +56,7 @@ fun AccountScreen(navController : NavController,user: User,) {
 }
 
 @Composable
-fun DetailsAccount(user: User) {
+fun DetailsAccount() { // user: User
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -75,15 +75,15 @@ fun DetailsAccount(user: User) {
                     .clip(CircleShape)
             ) {
                 Image(
-                    painter = painterResource(id = user.imageRes),
-                    contentDescription = user.username,
+                    painter = painterResource(R.drawable.gatotierno), // id = user.imageRes
+                    contentDescription = "Enrique", //  user.username
                     modifier = Modifier.fillMaxSize()
                 )
             }
             Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = user.username, style = MaterialTheme.typography.bodyLarge)
+                    Text(text = "Enrique", style = MaterialTheme.typography.bodyLarge) //                     Text(text = user.username, style = MaterialTheme.typography.bodyLarge)
                     Spacer(modifier = Modifier.width(4.dp))
                     Icon(
                         painter = painterResource(id = R.drawable.cambiarnombre),
@@ -94,7 +94,8 @@ fun DetailsAccount(user: User) {
                         tint = Color(0xFF53B175)
                     )
                 }
-                Text(text = user.email, style = MaterialTheme.typography.bodySmall)
+                Text(text = "juanse@gmail.com", style = MaterialTheme.typography.bodySmall) //                 Text(text = user.email, style = MaterialTheme.typography.bodySmall)
+
             }
         }
     }
