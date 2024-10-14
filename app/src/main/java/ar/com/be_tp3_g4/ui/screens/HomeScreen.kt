@@ -41,8 +41,12 @@ fun HomeScreen(
         },
 
         bottomBar = {
-            CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
-        },
+            CustomBottomNavBar(
+                items = Items,
+                selectedItem = "Shop",
+                onItemSelected = {},
+                navController = navController
+            )},
 
         content = { padding ->
             LazyColumn(

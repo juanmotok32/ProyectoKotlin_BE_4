@@ -37,7 +37,13 @@ fun CartScreen(navController : NavController) {
         topBar = {
             TopAppBar(tittle = R.string.myCart_topbar, menu = { })
         },
-        bottomBar = {CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)},
+        bottomBar = {
+            CustomBottomNavBar(
+                items = Items,
+                selectedItem = "Cart",
+                onItemSelected = {},
+                navController = navController
+            )},
 
         content = { paddingValues ->
             Column(

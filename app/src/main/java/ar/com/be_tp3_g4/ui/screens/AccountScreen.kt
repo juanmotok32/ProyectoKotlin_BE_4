@@ -30,13 +30,18 @@ import logout
 data class MenuItem(val title: String, val iconRes: Int, val isSwitch: Boolean = false)
 
 @Composable
-fun AccountScreen(navController : NavController,user: User,) {
+fun AccountScreen(navController: NavController, user: User) {
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.account, menu = { })
         },
         bottomBar = {
-            CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
+            CustomBottomNavBar(
+                items = Items,
+                selectedItem = "Account",
+                onItemSelected = {},
+                navController = navController
+            )
         },
         content = { paddingValues ->
             Column(
@@ -54,6 +59,7 @@ fun AccountScreen(navController : NavController,user: User,) {
         }
     )
 }
+
 
 @Composable
 fun DetailsAccount() { // user: User

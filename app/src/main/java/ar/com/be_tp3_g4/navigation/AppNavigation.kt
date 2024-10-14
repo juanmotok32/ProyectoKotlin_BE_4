@@ -87,10 +87,15 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
                 submit = { navController.navigate(NavDestinations.Home) }
             )
         }
-
         composable<NavDestinations.BottomBar> {
-        CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
+            CustomBottomNavBar(
+                items = Items,
+                selectedItem = "Orders",
+                onItemSelected = {},
+                navController = navController
+            )
         }
+
 
         composable<NavDestinations.Home> {
             HomeScreen(goToExplore = {navController.navigate(NavDestinations.Explore)}, navController = navController)

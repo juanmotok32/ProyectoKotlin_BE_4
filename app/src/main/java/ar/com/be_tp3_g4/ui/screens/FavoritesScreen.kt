@@ -34,9 +34,14 @@ fun FavoritesScreen(navController : NavController) {
     }
 
     Scaffold(
+
         bottomBar = {
-            CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
-        },
+            CustomBottomNavBar(
+                items = Items,
+                selectedItem = "Favorite",
+                onItemSelected = {},
+                navController = navController
+            )},
         topBar = {
             TopAppBar(tittle = R.string.favorites_topbar, menu = { })
         },

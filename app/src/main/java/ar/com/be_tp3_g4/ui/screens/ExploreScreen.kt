@@ -31,13 +31,17 @@ fun ExploreScreen(navController : NavController) {
             TopAppBar(tittle = R.string.find_products, menu = { })
         },
 
+
         bottomBar = {
-            CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
-        },
+            CustomBottomNavBar(
+                items = Items,
+                selectedItem = "Explore",
+                onItemSelected = {},
+                navController = navController
+            )},
 
         content = { padding ->
-            // Aquí va el contenido principal de la pantalla
-            // Asegúrate de aplicar el padding
+
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -70,8 +74,8 @@ fun ExploreScreen(navController : NavController) {
     )
 }
 
-/*
 
+/*
 @Preview
 @Composable
 fun showScreen() {
