@@ -13,6 +13,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -20,8 +21,6 @@ import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 //un import extra q saque de chat para el icono de filtro (hay q meterlo como dependency)
-import androidx.compose.material.icons.filled.FilterList
-import androidx.compose.ui.graphics.Color
 
 
 //los value (statte) y lasa funciones (modifican el state) se reciben x parametro, x mas quee dsps no las usemos xq no lo piden
@@ -29,7 +28,7 @@ import androidx.compose.ui.graphics.Color
 fun SearchBar(
     searchValue: String,
     onSearch: (String) -> Unit,
-    onFilter: () -> Unit,
+    //onFilter: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     TextField(
@@ -57,10 +56,10 @@ fun SearchBar(
         //icono del fondo (filtrart o lo q sea q necesitemos
         trailingIcon = {
             Icon(
-                imageVector = Icons.Default.FilterList,
+                painter = painterResource(id =R.drawable.filtervector),
                 contentDescription = stringResource(id = R.string.filtrar), //no enbcuentro el icono de filtrar, esto que traje es lo mas parecido q encontre
                 modifier = Modifier.clickable {
-                    onFilter
+                    //onFilter()
                 }
             )
         }
@@ -71,6 +70,6 @@ fun SearchBar(
 @Composable
 fun SearchBarPreview() {
     BE_TP3_G4Theme {
-        SearchBar(searchValue = "", onSearch = {}, onFilter = {})
+        SearchBar(searchValue = "", onSearch = {})
     }
 }

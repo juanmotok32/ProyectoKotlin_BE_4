@@ -44,8 +44,8 @@ fun ExploreScreen() {
 
                 SearchBar(
                     searchValue = stringResource(id = R.string.placeholder_search),
-                    onSearch = { },
-                    onFilter = { /*TODO*/ }) //COMPLETAR LA IMPLEMENTACION
+                    onSearch = { }
+                    /*onFilter = { /*TODO*/ }) */)
 
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(2),
