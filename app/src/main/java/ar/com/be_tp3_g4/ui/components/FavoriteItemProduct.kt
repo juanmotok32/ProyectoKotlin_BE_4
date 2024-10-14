@@ -23,13 +23,19 @@ import androidx.compose.ui.unit.dp
 import ar.com.be_tp3_g4.R
 
 @Composable
-fun FavoriteItemProduct(name: String, content: String, price: Float, @DrawableRes image: Int) {
+fun FavoriteItemProduct(
+    name: String,
+    content: String,
+    price: Float,
+    @DrawableRes image: Int,
+    onRemove: () -> Unit
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp)
             .padding(vertical = 8.dp)
-            .clickable { /* fnc */ },
+            .clickable { /* navigate a detail */ },
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -45,22 +51,33 @@ fun FavoriteItemProduct(name: String, content: String, price: Float, @DrawableRe
             Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Text(text = name, style = MaterialTheme.typography.bodyLarge)
-                Text(text = "${price}, Price", style = MaterialTheme.typography.bodySmall)
+                Text(text = "${content}, Price", style = MaterialTheme.typography.bodySmall)
             }
         }
-        Row(
-            verticalAlignment = Alignment.CenterVertically
+        Column(
+            horizontalAlignment = Alignment.End
         ) {
             Text(
-                text = "$price",
-                style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.padding(end = 8.dp)
+                text = "X",
+                modifier = Modifier
+                    .size(40.dp)
+                    .clickable { onRemove() },
             )
-            Icon(
-                painter = painterResource(id = R.drawable.flecha),
-                contentDescription = null,
-                modifier = Modifier.size(15.dp)
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "$price",
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.padding(end = 8.dp)
+                )
+                Icon(
+                    painter = painterResource(id = R.drawable.flecha),
+                    contentDescription = null,
+                    modifier = Modifier.size(15.dp)
+                )
+
+            }
         }
 
     }
