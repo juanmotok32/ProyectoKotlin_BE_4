@@ -17,15 +17,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ar.com.be_tp3_g4.R
+import ar.com.be_tp3_g4.model.User
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 import logout
 
-data class Account(val name: String, val email: String, val imageRes: Int)
+//data class Account(val name: String, val email: String, val imageRes: Int)
 data class MenuItem(val title: String, val iconRes: Int, val isSwitch: Boolean = false)
 
 @Composable
-fun AccountScreen(account: Account) {
+fun AccountScreen(user: User) {
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.account, menu = { })
@@ -39,7 +40,7 @@ fun AccountScreen(account: Account) {
                     .padding(paddingValues)
                     .background(Color(0xFFFCFCFC))
             ) {
-                DetailsAccount(account)
+                DetailsAccount(user)
                 Spacer(modifier = Modifier.height(16.dp))
                 MenuScreen()
             }
@@ -51,7 +52,7 @@ fun AccountScreen(account: Account) {
 }
 
 @Composable
-fun DetailsAccount(account: Account) {
+fun DetailsAccount(user: User) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -70,15 +71,15 @@ fun DetailsAccount(account: Account) {
                     .clip(CircleShape)
             ) {
                 Image(
-                    painter = painterResource(id = account.imageRes),
-                    contentDescription = account.name,
+                    painter = painterResource(id = user.imageRes),
+                    contentDescription = user.username,
                     modifier = Modifier.fillMaxSize()
                 )
             }
             Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = account.name, style = MaterialTheme.typography.bodyLarge)
+                    Text(text = user.username, style = MaterialTheme.typography.bodyLarge)
                     Spacer(modifier = Modifier.width(4.dp))
                     Icon(
                         painter = painterResource(id = R.drawable.cambiarnombre),
@@ -89,7 +90,7 @@ fun DetailsAccount(account: Account) {
                         tint = Color(0xFF53B175)
                     )
                 }
-                Text(text = account.email, style = MaterialTheme.typography.bodySmall)
+                Text(text = user.email, style = MaterialTheme.typography.bodySmall)
             }
         }
     }
@@ -123,7 +124,7 @@ fun MenuItemView(item: MenuItem) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
-            .clickable {  },
+            .clickable { },
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
@@ -138,7 +139,7 @@ fun MenuItemView(item: MenuItem) {
             val switchState = remember { false }
             Switch(
                 checked = switchState,
-                onCheckedChange = {  }
+                onCheckedChange = { }
             )
         } else {
             Icon(
@@ -154,7 +155,12 @@ fun MenuItemView(item: MenuItem) {
 @Composable
 fun PreviewAccountScreen() {
     BE_TP3_G4Theme {
-        val exampleAccount = Account(name = "Enrique Iglesias", email = "EnriqueIglesias@gmail.com", imageRes = R.drawable.gatotierno)
-        AccountScreen(account = exampleAccount)
+        val exampleAccount = User(
+            username = "Enrique Iglesias",
+            password = "",
+            email = "EnriqueIglesias@gmail.com",
+            imageRes = R.drawable.gatotierno
+        )
+        AccountScreen(user = exampleAccount)
     }
 }
