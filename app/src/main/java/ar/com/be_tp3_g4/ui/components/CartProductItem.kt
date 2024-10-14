@@ -19,9 +19,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ar.com.be_tp3_g4.R
+import ar.com.be_tp3_g4.ui.screens.CartScreen
+import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
 fun CartProductItem(name: String, content: String, @DrawableRes image: Int, price: Float ) {
@@ -49,7 +52,10 @@ fun CartProductItem(name: String, content: String, @DrawableRes image: Int, pric
             horizontalArrangement = Arrangement.Center,
             modifier = Modifier.weight(2f),
         ) {
-            Column{
+            Column(
+                modifier = Modifier
+                    .width(200.dp)  // Establecemos el ancho fijo de la columna a 200.dp
+            ){
                 Text(text = name, style = MaterialTheme.typography.bodyLarge)
                 Text(text = content, style = MaterialTheme.typography.bodySmall)
                 Spacer(modifier = Modifier.height(10.dp))
@@ -103,5 +109,13 @@ fun CartProductItem(name: String, content: String, @DrawableRes image: Int, pric
         }
 
 
+    }
+}
+
+@Preview
+@Composable
+fun PreviewCartScreen() {
+    BE_TP3_G4Theme {
+        CartScreen()
     }
 }
