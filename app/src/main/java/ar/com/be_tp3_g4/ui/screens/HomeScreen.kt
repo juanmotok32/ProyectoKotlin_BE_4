@@ -49,7 +49,6 @@ fun HomeScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(padding),
-                // verticalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(10.dp)
             ) {
                 item {
@@ -66,9 +65,6 @@ fun HomeScreen(
                             style = MaterialTheme.typography.titleMedium
 
                         )
-                        /*Button(onClick = { goToExplore() }) {
-                         Text(text = "APRETA Y GANA PAPA")   
-                        }*/
                     }
 
                 }

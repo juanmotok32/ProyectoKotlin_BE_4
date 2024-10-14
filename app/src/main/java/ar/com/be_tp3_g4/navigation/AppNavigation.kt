@@ -8,7 +8,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import ar.com.be_tp3_g4.data.Items
 import ar.com.be_tp3_g4.helpers.WindowSizeHelper
@@ -39,7 +38,7 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
 
     NavHost(
         navController = navController,
-        startDestination = NavDestinations.Home   /*la primera screen en visualizarse va a ser la de splash*/
+        startDestination = NavDestinations.Login   /*la primera screen en visualizarse va a ser la de splash*/
     ) {
 
         composable<NavDestinations.Splash> {
