@@ -1,5 +1,6 @@
 package ar.com.be_tp3_g4.ui.screens
 
+import CustomBottomNavBar
 import CustomBottomNavBarPreview
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -24,13 +25,15 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.navigation.NavController
+import ar.com.be_tp3_g4.data.Items
 import ar.com.be_tp3_g4.data.productList
 import ar.com.be_tp3_g4.ui.components.Card
 import ar.com.be_tp3_g4.ui.components.HorizontalList
 
 @Composable
 fun HomeScreen(
-    goToExplore : () -> Unit
+    goToExplore : () -> Unit, navController : NavController
 ) {
     Scaffold(
         topBar = {
@@ -38,7 +41,7 @@ fun HomeScreen(
         },
 
         bottomBar = {
-            CustomBottomNavBarPreview()
+            CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
         },
 
         content = { padding ->
@@ -63,9 +66,9 @@ fun HomeScreen(
                             style = MaterialTheme.typography.titleMedium
 
                         )
-                        Button(onClick = { goToExplore() }) {
+                        /*Button(onClick = { goToExplore() }) {
                          Text(text = "APRETA Y GANA PAPA")   
-                        }
+                        }*/
                     }
 
                 }

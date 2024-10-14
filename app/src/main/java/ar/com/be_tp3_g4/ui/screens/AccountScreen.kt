@@ -1,5 +1,6 @@
 package ar.com.be_tp3_g4.ui.screens
 
+import CustomBottomNavBar
 import CustomBottomNavBarPreview
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -16,7 +17,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import ar.com.be_tp3_g4.R
+import ar.com.be_tp3_g4.data.Items
 import ar.com.be_tp3_g4.model.User
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
@@ -26,13 +30,13 @@ import logout
 data class MenuItem(val title: String, val iconRes: Int, val isSwitch: Boolean = false)
 
 @Composable
-fun AccountScreen(user: User) {
+fun AccountScreen(navController : NavController,user: User,) {
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.account, menu = { })
         },
         bottomBar = {
-            CustomBottomNavBarPreview()
+            CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
         },
         content = { paddingValues ->
             Column(
@@ -150,17 +154,18 @@ fun MenuItemView(item: MenuItem) {
         }
     }
 }
-
 @Preview(showBackground = true)
 @Composable
 fun PreviewAccountScreen() {
+
     BE_TP3_G4Theme {
+        val navController = rememberNavController()
         val exampleAccount = User(
             username = "Enrique Iglesias",
             password = "",
             email = "EnriqueIglesias@gmail.com",
             imageRes = R.drawable.gatotierno
         )
-        AccountScreen(user = exampleAccount)
+        AccountScreen(user = exampleAccount, navController = navController)
     }
 }

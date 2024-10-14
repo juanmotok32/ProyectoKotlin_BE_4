@@ -14,14 +14,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import ar.com.be_tp3_g4.R
+import ar.com.be_tp3_g4.data.Items
 import ar.com.be_tp3_g4.ui.components.Btn
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 data class FavoriteItem(val name: String, val size: String, val price: String, val imageRes: Int)
 
 @Composable
-fun FavoritesScreen() {
+fun FavoritesScreen(navController : NavController) {
     val favoriteItems = remember {
         listOf(
             FavoriteItem("Sprite Can", "325ml", "$1.50", R.drawable.sprite),
@@ -33,6 +35,9 @@ fun FavoritesScreen() {
     }
 
     Scaffold(
+        bottomBar = {
+            CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
+        },
         content = { paddingValues ->
             Column(modifier = Modifier.padding(paddingValues)) {
                 TopBar("Favorites")
@@ -104,6 +109,7 @@ fun FavoriteItemRow(item: FavoriteItem) {
         )
     }
 }
+/*
 
 @Preview(showBackground = true)
 @Composable
@@ -112,3 +118,4 @@ fun PreviewFavoritesScreen() {
         FavoritesScreen()
     }
 }
+*/

@@ -15,7 +15,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import ar.com.be_tp3_g4.R
+import ar.com.be_tp3_g4.data.Items
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 import ar.com.be_tp3_g4.ui.components.Btn
 import ar.com.be_tp3_g4.ui.components.BtnCant
@@ -26,7 +28,7 @@ import ar.com.be_tp3_g4.data.productList
 data class CartItem(val name: String, val details: String, val price: String, val imageRes: Int, var quantity: Int)
 
 @Composable
-fun CartScreen() {
+fun CartScreen(navController : NavController) {
     val cartItems = remember {
         mutableStateOf(
             listOf(
@@ -42,6 +44,8 @@ fun CartScreen() {
         topBar = {
             TopAppBar(tittle = R.string.myCart_topbar, menu = { })
         },
+        bottomBar = {CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)},
+
         content = { paddingValues ->
             Column(
                 modifier = Modifier
@@ -75,11 +79,11 @@ fun CartScreen() {
         }
     )
 }
-
+/*
 @Preview
 @Composable
 fun PreviewCartScreen() {
     BE_TP3_G4Theme {
         CartScreen()
     }
-}
+}*/

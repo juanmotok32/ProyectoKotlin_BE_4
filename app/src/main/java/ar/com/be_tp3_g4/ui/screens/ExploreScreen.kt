@@ -1,5 +1,6 @@
 package ar.com.be_tp3_g4.ui.screens
 
+import CustomBottomNavBar
 import CustomBottomNavBarPreview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,16 +21,18 @@ import ar.com.be_tp3_g4.ui.components.SearchBar
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 import androidx.compose.foundation.lazy.grid.items
+import androidx.navigation.NavController
+import ar.com.be_tp3_g4.data.Items
 
 @Composable
-fun ExploreScreen() {
+fun ExploreScreen(navController : NavController) {
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.find_products, menu = { })
         },
 
         bottomBar = {
-            CustomBottomNavBarPreview()
+            CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
         },
 
         content = { padding ->
@@ -67,6 +70,7 @@ fun ExploreScreen() {
     )
 }
 
+/*
 
 @Preview
 @Composable
@@ -75,4 +79,4 @@ fun showScreen() {
     BE_TP3_G4Theme {
         ExploreScreen()
     }
-}
+}*/

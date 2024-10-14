@@ -1,5 +1,6 @@
 package ar.com.be_tp3_g4.navigation
 
+import androidx.navigation.NavController
 import kotlinx.serialization.Serializable
 
 

@@ -30,6 +30,8 @@ import kotlin.time.Duration.Companion.seconds
 
 @Composable
 fun AppNavigation(userRepository: UserRepositoryImp) {
+
+
     val navController = rememberNavController()
     val windowSizeHelper = WindowSizeHelper()
     val authViewModel: AuthViewModel =
@@ -37,7 +39,7 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
 
     NavHost(
         navController = navController,
-        startDestination = NavDestinations.Splash   /*la primera screen en visualizarse va a ser la de splash*/
+        startDestination = NavDestinations.Home   /*la primera screen en visualizarse va a ser la de splash*/
     ) {
 
         composable<NavDestinations.Splash> {
@@ -73,6 +75,7 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
                 windowSizeHelper = windowSizeHelper,
                 goToLocation = { navController.navigate(NavDestinations.Location) },
                 userRepository = userRepository
+
             )
         }
 
@@ -87,27 +90,27 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
         }
 
         composable<NavDestinations.BottomBar> {
-            CustomBottomNavBar(items = Items, onItemSelected = {}, navController)
+        CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
         }
 
         composable<NavDestinations.Home> {
-            HomeScreen(goToExplore = {navController.navigate(NavDestinations.Explore)})
+            HomeScreen(goToExplore = {navController.navigate(NavDestinations.Explore)}, navController = navController)
         }
 
         composable<NavDestinations.Explore> {
-            ExploreScreen()
+            ExploreScreen(navController = navController)
         }
 
         composable<NavDestinations.MyCart> {
-            CartScreen()
+            CartScreen(navController = navController)
         }
 
         composable<NavDestinations.Favorites> {
-            FavoritesScreen()
+            FavoritesScreen(navController = navController)
         }
 
         composable<NavDestinations.Account> {
-            AccountScreen(user = User("", " ", "", 0)) /*consumir de fake data despues*/
+            AccountScreen(navController = navController, user = User("", " ", "", 0)) /*consumir de fake data despues*/
         }
 
         composable<NavDestinations.ProductDetail> {
