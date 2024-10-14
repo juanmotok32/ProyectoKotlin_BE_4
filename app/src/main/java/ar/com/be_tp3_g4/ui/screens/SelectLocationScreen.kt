@@ -32,7 +32,7 @@ import ar.com.be_tp3_g4.ui.components.TittleSub
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
-fun SelectLocationScreen(goBack: () -> Unit) {
+fun SelectLocationScreen(goBack: () -> Unit, submit: () -> Unit) {
     Column(
         modifier = Modifier
             .padding(20.dp)
@@ -67,7 +67,7 @@ fun SelectLocationScreen(goBack: () -> Unit) {
         Spacer(modifier = Modifier.height(26.dp))
 
         Btn(
-            onClick = { /*agregar logica para que guarde las cosas el vm y que navegue a home*/ },
+            onClick = { submit() },
             text = R.string.submit
         )
     }
@@ -102,6 +102,6 @@ fun BackImgPreview() {
 @Composable
 fun SelectLocationScreenPreview() {
     BE_TP3_G4Theme {
-        SelectLocationScreen(goBack = {})
+        SelectLocationScreen(goBack = {}, submit = {})
     }
 }

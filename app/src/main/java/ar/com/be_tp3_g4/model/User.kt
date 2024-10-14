@@ -25,6 +25,7 @@ package ar.com.be_tp3_g4.model
 
 data class User (
     val username: String,
-    val email: Double,
-    val password: String
+    val email: String,
+    val password: String,
+    val imageRes: Int   /*para account*/
 )

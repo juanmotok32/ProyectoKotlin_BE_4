@@ -1,5 +1,6 @@
 package ar.com.be_tp3_g4.navigation
 
+import androidx.navigation.NavController
 import kotlinx.serialization.Serializable
 
 
@@ -23,5 +24,24 @@ sealed interface NavDestinations {
     data object Location: NavDestinations
 
     @Serializable
-    data object ExploreScreen: NavDestinations
+    data object Home : NavDestinations
+
+    @Serializable
+    data object Explore: NavDestinations
+
+    @Serializable
+    data object MyCart: NavDestinations
+
+    @Serializable
+    data object Favorites: NavDestinations
+
+    @Serializable
+    data object Account: NavDestinations
+
+    @Serializable
+    data object ProductDetail: NavDestinations
+
+    @Serializable
+    data object BottomBar: NavDestinations
+
 }

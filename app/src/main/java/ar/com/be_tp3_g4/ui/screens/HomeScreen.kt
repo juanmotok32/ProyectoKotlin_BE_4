@@ -1,16 +1,16 @@
 package ar.com.be_tp3_g4.ui.screens
 
+import CustomBottomNavBar
 import CustomBottomNavBarPreview
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -25,19 +25,23 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.navigation.NavController
+import ar.com.be_tp3_g4.data.Items
 import ar.com.be_tp3_g4.data.productList
 import ar.com.be_tp3_g4.ui.components.Card
 import ar.com.be_tp3_g4.ui.components.HorizontalList
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    goToExplore : () -> Unit, navController : NavController
+) {
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.search_screen_name, menu = { })
         },
 
         bottomBar = {
-            CustomBottomNavBarPreview()
+            CustomBottomNavBar(items = Items, onItemSelected = {}, navController = navController)
         },
 
         content = { padding ->
@@ -45,7 +49,6 @@ fun HomeScreen() {
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(padding),
-                // verticalArrangement = Arrangement.spacedBy(8.dp),
                 contentPadding = PaddingValues(10.dp)
             ) {
                 item {
@@ -120,6 +123,7 @@ fun HomeScreen() {
     )
 }
 
+/*
 
 @Preview
 @Composable
@@ -128,4 +132,4 @@ fun showHomeScreen() {
     BE_TP3_G4Theme {
         HomeScreen()
     }
-}
+}*/
