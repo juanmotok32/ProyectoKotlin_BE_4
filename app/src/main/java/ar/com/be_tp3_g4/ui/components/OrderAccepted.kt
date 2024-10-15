@@ -28,7 +28,7 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 
 @Composable
-fun OrderAccepted(showPopup: Boolean, onDismiss: () -> Unit) {
+fun OrderAccepted(showPopup: Boolean = false, onDismiss: () -> Unit, goToHome: ()->Unit={} ) {
     AnimatedVisibility(
         visible = showPopup, enter = fadeIn(),  // Animación de entrada
         exit = fadeOut()   // Animación de salida
@@ -86,7 +86,9 @@ fun OrderAccepted(showPopup: Boolean, onDismiss: () -> Unit) {
                         text = R.string.track_order
                     ) //actualmente cierra el dialog porque no se implementa el track
 
-                    Btn(onClick = {onDismiss()  }, text = R.string.back_to_home)
+                    Btn(onClick = {onDismiss()
+                        goToHome()},
+                        text = R.string.back_to_home)
 
 
                 }

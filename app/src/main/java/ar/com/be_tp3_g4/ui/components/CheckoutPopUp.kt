@@ -23,7 +23,7 @@ import ar.com.be_tp3_g4.ui.components.OrderAccepted
 
 
 @Composable
-fun CheckoutDialog(showDialog: Boolean, onDismiss: () -> Unit) {
+fun CheckoutDialog(showDialog: Boolean, onDismiss: () -> Unit, goToHome: ()->Unit= {}) {
     var orderAccepted = remember {
         mutableStateOf(false)
     }
@@ -77,7 +77,9 @@ fun CheckoutDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                 }
                 OrderAccepted(
                     showPopup = orderAccepted.value,
-                    onDismiss = { orderAccepted.value = false })
+                    onDismiss = { orderAccepted.value = false
+                        onDismiss()},
+                    goToHome = goToHome)
 
 
             }

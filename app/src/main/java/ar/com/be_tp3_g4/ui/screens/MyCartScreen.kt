@@ -22,6 +22,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.navigation.NavController
 import ar.com.be_tp3_g4.data.Items
+import ar.com.be_tp3_g4.navigation.NavDestinations
 
 @Composable
 fun CartScreen(navController: NavController) {
@@ -67,7 +68,9 @@ fun CartScreen(navController: NavController) {
                     .padding(16.dp)
             )
         }
-        CheckoutDialog(showDialog = showDialog.value, onDismiss = { showDialog.value = false })
+        CheckoutDialog(showDialog = showDialog.value,
+            onDismiss = { showDialog.value = false },
+            goToHome = {navController.navigate(NavDestinations.Home)})
 
 
     })

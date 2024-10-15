@@ -15,6 +15,7 @@ import ar.com.be_tp3_g4.helpers.WindowSizeHelper
 import ar.com.be_tp3_g4.model.Product
 import ar.com.be_tp3_g4.model.User
 import ar.com.be_tp3_g4.repository.UserRepositoryImp
+import ar.com.be_tp3_g4.ui.components.OrderAccepted
 import ar.com.be_tp3_g4.ui.screens.AccountScreen
 import ar.com.be_tp3_g4.ui.screens.CartScreen
 import ar.com.be_tp3_g4.ui.screens.Categories
@@ -23,6 +24,7 @@ import ar.com.be_tp3_g4.ui.screens.FavoritesScreen
 import ar.com.be_tp3_g4.ui.screens.HomeScreen
 import ar.com.be_tp3_g4.ui.screens.OnboardingScreen
 import ar.com.be_tp3_g4.ui.screens.ProductDetailScreen
+import ar.com.be_tp3_g4.ui.screens.SearchScreen
 import ar.com.be_tp3_g4.ui.screens.SelectLocationScreen
 import ar.com.be_tp3_g4.ui.screens.SplashScreen
 import ar.com.be_tp3_g4.ui.screens.auth.AuthViewModel
@@ -42,7 +44,7 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
 
     NavHost(
         navController = navController,
-        startDestination = NavDestinations.Onboarding   /*la primera screen en visualizarse va a ser la de splash*/
+        startDestination = NavDestinations.Explore   /*la primera screen en visualizarse va a ser la de splash*/
     ) {
 
         composable<NavDestinations.Splash> {
@@ -140,6 +142,12 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
         ) { backStackEntry ->
             val categoryName = backStackEntry.arguments?.getString("categoryName")
             Categories(categoryName = categoryName ?: "", navController = navController)
+        }
+
+        composable("searchScreen/{search}"
+        ) { backStackEntry ->
+            val search = backStackEntry.arguments?.getString("search")
+            SearchScreen(search = search?:"", navController = navController)
         }
     }
 

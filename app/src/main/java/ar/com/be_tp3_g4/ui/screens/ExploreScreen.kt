@@ -18,14 +18,19 @@ import ar.com.be_tp3_g4.ui.components.CardCategory
 import ar.com.be_tp3_g4.ui.components.SearchBar
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.navigation.NavController
 import ar.com.be_tp3_g4.data.Items
+import ar.com.be_tp3_g4.navigation.NavDestinations
 import ar.com.be_tp3_g4.ui.components.FilterDialog
 
 @Composable
 fun ExploreScreen(navController: NavController) {
+
+    var searchText by remember { mutableStateOf("") }
     var showFilter = remember {
         mutableStateOf(false)
 
@@ -53,8 +58,9 @@ fun ExploreScreen(navController: NavController) {
             ) {
                 Spacer(modifier = Modifier.padding(2.dp))
 
-                SearchBar(searchValue = stringResource(id = R.string.placeholder_search),
-                    onSearch = { },
+                SearchBar(searchValue = searchText,
+                    onSearch = {newValue -> searchText = newValue
+                        navController.navigate("searchScreen/${searchText}")  },
                     onFilter = { showFilter.value = true })
 
 

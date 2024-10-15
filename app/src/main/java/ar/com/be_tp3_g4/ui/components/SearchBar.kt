@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
@@ -13,6 +14,9 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,8 +24,6 @@ import androidx.compose.ui.unit.dp
 import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
-
-//los value (statte) y lasa funciones (modifican el state) se reciben x parametro, x mas quee dsps no las usemos xq no lo piden
 @Composable
 fun SearchBar(
     searchValue: String,
@@ -33,7 +35,16 @@ fun SearchBar(
         value = searchValue, onValueChange = onSearch,
         modifier = modifier
             .fillMaxWidth()
-            .height(56.dp),
+            .height(56.dp)
+            .onKeyEvent { keyEvent ->
+                if (keyEvent.key == Key.Enter) {
+                    // Aquí puedes manejar la búsqueda
+                    onSearch(searchValue) // Realiza la búsqueda
+                    true
+                } else {
+                    false
+                }
+            },
         shape = RoundedCornerShape(19.dp),
 
         //icono del principio (lupita)
@@ -47,12 +58,17 @@ fun SearchBar(
             unfocusedContainerColor = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.15f),
             focusedContainerColor = MaterialTheme.colorScheme.onTertiary.copy(alpha = 0.5f),
             focusedTextColor = MaterialTheme.colorScheme.inversePrimary,
-            unfocusedTextColor = MaterialTheme.colorScheme.tertiary
+            unfocusedTextColor = MaterialTheme.colorScheme.tertiary,
+            selectionColors = TextSelectionColors(
+                handleColor = MaterialTheme.colorScheme.primary,  // Color de la burbuja
+                backgroundColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.4f)  // Color de la selección
+            )
 
 
         ),
         placeholder = {
-            Text(stringResource(R.string.placeholder_search))
+            if (searchValue.isEmpty()){
+            Text(stringResource(R.string.placeholder_search))}
         },
 
         //icono del fondo (filtrart o lo q sea q necesitemos

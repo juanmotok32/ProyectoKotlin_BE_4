@@ -1,5 +1,6 @@
 package ar.com.be_tp3_g4.ui.screens
 
+import CustomBottomNavBar
 import CustomBottomNavBarPreview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -18,29 +19,42 @@ import ar.com.be_tp3_g4.ui.components.SearchBar
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.navigation.NavController
+import ar.com.be_tp3_g4.data.Items
 import ar.com.be_tp3_g4.data.productList
 import ar.com.be_tp3_g4.ui.components.Card
 import ar.com.be_tp3_g4.ui.components.FilterDialog
 
 @Composable
-fun SearchScreen() {
+fun SearchScreen(search: String, navController: NavController) {
 
+    var searchText by remember { mutableStateOf(search) }
     var showFilter = remember {
         mutableStateOf(false)}
+
+    val filteredProducts = productList.filter { it.name.contains(searchText, ignoreCase = true) ||
+            it.category.contains(searchText, ignoreCase = true)}
+
+
+
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.search_screen_name, menu = { })
         },
 
         bottomBar = {
-            CustomBottomNavBarPreview()
-        },
+            CustomBottomNavBar(
+                items = Items,
+                selectedItem = "Explore",
+                onItemSelected = {},
+                navController = navController
+            )},
 
         content = { padding ->
-            // Aquí va el contenido principal de la pantalla
-            // Asegúrate de aplicar el padding
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -49,17 +63,17 @@ fun SearchScreen() {
                 Spacer(modifier = Modifier.padding(2.dp))
 
 
-                SearchBar(searchValue = stringResource(id = R.string.placeholder_search),
-                    onSearch = { },
-                    onFilter = { showFilter.value = true })
+                SearchBar(searchValue = searchText,
+                    onSearch = {newValue -> searchText = newValue},
 
+                    onFilter = { showFilter.value = true })
 
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(2),
                     modifier = Modifier.padding(16.dp)
                 ) {
-                    items(productList) { product ->
-                        Card(goToDetails = {},
+                    items(filteredProducts) { product ->
+                        Card(goToDetails = {navController.navigate("productDetail/${product.name}")},
                             addToCart = {},
                             product = product
                         )
@@ -74,6 +88,7 @@ fun SearchScreen() {
     )
 }
 
+/*
 
 @Preview
 @Composable
@@ -82,4 +97,4 @@ fun showSScreen() {
     BE_TP3_G4Theme {
         SearchScreen()
     }
-}
+}*/

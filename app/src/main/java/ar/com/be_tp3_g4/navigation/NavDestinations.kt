@@ -39,9 +39,10 @@ sealed interface NavDestinations {
     data object Account: NavDestinations
 
     @Serializable
-    data object ProductDetail: NavDestinations
+    data object BottomBar: NavDestinations
 
     @Serializable
-    data object BottomBar: NavDestinations
+    data object SearchScreen: NavDestinations
+
 
 }
