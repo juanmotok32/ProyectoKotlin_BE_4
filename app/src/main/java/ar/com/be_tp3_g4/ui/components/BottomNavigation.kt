@@ -37,8 +37,8 @@ fun CustomBottomNavBar(
                     onItemSelected(index)
                 },
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = if (isSelected) MaterialTheme.colorScheme.secondary else Color.Black, // Color verde para el seleccionado, negro para el no seleccionado
-                    unselectedIconColor = if (isSelected) MaterialTheme.colorScheme.secondary else Color.Black
+                    selectedIconColor = if (isSelected) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.inversePrimary, // Color verde para el seleccionado, negro para el no seleccionado
+                    unselectedIconColor = if (isSelected) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.inversePrimary
                 )
             )
         }

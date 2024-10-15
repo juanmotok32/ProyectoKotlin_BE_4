@@ -35,7 +35,7 @@ fun Btn(onClick: () -> Unit, @StringRes text: Int, modifier: Modifier = Modifier
             stringResource(text),
             fontSize = 18.sp,
             fontWeight = FontWeight(600),
-            color = MaterialTheme.colorScheme.primary
+            color = Color.White
         )
     }
 }

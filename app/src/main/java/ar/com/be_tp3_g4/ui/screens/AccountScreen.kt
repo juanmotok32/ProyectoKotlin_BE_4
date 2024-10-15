@@ -31,7 +31,7 @@ data class MenuItem(val title: String, val iconRes: Int, val isSwitch: Boolean =
 
 @Composable
 fun AccountScreen(navController: NavController, user: User) {
-    Scaffold(
+    Scaffold(modifier = Modifier.background(MaterialTheme.colorScheme.primary)        ,
         topBar = {
             TopAppBar(tittle = R.string.account, menu = { })
         },
@@ -40,14 +40,16 @@ fun AccountScreen(navController: NavController, user: User) {
                 items = Items,
                 selectedItem = "Account",
                 onItemSelected = {},
-                navController = navController
+                navController = navController,
+
+
             )
         },
         content = { paddingValues ->
             Column(
                 modifier = Modifier
                     .padding(paddingValues)
-                    .background(Color(0xFFFCFCFC))
+                    .background(MaterialTheme.colorScheme.primary)
             ) {
                 DetailsAccount() // user
                 Spacer(modifier = Modifier.height(16.dp))
@@ -57,6 +59,7 @@ fun AccountScreen(navController: NavController, user: User) {
         floatingActionButton = {
             logout()
         }
+
     )
 }
 
@@ -66,7 +69,9 @@ fun DetailsAccount() { // user: User
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 8.dp)
+            .background(MaterialTheme.colorScheme.primary)
+        ,
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -79,17 +84,23 @@ fun DetailsAccount() { // user: User
                 modifier = Modifier
                     .size(60.dp)
                     .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.primary)
             ) {
                 Image(
                     painter = painterResource(R.drawable.gatotierno), // id = user.imageRes
                     contentDescription = "Enrique", //  user.username
                     modifier = Modifier.fillMaxSize()
+                        .background(MaterialTheme.colorScheme.primary)
                 )
             }
             Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "Enrique", style = MaterialTheme.typography.bodyLarge) //                     Text(text = user.username, style = MaterialTheme.typography.bodyLarge)
+                    Text(
+                        text = "Enrique",
+                        style = MaterialTheme.typography.bodyLarge
+
+                    ) //                     Text(text = user.username, style = MaterialTheme.typography.bodyLarge)
                     Spacer(modifier = Modifier.width(4.dp))
                     Icon(
                         painter = painterResource(id = R.drawable.cambiarnombre),
@@ -97,10 +108,14 @@ fun DetailsAccount() { // user: User
                         modifier = Modifier
                             .size(20.dp)
                             .padding(2.dp),
-                        tint = Color(0xFF53B175)
+                        tint = MaterialTheme.colorScheme.inversePrimary
+
                     )
                 }
-                Text(text = "juanse@gmail.com", style = MaterialTheme.typography.bodySmall) //                 Text(text = user.email, style = MaterialTheme.typography.bodySmall)
+                Text(
+                    text = "juanse@gmail.com",
+                    style = MaterialTheme.typography.bodySmall
+                ) //                 Text(text = user.email, style = MaterialTheme.typography.bodySmall)
 
             }
         }
@@ -161,6 +176,7 @@ fun MenuItemView(item: MenuItem) {
         }
     }
 }
+
 @Preview(showBackground = true)
 @Composable
 fun PreviewAccountScreen() {

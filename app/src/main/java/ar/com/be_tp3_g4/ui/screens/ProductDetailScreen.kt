@@ -38,10 +38,13 @@ fun ProductDetailScreen(product: Product, onAddToCart: () -> Unit) {
                     .fillMaxSize()
                     .padding(paddingValues)
                     .padding(16.dp)
-                    .background(Color(0xFFFCFCFC))
+                    .background(MaterialTheme.colorScheme.primary)
             ) {
                 Column(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(MaterialTheme.colorScheme.primary),
+
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Image(
@@ -62,7 +65,7 @@ fun ProductDetailScreen(product: Product, onAddToCart: () -> Unit) {
                     Text(
                         text = product.content,
                         style = MaterialTheme.typography.bodyLarge.copy(fontSize = 14.sp),
-                        color = MaterialTheme.colorScheme.tertiary,
+                        color = MaterialTheme.colorScheme.inversePrimary,
                         modifier = Modifier.align(Alignment.Start)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
@@ -77,13 +80,14 @@ fun ProductDetailScreen(product: Product, onAddToCart: () -> Unit) {
                             style = MaterialTheme.typography.bodyLarge.copy(fontSize = 25.sp),
                             color = MaterialTheme.colorScheme.inversePrimary,
                             fontWeight = FontWeight.Bold,
-                            modifier = Modifier.align(Alignment.CenterVertically)
+                            modifier = Modifier
+                                .align(Alignment.CenterVertically)
                                 .padding(10.dp)
                         )
                     }
                 }
                 Spacer(modifier = Modifier.height(30.dp))
-                Divider(thickness = 1.dp, color = Color.Gray)
+                Divider(thickness = 1.dp, color = MaterialTheme.colorScheme.tertiary)
                 Spacer(modifier = Modifier.height(15.dp))
                 Row {
                     Column(modifier = Modifier.weight(1f)) {
@@ -100,7 +104,7 @@ fun ProductDetailScreen(product: Product, onAddToCart: () -> Unit) {
                     }
                 }
                 Spacer(modifier = Modifier.height(20.dp))
-                Divider(thickness = 1.dp, color = Color.Gray)
+                Divider(thickness = 1.dp, color = MaterialTheme.colorScheme.tertiary)
                 Spacer(modifier = Modifier.height(10.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -127,7 +131,8 @@ fun ProductDetailScreen(product: Product, onAddToCart: () -> Unit) {
                             ) {
                                 Text(
                                     text = "100g",
-                                    style = MaterialTheme.typography.bodyLarge.copy(fontSize = 12.sp)
+                                    style = MaterialTheme.typography.bodyLarge.copy(fontSize = 12.sp),
+                                    color = MaterialTheme.colorScheme.onPrimary
                                 )
                             }
                             Icon(
@@ -138,7 +143,7 @@ fun ProductDetailScreen(product: Product, onAddToCart: () -> Unit) {
                     }
                 }
                 Spacer(modifier = Modifier.height(15.dp))
-                Divider(thickness = 1.dp, color = Color.Gray)
+                Divider(thickness = 1.dp, color = MaterialTheme.colorScheme.tertiary)
                 Spacer(modifier = Modifier.height(15.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -172,7 +177,7 @@ fun ProductDetailScreen(product: Product, onAddToCart: () -> Unit) {
                         .padding(16.dp)
                 )
             }
-        }
+        }, modifier = Modifier.background(MaterialTheme.colorScheme.primary)
     )
 }
 
@@ -188,7 +193,9 @@ fun PreviewProductDetailScreen() {
             description = "Refresco gaseoso sabor cola",
             content = "330ml"
         )
-        ProductDetailScreen(product = exampleProduct, onAddToCart = { /* Acción agregar al carrito */ })
+        ProductDetailScreen(
+            product = exampleProduct,
+            onAddToCart = { /* Acción agregar al carrito */ })
     }
 }
 

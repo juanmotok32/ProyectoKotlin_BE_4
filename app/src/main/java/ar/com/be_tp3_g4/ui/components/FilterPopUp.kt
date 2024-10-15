@@ -99,7 +99,7 @@ fun FilterRow(
             )
         )
         Text(
-            text = text, color = if (isChecked) Color(0xFF4CAF50) else Color.Black
+            text = text, color = if (isChecked) Color(0xFF4CAF50) else MaterialTheme.colorScheme.inversePrimary
         )
     }
 }

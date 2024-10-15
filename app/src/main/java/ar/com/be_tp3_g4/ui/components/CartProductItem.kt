@@ -69,7 +69,7 @@ fun CartProductItem(name: String, content: String, @DrawableRes image: Int, pric
                         text = R.string.quitar,
                         textColor = MaterialTheme.colorScheme.inversePrimary,
                         color = MaterialTheme.colorScheme.primary,
-                        borderColor = Color.Black,
+                        borderColor = MaterialTheme.colorScheme.onTertiary,
 
                         )
                     Spacer(modifier = Modifier.width(8.dp))
@@ -81,7 +81,7 @@ fun CartProductItem(name: String, content: String, @DrawableRes image: Int, pric
                         text = R.string.agregar,
                         textColor = MaterialTheme.colorScheme.secondary,
                         color = MaterialTheme.colorScheme.primary,
-                        borderColor = Color.Black
+                        borderColor = MaterialTheme.colorScheme.onTertiary,
                     )
                 }
 

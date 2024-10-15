@@ -4,11 +4,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -18,15 +18,13 @@ import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
-fun Btn(onClick: () -> Unit, @StringRes text: Int, icon: Painter, modifier: Modifier = Modifier) {
+fun BtnInverso(onClick: () -> Unit, @StringRes text: Int, icon: Painter, modifier: Modifier = Modifier) {
     Button(
         onClick = onClick,
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(19.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.White,
-            contentColor = Color(0xFF53B175)
-        )
+        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onTertiary)
+
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -38,7 +36,7 @@ fun Btn(onClick: () -> Unit, @StringRes text: Int, icon: Painter, modifier: Modi
                 modifier = Modifier.size(24.dp)
             )
             Spacer(modifier = Modifier.width(8.dp))
-            Text(stringResource(text))
+            Text(stringResource(text), color = MaterialTheme.colorScheme.secondary)
         }
     }
 }
@@ -47,7 +45,7 @@ fun Btn(onClick: () -> Unit, @StringRes text: Int, icon: Painter, modifier: Modi
 @Composable
 fun logout() {
     BE_TP3_G4Theme {
-        Btn(
+        BtnInverso(
             onClick = { /*TODO*/ },
             text = R.string.logout,
             icon = painterResource(id = R.drawable.logout)

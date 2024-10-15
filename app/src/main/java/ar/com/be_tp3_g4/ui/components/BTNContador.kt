@@ -2,6 +2,7 @@
 package ar.com.be_tp3_g4.ui.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
@@ -16,10 +17,16 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 @Composable
 fun Counter() {
     var count by remember { mutableStateOf(1) }
-    Row(modifier = Modifier.padding(16.dp)) {
+    Row(
+        modifier = Modifier
+            .padding(16.dp)
+            .background(MaterialTheme.colorScheme.primary)
+    ) {
         Button(
             onClick = { if (count > 0) count-- },
-            colors = ButtonDefaults.buttonColors(containerColor = Color.White, contentColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(
+                contentColor = MaterialTheme.colorScheme.inversePrimary
+            )
         ) {
             Text(text = "-")
         }
@@ -27,21 +34,27 @@ fun Counter() {
             onClick = {},
             modifier = Modifier
                 .padding(horizontal = 1.dp),
-            border = BorderStroke(1.dp, Color.Gray),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary),
             shape = CircleShape,
-            colors = ButtonDefaults.buttonColors(containerColor = Color.White, contentColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(
+                contentColor = MaterialTheme.colorScheme.inversePrimary
+            )
         ) {
             Text(text = count.toString())
         }
         Button(
             onClick = { count++ },
-            colors = ButtonDefaults.buttonColors(containerColor = Color.White, contentColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(
+
+                contentColor = MaterialTheme.colorScheme.inversePrimary
+            )
         ) {
             Text(text = "+")
         }
     }
 
 }
+
 @Preview(showBackground = true)
 @Composable
 fun PreviewCounter() {

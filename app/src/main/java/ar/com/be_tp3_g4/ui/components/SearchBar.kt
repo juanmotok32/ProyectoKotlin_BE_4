@@ -21,7 +21,6 @@ import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 
-
 //los value (statte) y lasa funciones (modifican el state) se reciben x parametro, x mas quee dsps no las usemos xq no lo piden
 @Composable
 fun SearchBar(
@@ -46,7 +45,11 @@ fun SearchBar(
         },
         colors = TextFieldDefaults.colors(
             unfocusedContainerColor = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.15f),
-            focusedContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f)
+            focusedContainerColor = MaterialTheme.colorScheme.onTertiary.copy(alpha = 0.5f),
+            focusedTextColor = MaterialTheme.colorScheme.inversePrimary,
+            unfocusedTextColor = MaterialTheme.colorScheme.tertiary
+
+
         ),
         placeholder = {
             Text(stringResource(R.string.placeholder_search))
@@ -55,21 +58,22 @@ fun SearchBar(
         //icono del fondo (filtrart o lo q sea q necesitemos
         trailingIcon = {
             Icon(
-                painter = painterResource(id =R.drawable.filtervector),
+                painter = painterResource(id = R.drawable.filtervector),
                 contentDescription = stringResource(id = R.string.filtrar), //no enbcuentro el icono de filtrar, esto que traje es lo mas parecido q encontre
-                modifier = Modifier.clickable {onFilter()
+                modifier = Modifier.clickable {
+                    onFilter()
 
                 }
             )
         }
     )
 }
-/*
 
 @Preview
 @Composable
 fun SearchBarPreview() {
     BE_TP3_G4Theme {
-        SearchBar(searchValue = "", onSearch = {})
+        SearchBar(searchValue = "A", onSearch = {}, onFilter = { /*TODO*/ })
+
     }
-}*/
+}

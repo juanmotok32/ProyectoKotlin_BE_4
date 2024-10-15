@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.sp
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
-fun Btn(onClick: () -> Unit, prices: List<Float>, modifier: Modifier = Modifier) {
+fun BtnInverso(onClick: () -> Unit, prices: List<Float>, modifier: Modifier = Modifier) {
     val totalSum = prices.sum()
     Button(
         onClick = onClick,
@@ -48,6 +48,6 @@ fun Btn(onClick: () -> Unit, prices: List<Float>, modifier: Modifier = Modifier)
 @Composable
 fun BtnPreview() {
     BE_TP3_G4Theme {
-        Btn(onClick = { /*TODO*/ }, prices = listOf(10.99f, 20.50f, 5.75f))
+        BtnInverso(onClick = { /*TODO*/ }, prices = listOf(10.99f, 20.50f, 5.75f))
     }
 }

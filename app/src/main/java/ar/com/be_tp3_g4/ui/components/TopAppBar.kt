@@ -12,6 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import ar.com.be_tp3_g4.R
@@ -22,16 +23,20 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 @Composable
 fun TopAppBar(
     @StringRes tittle: Int,
-    menu: () -> Unit,
+    menu: () -> Unit
 ) {
     CenterAlignedTopAppBar(title = { Text(text = stringResource(tittle),
         color = MaterialTheme.colorScheme.inversePrimary)
-    },
+    }, modifier = Modifier.background(MaterialTheme.colorScheme.primary),
         navigationIcon = {
             IconButton(onClick = { menu() }) {
                 Icon(
                     imageVector = Icons.Filled.Menu,
-                    contentDescription = stringResource(id = R.string.menu_icon_desc)
+                    contentDescription = stringResource(id = R.string.menu_icon_desc),
+                    tint = MaterialTheme.colorScheme.inversePrimary
+
+
+
                 )
             }
         })

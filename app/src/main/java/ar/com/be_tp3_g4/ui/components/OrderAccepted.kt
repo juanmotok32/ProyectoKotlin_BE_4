@@ -1,5 +1,6 @@
 package ar.com.be_tp3_g4.ui.components
 
+import BtnInverso
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -61,7 +62,7 @@ fun OrderAccepted(showPopup: Boolean, onDismiss: () -> Unit) {
                             .weight(4f)
                     )
                     Text(
-                        text =  stringResource(id = R.string.order_accepted ),
+                        text = stringResource(id = R.string.order_accepted),
                         style = MaterialTheme.typography.headlineLarge,
                         modifier = Modifier.weight(1f),
                         textAlign = TextAlign.Center,
@@ -80,11 +81,13 @@ fun OrderAccepted(showPopup: Boolean, onDismiss: () -> Unit) {
                             .height(16.dp)
                             .weight(1f)
                     )
-                    Btn(onClick = { onDismiss() }, text = R.string.track_order) //actualmente cierra el dialog porque no se implementa el track
-
                     Btn(
-                        onClick = {onDismiss() }, text = R.string.back_to_home
-                    )  //CAMBIAR POR BOTON BLANCO
+                        onClick = { onDismiss() },
+                        text = R.string.track_order
+                    ) //actualmente cierra el dialog porque no se implementa el track
+
+                    Btn(onClick = {onDismiss()  }, text = R.string.back_to_home)
+
 
                 }
 

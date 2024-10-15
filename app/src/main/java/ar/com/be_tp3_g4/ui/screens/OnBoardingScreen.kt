@@ -14,6 +14,7 @@ import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -23,6 +24,7 @@ import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.helpers.WindowSizeHelper
 import ar.com.be_tp3_g4.ui.components.Btn
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
+import ar.com.be_tp3_g4.ui.theme.white
 
 
 @Composable
@@ -39,17 +41,17 @@ private fun OnBoardingSection(
         Spacer(modifier = Modifier.padding(5.dp))
         Text(
             text = "Welcome",
-            color = MaterialTheme.colorScheme.primary,
+            color = Color.White,
             style = MaterialTheme.typography.displayLarge
         )
         Text(
             text = "to our store",
-            color = MaterialTheme.colorScheme.primary,
+            color = Color.White,
             style = MaterialTheme.typography.displayLarge
         )
         Text(
             text = stringResource(id = R.string.onBoarding_subtittle),
-            color = MaterialTheme.colorScheme.tertiary,
+            color = MaterialTheme.colorScheme.onPrimary,
             style = MaterialTheme.typography.displaySmall
 
         )

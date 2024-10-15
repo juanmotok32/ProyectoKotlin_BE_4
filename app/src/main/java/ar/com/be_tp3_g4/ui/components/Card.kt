@@ -40,7 +40,7 @@ fun Card(
             .padding(4.dp),
 
         shape = RoundedCornerShape(18.dp),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.onTertiary),
     ) {
         Column(
             modifier = Modifier
