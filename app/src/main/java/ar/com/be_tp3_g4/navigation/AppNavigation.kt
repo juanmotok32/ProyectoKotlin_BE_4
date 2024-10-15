@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import ar.com.be_tp3_g4.data.Items
+import ar.com.be_tp3_g4.data.productList
 import ar.com.be_tp3_g4.helpers.WindowSizeHelper
 import ar.com.be_tp3_g4.model.Product
 import ar.com.be_tp3_g4.model.User
@@ -98,7 +99,10 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
 
 
         composable<NavDestinations.Home> {
-            HomeScreen(goToExplore = {navController.navigate(NavDestinations.Explore)}, navController = navController)
+            HomeScreen(
+                goToExplore = { navController.navigate(NavDestinations.Explore) },
+                navController = navController
+            )
         }
 
         composable<NavDestinations.Explore> {
@@ -114,15 +118,22 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
         }
 
         composable<NavDestinations.Account> {
-            AccountScreen(navController = navController, user = User("", " ", "", 0)) /*consumir de fake data despues*/
+            AccountScreen(
+                navController = navController,
+                user = User("", " ", "", 0)
+            ) /*consumir de fake data despues*/
         }
 
-        composable<NavDestinations.ProductDetail> {
-            ProductDetailScreen(
-                product = Product("", "", 0.0f, 0, "", ""),
-                onAddToCart = {/*funcion vacia, la logica debe estar en un vm pero no es requerida*/})
+        composable("productDetail/{productName}") { backStackEntry ->
+            val productName = backStackEntry.arguments?.getString("productName")
+            val product = productList.find { it.name == productName }
+            product?.let {
+                ProductDetailScreen(product = it, onAddToCart = { /* acción agregar al carrito */ })
+            }
         }
-
     }
 
 }
+
+
+

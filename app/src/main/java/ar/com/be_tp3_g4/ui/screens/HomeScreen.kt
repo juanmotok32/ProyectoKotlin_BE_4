@@ -2,6 +2,7 @@ package ar.com.be_tp3_g4.ui.screens
 
 import CustomBottomNavBar
 import CustomBottomNavBarPreview
+import HorizontalList
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -29,25 +30,21 @@ import androidx.navigation.NavController
 import ar.com.be_tp3_g4.data.Items
 import ar.com.be_tp3_g4.data.productList
 import ar.com.be_tp3_g4.ui.components.Card
-import ar.com.be_tp3_g4.ui.components.HorizontalList
 
 @Composable
-fun HomeScreen(
-    goToExplore : () -> Unit, navController : NavController
-) {
+fun HomeScreen(goToExplore: () -> Unit, navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.search_screen_name, menu = { })
         },
-
         bottomBar = {
             CustomBottomNavBar(
                 items = Items,
                 selectedItem = "Shop",
                 onItemSelected = {},
                 navController = navController
-            )},
-
+            )
+        },
         content = { padding ->
             LazyColumn(
                 modifier = Modifier
@@ -61,16 +58,13 @@ fun HomeScreen(
                             .fillMaxWidth()
                             .height(40.dp),
                         contentAlignment = Alignment.Center
-
                     ) {
                         Text(
                             text = stringResource(id = R.string.actual_location),
                             textAlign = TextAlign.Center,
                             style = MaterialTheme.typography.titleMedium
-
                         )
                     }
-
                 }
                 item {
                     Image(
@@ -78,7 +72,6 @@ fun HomeScreen(
                         contentDescription = "bannerHome",
                         modifier = Modifier
                             .height(150.dp)
-                            //.width(380.dp)
                             .fillMaxWidth()
                     )
                 }
@@ -89,17 +82,14 @@ fun HomeScreen(
                         modifier = Modifier.padding(16.dp)
                     )
                 }
-                //EXCLUSIVE OFFERS
+                // EXCLUSIVE OFFERS
                 item {
-
-
                     HorizontalList(items = productList) { product ->
                         Card(
-                            goToDetails = { /*TODO*/ },
-                            addToCart = { /*TODO*/ },
+                            goToDetails = { navController.navigate("productDetail/${product.name}") },
+                            addToCart = { /* Acción para agregar al carrito */ },
                             product = product
                         )
-
                     }
                 }
                 item {
@@ -109,19 +99,16 @@ fun HomeScreen(
                         modifier = Modifier.padding(16.dp)
                     )
                 }
+                // LISTA DE MEJORES VENDIDOS
                 item {
-
-                    //LISTA DE MEJORES VENDIDOS
                     HorizontalList(items = productList) { product ->
                         Card(
-                            goToDetails = { /*TODO*/ },
-                            addToCart = { /*TODO*/ },
+                            goToDetails = { navController.navigate("productDetail/${product.name}") },
+                            addToCart = { /* Acción para agregar al carrito */ },
                             product = product
                         )
-
                     }
                 }
-
             }
         }
     )

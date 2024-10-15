@@ -93,7 +93,7 @@ fun ProductDetailScreen(product: Product, onAddToCart: () -> Unit) {
                             modifier = Modifier.align(Alignment.Start)
                         )
                         Text(
-                            text = "Apples Are Nutritious. Apples May Be Good For Weight Loss. Apples May Be Good For Your Heart. As Part Of A Healthful And Varied Diet.",
+                            text = product.description,
                             style = MaterialTheme.typography.bodyLarge.copy(fontSize = 10.sp),
                             modifier = Modifier.align(Alignment.Start)
                         )
@@ -191,3 +191,6 @@ fun PreviewProductDetailScreen() {
         ProductDetailScreen(product = exampleProduct, onAddToCart = { /* Acción agregar al carrito */ })
     }
 }
+
+
+
