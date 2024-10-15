@@ -17,6 +17,10 @@ import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -82,14 +86,31 @@ fun RegisterScreen(
             isPassword = true,
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(14.dp))
+        Row {
 
-        //cambiar por parrafo
-        Text(
-            text = stringResource(id = R.string.forgot_password),
-            color = MaterialTheme.colorScheme.tertiary,
-            style = MaterialTheme.typography.displaySmall,
-        )
+            Text(
+                buildAnnotatedString {
+                    append("By continuing you agree to our ")
+
+                    withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.secondary)) {
+                        append("Terms of Service ") }
+
+                                append("and ")
+                    withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.secondary)){
+                        append("Privacy Policy.")
+                    }
+
+
+
+                },
+                textAlign = TextAlign.Left,
+                color = MaterialTheme.colorScheme.tertiary,
+                style = MaterialTheme.typography.displaySmall,
+            )
+        }
+
+
 
         Spacer(modifier = Modifier.height(22.dp))
 
