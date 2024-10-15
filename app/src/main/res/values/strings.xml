@@ -56,5 +56,8 @@ it’s way to being processed</string>
     <string name="add_basket">Add To Basket</string>
 
     <string name="btn_cart">Go to Checkout</string>
+    <string name="empty_list">No hay productos para esta categoria</string>
+
+
 </resources>
 

@@ -4,9 +4,11 @@ import CustomBottomNavBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import ar.com.be_tp3_g4.data.Items
 import ar.com.be_tp3_g4.data.productList
 import ar.com.be_tp3_g4.helpers.WindowSizeHelper
@@ -15,6 +17,7 @@ import ar.com.be_tp3_g4.model.User
 import ar.com.be_tp3_g4.repository.UserRepositoryImp
 import ar.com.be_tp3_g4.ui.screens.AccountScreen
 import ar.com.be_tp3_g4.ui.screens.CartScreen
+import ar.com.be_tp3_g4.ui.screens.Categories
 import ar.com.be_tp3_g4.ui.screens.ExploreScreen
 import ar.com.be_tp3_g4.ui.screens.FavoritesScreen
 import ar.com.be_tp3_g4.ui.screens.HomeScreen
@@ -130,6 +133,13 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
             product?.let {
                 ProductDetailScreen(product = it, onAddToCart = { /* acción agregar al carrito */ })
             }
+        }
+
+
+        composable("categories/{categoryName}"
+        ) { backStackEntry ->
+            val categoryName = backStackEntry.arguments?.getString("categoryName")
+            Categories(categoryName = categoryName ?: "", navController = navController)
         }
     }
 

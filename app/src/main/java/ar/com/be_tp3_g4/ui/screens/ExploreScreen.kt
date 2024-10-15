@@ -69,6 +69,7 @@ fun ExploreScreen(navController: NavController) {
                             name = category.name,
                             image = category.image,
                             color = category.color,
+                            onClick = {navController.navigate("categories/${category.name}")}
 
                             )
                     }

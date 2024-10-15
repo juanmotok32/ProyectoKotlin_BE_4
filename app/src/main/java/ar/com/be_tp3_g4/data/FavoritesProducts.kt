@@ -6,20 +6,13 @@ val favoritesProduccts = listOf(
 
 
     Product(
-        name = "Diet Coke",
-        brand = "Coke Diet",
-        price = 1.99f,
-        image = R.drawable.product01,
-        description = "Refresco Coca",
-        content = "335ml"
-    ),
-    Product(
         name = "Sprite Can",
         brand = "Sprite Diet",
         price = 1.50f,
         image = R.drawable.product01,
         description = "Refresco Sprite",
-        content = "330ml"
+        content = "330ml",
+        category = "Beverages"
     ),
     Product(
         name = "Apple & Grape Juice",
@@ -27,7 +20,8 @@ val favoritesProduccts = listOf(
         price = 15.99f,
         image = R.drawable.product01,
         description = "Apple & Grape Juice",
-        content = "2L"
+        content = "2L",
+        category = "Beverages"
     ),
     Product(
         name = "Orange Juice",
@@ -35,7 +29,8 @@ val favoritesProduccts = listOf(
         price = 15.99f,
         image = R.drawable.product01,
         description = "Orange Juice",
-        content = "2L"
+        content = "2L",
+        category = "Beverages"
     ),
     Product(
         name = "Coca Cola Can",
@@ -43,7 +38,8 @@ val favoritesProduccts = listOf(
         price = 4.99f,
         image = R.drawable.product01,
         description = "Coca cola Can",
-        content = "325ml"
+        content = "325ml",
+        category = "Beverages"
     ),
     Product(
         name = "Pepsi Can",
@@ -51,7 +47,8 @@ val favoritesProduccts = listOf(
         price = 4.99f,
         image = R.drawable.product01,
         description = "Refresco pepsi",
-        content = "330ml"
+        content = "330ml",
+        category = "Beverages"
     ),
     Product(
         name = "Papas fritas Lay's",
@@ -59,7 +56,8 @@ val favoritesProduccts = listOf(
         price = 2.00f,
         image = R.drawable.product01,
         description = "Papas fritas clásicas",
-        content = "150g"
+        content = "150g",
+        category = "Snacks"
     ),
     Product(
         name = "Cerveza Heineken",
@@ -67,7 +65,8 @@ val favoritesProduccts = listOf(
         price = 2.50f,
         image = R.drawable.product01,
         description = "Cerveza premium lager",
-        content = "500ml"
+        content = "500ml",
+        category = "Beverages"
     ),
     Product(
         name = "Galletas Oreo",
@@ -75,7 +74,8 @@ val favoritesProduccts = listOf(
         price = 1.20f,
         image = R.drawable.product01,
         description = "Galletas de chocolate con crema",
-        content = "154g"
+        content = "154g",
+        category = "Snacks"
     ),
     Product(
         name = "Leche La Serenísima",
@@ -83,7 +83,8 @@ val favoritesProduccts = listOf(
         price = 1.30f,
         image = R.drawable.product01,
         description = "Leche entera pasteurizada",
-        content = "1L"
+        content = "1L",
+        category = "Dairy & Eggs"
     ),
     Product(
         name = "Café Nescafé",
@@ -91,7 +92,8 @@ val favoritesProduccts = listOf(
         price = 3.00f,
         image = R.drawable.product01,
         description = "Café soluble instantáneo",
-        content = "200g"
+        content = "200g",
+        category = "Snacks"
     ),
     Product(
         name = "Yogurt Ser",
@@ -99,7 +101,8 @@ val favoritesProduccts = listOf(
         price = 0.90f,
         image = R.drawable.product01,
         description = "Yogurt descremado sabor frutilla",
-        content = "120g"
+        content = "120g",
+        category = "Dairy & Eggs"
     ),
     Product(
         name = "Atún en lata",
@@ -107,7 +110,8 @@ val favoritesProduccts = listOf(
         price = 2.75f,
         image = R.drawable.product01,
         description = "Atún en aceite",
-        content = "170g"
+        content = "170g",
+        category = "Meat & Fish"
     ),
     Product(
         name = "Arroz Gallo Oro",
@@ -115,7 +119,8 @@ val favoritesProduccts = listOf(
         price = 1.40f,
         image = R.drawable.product01,
         description = "Arroz largo fino",
-        content = "1kg"
+        content = "1kg",
+        category = "Snacks"
     ),
     Product(
         name = "Aceite de oliva Natura",
@@ -123,7 +128,8 @@ val favoritesProduccts = listOf(
         price = 5.20f,
         image = R.drawable.product01,
         description = "Aceite de oliva extra virgen",
-        content = "500ml"
+        content = "500ml",
+        category = "Cooking Oil & Ghee"
     ),
     Product(
         name = "Azúcar Ledesma",
@@ -131,7 +137,8 @@ val favoritesProduccts = listOf(
         price = 1.10f,
         image = R.drawable.product01,
         description = "Azúcar blanca refinada",
-        content = "1kg"
+        content = "1kg",
+        category = "Snacks"
     ),
     Product(
         name = "Harina Blancaflor",
@@ -139,7 +146,8 @@ val favoritesProduccts = listOf(
         price = 0.95f,
         image = R.drawable.product01,
         description = "Harina leudante",
-        content = "1kg"
+        content = "1kg",
+        category = "Bakery & Snack"
     ),
     Product(
         name = "Manteca Sancor",
@@ -147,7 +155,8 @@ val favoritesProduccts = listOf(
         price = 2.00f,
         image = R.drawable.product01,
         description = "Manteca sin sal",
-        content = "200g"
+        content = "200g",
+        category = "Dairy & Eggs"
     ),
     Product(
         name = "Dulce de leche La Serenísima",
@@ -155,7 +164,8 @@ val favoritesProduccts = listOf(
         price = 2.40f,
         image = R.drawable.product01,
         description = "Dulce de leche clásico",
-        content = "400g"
+        content = "400g",
+        category = "Dairy & Eggs"
     ),
     Product(
         name = "Jugo Tang sabor naranja",
@@ -163,7 +173,8 @@ val favoritesProduccts = listOf(
         price = 0.50f,
         image = R.drawable.product01,
         description = "Jugo en polvo sabor naranja",
-        content = "30g"
+        content = "30g",
+        category = "Beverages"
     ),
     Product(
         name = "Sal Fina Celusal",
@@ -171,7 +182,8 @@ val favoritesProduccts = listOf(
         price = 0.70f,
         image = R.drawable.product01,
         description = "Sal fina común",
-        content = "500g"
+        content = "500g",
+        category = "Snacks"
     ),
     Product(
         name = "Fideos Lucchetti",
@@ -179,7 +191,8 @@ val favoritesProduccts = listOf(
         price = 1.10f,
         image = R.drawable.product01,
         description = "Fideos tirabuzón",
-        content = "500g"
+        content = "500g",
+        category = "Snacks"
     ),
     Product(
         name = "Queso rallado Sancor",
@@ -187,7 +200,8 @@ val favoritesProduccts = listOf(
         price = 2.50f,
         image = R.drawable.product01,
         description = "Queso parmesano rallado",
-        content = "40g"
+        content = "40g",
+        category = "Dairy & Eggs"
     ),
     Product(
         name = "Chocolate Águila",
@@ -195,7 +209,8 @@ val favoritesProduccts = listOf(
         price = 3.20f,
         image = R.drawable.product01,
         description = "Chocolate para repostería",
-        content = "150g"
+        content = "150g",
+        category = "Snacks"
     ),
     Product(
         name = "Helado Frigor",
@@ -203,7 +218,7 @@ val favoritesProduccts = listOf(
         price = 5.00f,
         image = R.drawable.product01,
         description = "Helado de crema sabor vainilla y chocolate",
-        content = "1L"
+        content = "1L",
+        category = "Dairy & Eggs"
     )
-
 )

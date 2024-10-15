@@ -191,7 +191,8 @@ fun PreviewProductDetailScreen() {
             price = 1.50f,
             image = R.drawable.diet_coke,
             description = "Refresco gaseoso sabor cola",
-            content = "330ml"
+            content = "330ml",
+            category = "Beverages"
         )
         ProductDetailScreen(
             product = exampleProduct,

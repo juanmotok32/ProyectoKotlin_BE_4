@@ -29,12 +29,12 @@ import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
-fun CardCategory(name: String, @DrawableRes image: Int, color: Color) {
+fun CardCategory(name: String, @DrawableRes image: Int, color: Color,onClick: ()-> Unit) {
 
     val borderColor = color.copy(alpha = 0.7f)  // 70% opacidad
     val backgroundColor = color.copy(alpha = 0.1f)  // 10% opacidad
     OutlinedCard(
-        onClick = { /* GO TO CATEGORY DETAIL*/ },
+        onClick = { onClick() },
         modifier = Modifier
             .width(174.dp)
             .height(189.dp)

@@ -22,11 +22,25 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopAppBar(
-    @StringRes tittle: Int,
+    tittle: Any,
     menu: () -> Unit
 ) {
-    CenterAlignedTopAppBar(title = { Text(text = stringResource(tittle),
-        color = MaterialTheme.colorScheme.inversePrimary)
+    CenterAlignedTopAppBar(title = {
+        when (tittle) {
+            is Int -> {
+                Text(
+                    text = stringResource(tittle),
+                    color = MaterialTheme.colorScheme.inversePrimary
+                )
+            }
+
+            is String -> {
+                Text(
+                    text = tittle,
+                    color = MaterialTheme.colorScheme.inversePrimary
+                )
+            }
+        }
     }, modifier = Modifier.background(MaterialTheme.colorScheme.primary),
         navigationIcon = {
             IconButton(onClick = { menu() }) {
@@ -34,7 +48,6 @@ fun TopAppBar(
                     imageVector = Icons.Filled.Menu,
                     contentDescription = stringResource(id = R.string.menu_icon_desc),
                     tint = MaterialTheme.colorScheme.inversePrimary
-
 
 
                 )

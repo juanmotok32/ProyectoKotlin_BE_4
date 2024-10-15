@@ -9,5 +9,6 @@ data class Product(
     @DrawableRes val image: Int,
     val description: String,
     val content: String,
+    val category: String
     /*agregar de ser necesario*/
 )
