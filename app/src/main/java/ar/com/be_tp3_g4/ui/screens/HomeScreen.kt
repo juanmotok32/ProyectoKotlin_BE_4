@@ -32,8 +32,8 @@ import ar.com.be_tp3_g4.data.productList
 import ar.com.be_tp3_g4.ui.components.Card
 
 @Composable
-fun HomeScreen(goToExplore: () -> Unit, navController: NavController) {
-    Scaffold(
+fun HomeScreen(navController: NavController) {
+    Scaffold(containerColor = MaterialTheme.colorScheme.primary,
         topBar = {
             TopAppBar(tittle = R.string.search_screen_name, menu = { })
         },
@@ -113,14 +113,3 @@ fun HomeScreen(goToExplore: () -> Unit, navController: NavController) {
         }
     )
 }
-
-/*
-
-@Preview
-@Composable
-fun showHomeScreen() {
-
-    BE_TP3_G4Theme {
-        HomeScreen()
-    }
-}*/

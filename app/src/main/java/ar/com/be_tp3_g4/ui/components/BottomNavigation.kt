@@ -1,3 +1,4 @@
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -19,7 +20,7 @@ fun CustomBottomNavBar(
     onItemSelected: (Int) -> Unit,
     navController: NavController
 ) {
-    NavigationBar {
+    NavigationBar(containerColor = MaterialTheme.colorScheme.primary) {
         items.forEachIndexed { index, item ->
             val isSelected = item.label == selectedItem
             NavigationBarItem(
@@ -38,7 +39,8 @@ fun CustomBottomNavBar(
                 },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = if (isSelected) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.inversePrimary, // Color verde para el seleccionado, negro para el no seleccionado
-                    unselectedIconColor = if (isSelected) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.inversePrimary
+                    unselectedIconColor = if (isSelected) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.inversePrimary,
+                   indicatorColor = MaterialTheme.colorScheme.inversePrimary /* esto es para cambiar el color de fondo cuando esta seleccionado*/
                 )
             )
         }
@@ -52,6 +54,11 @@ data class BottomNavItem(val label: String, val icon: Int, val destination: NavD
 fun CustomBottomNavBarPreview() {
     val navController = rememberNavController()
     BE_TP3_G4Theme {
-        CustomBottomNavBar(items = Items, selectedItem = "Favorite", onItemSelected = {}, navController = navController)
+        CustomBottomNavBar(
+            items = Items,
+            selectedItem = "Favorite",
+            onItemSelected = {},
+            navController = navController
+        )
     }
 }

@@ -3,8 +3,10 @@ package ar.com.be_tp3_g4.ui.screens.auth
 import android.annotation.SuppressLint
 import android.util.Log
 import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -61,9 +63,9 @@ fun LoginScreen(
     var paddingValue = 0.dp
     val scrollState = rememberScrollState() //para poder hacer scroll cuando rota la pantalla
     var errorMessage by remember { mutableStateOf<String?>(null) }
-    val snackbarHostState = remember { SnackbarHostState()}
+    val snackbarHostState = remember { SnackbarHostState() }
 
-        when (windowSize.widthSizeClass) {
+    when (windowSize.widthSizeClass) {
         WindowWidthSizeClass.Compact -> {
             paddingValue = 20.dp
         }
@@ -78,99 +80,107 @@ fun LoginScreen(
     val password = authViewModel.password
 
 
-    LaunchedEffect(loginResult) {
-        loginResult?.let {
-            if (it.isSuccess) {
-                // Si el login es exitoso, llama a successLogin
-                successLogin()
-            } else {
-                // Puedes manejar el error aquí si es necesario
-                Log.e("LoginScreen", "${it.errorMessage}")
 
-                // Usar un mensaje de error por defecto si it.errorMessage es nulo
-                val message = it.errorMessage ?: "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
-                errorMessage = message
+        LaunchedEffect(loginResult) {
+            loginResult?.let {
+                if (it.isSuccess) {
+                    // Si el login es exitoso, llama a successLogin
+                    successLogin()
+                } else {
+                    // Puedes manejar el error aquí si es necesario
+                    Log.e("LoginScreen", "${it.errorMessage}")
+
+                    // Usar un mensaje de error por defecto si it.errorMessage es nulo
+                    val message =
+                        it.errorMessage
+                            ?: "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
+                    errorMessage = message
+                }
             }
         }
-    }
 
-
-    Scaffold(
-        snackbarHost = { SnackbarHost(snackbarHostState) }
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(
-                    start = paddingValue, end = paddingValue, bottom = 30.dp
-                )
-                .padding(innerPadding)
-                .verticalScroll(scrollState)
-        ) {
-            LogoZanahoria()
-            TittleSub(tittle = R.string.sign_in, sub = R.string.enter_email)
-            Spacer(modifier = Modifier.height(30.dp))
-
-            InputField(
-                value = username,
-                onValueChange = { authViewModel.onUsernameChange(it) },
-                label = R.string.username,
-            )
-            Spacer(modifier = Modifier.height(22.dp))
-
-            InputField(
-                value = password,
-                onValueChange = { authViewModel.onPasswordChange(it) },
-                label = R.string.password,
-                isPassword = true,
-            )
-            Spacer(modifier = Modifier.height(10.dp))
-
-            Text(
-                text = stringResource(id = R.string.forgot_password),
-                color = MaterialTheme.colorScheme.inversePrimary,
-                style = MaterialTheme.typography.displaySmall,
-                modifier = Modifier.align(Alignment.End)
-            )
-            Spacer(modifier = Modifier.height(22.dp))
-
-            Btn(
-                onClick = { authViewModel.login(authViewModel.username, authViewModel.password) },
-                text = R.string.log_in
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center
+        Scaffold(
+            snackbarHost = { SnackbarHost(snackbarHostState) },  containerColor = MaterialTheme.colorScheme.primary
+        ) { innerPadding ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(
+                        start = paddingValue, end = paddingValue, bottom = 30.dp
+                    )
+                    .padding(innerPadding).padding(0.dp)
+                    .verticalScroll(scrollState)
             ) {
-                Text(
-                    text = stringResource(id = R.string.no_acount),
-                    color = MaterialTheme.colorScheme.inversePrimary
-                )
-                Text(
-                    text = "SingUp",
-                    color = MaterialTheme.colorScheme.secondary,
-                    modifier = Modifier.clickable { signUp() })
-            }
+                LogoZanahoria()
+                TittleSub(tittle = R.string.sign_in, sub = R.string.enter_email)
+                Spacer(modifier = Modifier.height(30.dp))
 
-            // Mostrar el Snackbar si hay un mensaje de error
-            errorMessage?.let { message ->
-                Snackbar(
-                    action = {
-                        // Botón de acción para el Snackbar, puedes personalizarlo
-                        Button(onClick = { errorMessage = null }) {
-                            Text("Cerrar")
-                        }
+                InputField(
+                    value = username,
+                    onValueChange = { authViewModel.onUsernameChange(it) },
+                    label = R.string.username,
+                )
+                Spacer(modifier = Modifier.height(22.dp))
+
+                InputField(
+                    value = password,
+                    onValueChange = { authViewModel.onPasswordChange(it) },
+                    label = R.string.password,
+                    isPassword = true,
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Text(
+                    text = stringResource(id = R.string.forgot_password),
+                    color = MaterialTheme.colorScheme.inversePrimary,
+                    style = MaterialTheme.typography.displaySmall,
+                    modifier = Modifier.align(Alignment.End)
+                )
+                Spacer(modifier = Modifier.height(22.dp))
+
+                Btn(
+                    onClick = {
+                        authViewModel.login(
+                            authViewModel.username,
+                            authViewModel.password
+                        )
                     },
-                    modifier = Modifier.padding(16.dp)
+                    text = R.string.log_in
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
                 ) {
-                    Text(text = message)
+                    Text(
+                        text = stringResource(id = R.string.no_acount),
+                        color = MaterialTheme.colorScheme.inversePrimary
+                    )
+                    Text(
+                        text = "SingUp",
+                        color = MaterialTheme.colorScheme.secondary,
+                        modifier = Modifier.clickable { signUp() })
+                }
+
+                // Mostrar el Snackbar si hay un mensaje de error
+                errorMessage?.let { message ->
+                    Snackbar(
+                        action = {
+                            // Botón de acción para el Snackbar, puedes personalizarlo
+                            Button(onClick = { errorMessage = null }) {
+                                Text("Cerrar")
+                            }
+                        },
+                        modifier = Modifier.padding(16.dp)
+                    ) {
+                        Text(text = message)
+                    }
                 }
             }
         }
     }
-}
+
 
 
 @Preview

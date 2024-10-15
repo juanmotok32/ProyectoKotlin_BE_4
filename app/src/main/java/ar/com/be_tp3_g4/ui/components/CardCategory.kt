@@ -63,7 +63,7 @@ fun CardCategory(name: String, @DrawableRes image: Int, color: Color,onClick: ()
                 contentDescription = "imagenCategoria1",
                 modifier = Modifier.size(100.dp)
             )
-            //Spacer(modifier = Modifier.height(8.dp))
+       
             Text(
                 text = name, style = MaterialTheme.typography.titleLarge, textAlign = TextAlign.Center)
 
@@ -72,19 +72,5 @@ fun CardCategory(name: String, @DrawableRes image: Int, color: Color,onClick: ()
     }
 }
 
-@Preview
-@Composable
-fun SeeCardCategory() {
 
-
-    BE_TP3_G4Theme {
-/*
-
-        val pescado = "Pescado"
-        CardCategory(name = pescado, )
-*/
-
-
-    }
-}
 

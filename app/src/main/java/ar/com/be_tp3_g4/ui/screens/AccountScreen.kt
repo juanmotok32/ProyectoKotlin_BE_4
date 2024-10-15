@@ -30,8 +30,8 @@ import logout
 
 
 @Composable
-fun AccountScreen(navController: NavController, user: User, themeViewModel: ThemeViewModel) {
-    Scaffold(modifier = Modifier.background(MaterialTheme.colorScheme.primary),
+fun AccountScreen(navController: NavController, themeViewModel: ThemeViewModel) {
+    Scaffold(containerColor = MaterialTheme.colorScheme.primary,
         topBar = {
             TopAppBar(tittle = R.string.account, menu = { })
         },
@@ -67,24 +67,26 @@ fun AccountScreen(navController: NavController, user: User, themeViewModel: Them
                         color = MaterialTheme.colorScheme.inversePrimary
                     )
 
-                    Switch(checked = themeViewModel.isDarkTheme,
+                    Switch(
+                        checked = themeViewModel.isDarkTheme,
                         onCheckedChange = {
-
                             themeViewModel.isDarkTheme =
                                 !themeViewModel.isDarkTheme
-                        })
+                        }, colors = SwitchDefaults.colors(
+                            checkedThumbColor = MaterialTheme.colorScheme.secondary, // Color del "thumb" (la bolita) cuando está activado
+                            uncheckedThumbColor = MaterialTheme.colorScheme.primary, // Color del "thumb" cuando está desactivado
+                            checkedTrackColor = MaterialTheme.colorScheme.secondaryContainer, // Color del "track" (la barra) cuando está activado
+                            uncheckedTrackColor = MaterialTheme.colorScheme.primaryContainer, // Color del "track" cuando está desactivado)
+                        )
+                    )
                 }
 
             }
         },
         floatingActionButtonPosition = FabPosition.Center,
-
-
         floatingActionButton =
-
         {
             logout()
-
         })
 
 
@@ -117,7 +119,7 @@ fun DetailsAccount() { // user: User
                     contentDescription = "Enrique", //  user.username
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(MaterialTheme.colorScheme.primary)
+                        .background(MaterialTheme.colorScheme.inversePrimary)
                 )
             }
             Spacer(modifier = Modifier.width(16.dp))
@@ -125,7 +127,8 @@ fun DetailsAccount() { // user: User
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
                         text = "Enrique",
-                        style = MaterialTheme.typography.bodyLarge
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.inversePrimary
 
                     ) //                     Text(text = user.username, style = MaterialTheme.typography.bodyLarge)
                     Spacer(modifier = Modifier.width(4.dp))
@@ -135,8 +138,7 @@ fun DetailsAccount() { // user: User
                         modifier = Modifier
                             .size(20.dp)
                             .padding(2.dp),
-                        tint = MaterialTheme.colorScheme.inversePrimary
-
+                        tint = MaterialTheme.colorScheme.inversePrimary,
                     )
                 }
                 Text(
@@ -182,37 +184,25 @@ fun MenuItemView(item: MenuItem) {
         Icon(
             painter = painterResource(id = item.iconRes),
             contentDescription = item.title,
-            modifier = Modifier.size(24.dp)
+            modifier = Modifier.size(24.dp),
+            tint = MaterialTheme.colorScheme.inversePrimary
         )
         Spacer(modifier = Modifier.width(16.dp))
-        Text(text = item.title, style = MaterialTheme.typography.bodyLarge)
+        Text(
+            text = item.title,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.inversePrimary
+        )
         Spacer(modifier = Modifier.weight(1f))
 
 
         Icon(
             painter = painterResource(id = R.drawable.flecha),
             contentDescription = null,
-            modifier = Modifier.size(10.dp)
+            modifier = Modifier.size(10.dp),
+            tint = MaterialTheme.colorScheme.inversePrimary
         )
 
     }
 }
 
-/*
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewAccountScreen() {
-
-    BE_TP3_G4Theme {
-        val navController = rememberNavController()
-        val exampleAccount = User(
-            username = "Enrique Iglesias",
-            password = "",
-            email = "EnriqueIglesias@gmail.com",
-            imageRes = R.drawable.gatotierno
-        )
-        AccountScreen(user = exampleAccount, navController = navController)
-    }
-}
-*/

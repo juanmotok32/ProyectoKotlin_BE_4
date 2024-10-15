@@ -21,10 +21,9 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 fun BtnInverso(onClick: () -> Unit, @StringRes text: Int, icon: Painter, modifier: Modifier = Modifier) {
     Button(
         onClick = onClick,
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth().padding(20.dp).height(67.dp),
         shape = RoundedCornerShape(19.dp),
         colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onTertiary)
-
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,

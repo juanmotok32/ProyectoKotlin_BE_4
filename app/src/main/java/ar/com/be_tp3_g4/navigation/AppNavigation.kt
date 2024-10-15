@@ -106,7 +106,6 @@ fun AppNavigation(userRepository: UserRepositoryImp, themeViewModel: ThemeViewMo
 
         composable<NavDestinations.Home> {
             HomeScreen(
-                goToExplore = { navController.navigate(NavDestinations.Explore) },
                 navController = navController
             )
         }
@@ -126,7 +125,6 @@ fun AppNavigation(userRepository: UserRepositoryImp, themeViewModel: ThemeViewMo
         composable<NavDestinations.Account> {
             AccountScreen(
                 navController = navController,
-                user = User("", " ", "", 0),
                 themeViewModel = themeViewModel
 
             ) /*consumir de fake data despues*/

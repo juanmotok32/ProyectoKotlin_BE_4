@@ -1,7 +1,9 @@
 package ar.com.be_tp3_g4.ui.screens.auth
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +17,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -36,7 +40,11 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 @Composable
 fun RegisterScreen(
     userRepository: UserRepositoryImp,
-    authViewModel: AuthViewModel = viewModel(factory = AuthViewModel.AuthViewModelFactory(userRepository)),
+    authViewModel: AuthViewModel = viewModel(
+        factory = AuthViewModel.AuthViewModelFactory(
+            userRepository
+        )
+    ),
     signIn: () -> Unit,
     windowSizeHelper: WindowSizeHelper,
     goToLocation: () -> Unit
@@ -55,52 +63,56 @@ fun RegisterScreen(
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(
-                start = paddingValue, end = paddingValue, bottom = 30.dp
+    val email = authViewModel.email
+    val username = authViewModel.username
+    val password = authViewModel.password
+
+    Box(modifier = Modifier.background(MaterialTheme.colorScheme.primary)) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(
+                    start = paddingValue, end = paddingValue, bottom = 30.dp
+                )
+                .verticalScroll(scrollState)
+        ) {
+            LogoZanahoria()
+
+            TittleSub(tittle = R.string.sign_up, sub = R.string.enter_credentials)
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            InputField(
+                value = username, onValueChange = {authViewModel.onUsernameChange(it)}, label = R.string.username,
             )
-            .verticalScroll(scrollState)
-    ) {
-        LogoZanahoria()
 
-        TittleSub(tittle = R.string.sign_up, sub = R.string.enter_credentials)
+            Spacer(modifier = Modifier.height(22.dp))
 
-        Spacer(modifier = Modifier.height(30.dp))
+            InputField(
+                value = email, onValueChange = {authViewModel.onEmailChange(it)}, label = R.string.email,
+            )
 
-        InputField(
-            value = authViewModel.username, onValueChange = {}, label = R.string.username,
-        )
+            Spacer(modifier = Modifier.height(22.dp))
 
-        Spacer(modifier = Modifier.height(22.dp))
+            InputField(
+                value = password, onValueChange = {authViewModel.onPasswordChange(it)}, label = R.string.password,
+                isPassword = true,
+            )
 
-        InputField(
-            value = authViewModel.email, onValueChange = {}, label = R.string.email,
-        )
-
-        Spacer(modifier = Modifier.height(22.dp))
-
-        InputField(
-            value = authViewModel.password, onValueChange = {}, label = R.string.password,
-            isPassword = true,
-        )
-
-        Spacer(modifier = Modifier.height(14.dp))
-        Row {
+            Spacer(modifier = Modifier.height(15.dp))
 
             Text(
                 buildAnnotatedString {
                     append("By continuing you agree to our ")
 
                     withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.secondary)) {
-                        append("Terms of Service ") }
-
-                                append("and ")
-                    withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.secondary)){
-                        append("Privacy Policy.")
+                        append("Terms of Service ")
                     }
 
+                    append("and ")
+                    withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.secondary)) {
+                        append("Privacy Policy.")
+                    }
 
 
                 },
@@ -108,28 +120,32 @@ fun RegisterScreen(
                 color = MaterialTheme.colorScheme.tertiary,
                 style = MaterialTheme.typography.displaySmall,
             )
-        }
+            Spacer(modifier = Modifier.height(22.dp))
 
+            Btn(
+                onClick = { goToLocation() },
+                text = R.string.sign_up
+            )    /*como no hay logica de registro en el vm todavia, solo lo navego a location*/
 
+            Spacer(modifier = Modifier.height(16.dp))
 
-        Spacer(modifier = Modifier.height(22.dp))
-
-        Btn(onClick = { goToLocation() }, text = R.string.sign_up)    /*como no hay logica de registro en el vm todavia, solo lo navego a location*/
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
-        ) {   //IMPORTANTE! para centrar un elemento horizontamente, hagan que ocupe tod el ancho, sinoi se van a romper la cabeza 10 hs como yo
-            Text(text = stringResource(id = R.string.has_account), color = MaterialTheme.colorScheme.inversePrimary)
-            Text(
-                text = "SingIn",
-                color = MaterialTheme.colorScheme.secondary,
-                modifier = Modifier.clickable { signIn() })
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {   //IMPORTANTE! para centrar un elemento horizontamente, hagan que ocupe tod el ancho, sinoi se van a romper la cabeza 10 hs como yo
+                Text(
+                    text = stringResource(id = R.string.has_account),
+                    color = MaterialTheme.colorScheme.inversePrimary
+                )
+                Text(
+                    text = "SingIn",
+                    color = MaterialTheme.colorScheme.secondary,
+                    modifier = Modifier.clickable { signIn() })
+            }
         }
     }
 }
+
 
 @Preview
 @Composable

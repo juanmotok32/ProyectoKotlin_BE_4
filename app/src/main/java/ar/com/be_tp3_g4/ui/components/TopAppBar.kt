@@ -1,6 +1,5 @@
 package ar.com.be_tp3_g4.ui.components
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -10,9 +9,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import ar.com.be_tp3_g4.R
@@ -42,6 +41,8 @@ fun TopAppBar(
             }
         }
     }, modifier = Modifier.background(MaterialTheme.colorScheme.primary),
+        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primary),
         navigationIcon = {
             IconButton(onClick = { menu() }) {
                 Icon(

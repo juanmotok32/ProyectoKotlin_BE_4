@@ -30,7 +30,7 @@ fun FavoritesScreen(navController: NavController) {
     val favoriteItems = remember { mutableStateListOf(*favoritesProduccts.toTypedArray()) }
     var showError = remember { mutableStateOf(false) }
 
-    Scaffold(
+    Scaffold(containerColor = MaterialTheme.colorScheme.primary,
         topBar = {
             TopAppBar(tittle = R.string.favorites_topbar, menu = { })
         },
