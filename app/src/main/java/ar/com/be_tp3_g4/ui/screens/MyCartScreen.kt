@@ -1,5 +1,6 @@
 package ar.com.be_tp3_g4.ui.screens
 
+import BtnSumaTotal
 import CheckoutDialog
 import CustomBottomNavBar
 import androidx.compose.foundation.background
@@ -9,15 +10,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ar.com.be_tp3_g4.R
-import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 import ar.com.be_tp3_g4.ui.components.Btn
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.ui.components.CartProductItem
 import ar.com.be_tp3_g4.data.productList
-import CustomBottomNavBarPreview
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.navigation.NavController
@@ -59,22 +57,30 @@ fun CartScreen(navController: NavController) {
                         )
                 }
             }
-
-            Btn(
-                onClick = { showDialog.value = true },
-                text = R.string.btn_cart,
+            BtnSumaTotal(
+                onClick = { showDialog.value = true }, prices = productList,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp)
             )
+
+
+            /* Btn(
+                 onClick = { showDialog.value = true },
+                 text = R.string.btn_cart,
+                 modifier = Modifier
+                     .fillMaxWidth()
+                     .padding(16.dp)
+             )*/
         }
         CheckoutDialog(showDialog = showDialog.value,
             onDismiss = { showDialog.value = false },
-            goToHome = {navController.navigate(NavDestinations.Home)})
+            goToHome = { navController.navigate(NavDestinations.Home) })
 
 
     })
-}/*
+}
+/*
 
 @Preview
 @Composable

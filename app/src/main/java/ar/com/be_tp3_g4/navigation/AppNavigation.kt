@@ -30,11 +30,12 @@ import ar.com.be_tp3_g4.ui.screens.SplashScreen
 import ar.com.be_tp3_g4.ui.screens.auth.AuthViewModel
 import ar.com.be_tp3_g4.ui.screens.auth.LoginScreen
 import ar.com.be_tp3_g4.ui.screens.auth.RegisterScreen
+import ar.com.be_tp3_g4.ui.theme.ThemeViewModel
 import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.seconds
 
 @Composable
-fun AppNavigation(userRepository: UserRepositoryImp) {
+fun AppNavigation(userRepository: UserRepositoryImp, themeViewModel: ThemeViewModel) {
 
 
     val navController = rememberNavController()
@@ -44,7 +45,7 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
 
     NavHost(
         navController = navController,
-        startDestination = NavDestinations.Explore   /*la primera screen en visualizarse va a ser la de splash*/
+        startDestination = NavDestinations.Onboarding   /*la primera screen en visualizarse va a ser la de splash*/
     ) {
 
         composable<NavDestinations.Splash> {
@@ -125,7 +126,9 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
         composable<NavDestinations.Account> {
             AccountScreen(
                 navController = navController,
-                user = User("", " ", "", 0)
+                user = User("", " ", "", 0),
+                themeViewModel = themeViewModel
+
             ) /*consumir de fake data despues*/
         }
 
@@ -138,16 +141,18 @@ fun AppNavigation(userRepository: UserRepositoryImp) {
         }
 
 
-        composable("categories/{categoryName}"
+        composable(
+            "categories/{categoryName}"
         ) { backStackEntry ->
             val categoryName = backStackEntry.arguments?.getString("categoryName")
             Categories(categoryName = categoryName ?: "", navController = navController)
         }
 
-        composable("searchScreen/{search}"
+        composable(
+            "searchScreen/{search}"
         ) { backStackEntry ->
             val search = backStackEntry.arguments?.getString("search")
-            SearchScreen(search = search?:"", navController = navController)
+            SearchScreen(search = search ?: "", navController = navController)
         }
     }
 

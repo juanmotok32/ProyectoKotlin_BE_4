@@ -28,7 +28,7 @@ import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
-fun ErrorDialog(showDialog: Boolean, onDismiss: () -> Unit) {
+fun ErrorDialog(showDialog: Boolean, onDismiss: () -> Unit, goHome: () -> Unit) {
     if (showDialog) {
         Dialog(
             onDismissRequest = onDismiss, //FUNCION PARA CERRAR EL DIALOG
@@ -46,8 +46,10 @@ fun ErrorDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                 Column(
                     modifier = Modifier.padding(16.dp),
                 ) {
-                    Text(text = "X", Modifier.clickable {onDismiss()},
-                            color = MaterialTheme.colorScheme.tertiary)
+                    Text(
+                        text = "X", Modifier.clickable { onDismiss() },
+                        color = MaterialTheme.colorScheme.tertiary
+                    )
 
                     Column(
                         modifier = Modifier.fillMaxSize(),
@@ -88,9 +90,12 @@ fun ErrorDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                                 containerColor = MaterialTheme.colorScheme.secondary
                             )){
                         }*/
-                        Btn(onClick = {onDismiss()}, text = R.string.please_try_again)
+                        Btn(onClick = { onDismiss() }, text = R.string.please_try_again)
 
-                        Btn(onClick = {/*NAVIGATE_HOME_FUN*/}, text = R.string.back_to_home)  //CAMBIAR POR BOTON BLANCO
+                        Btn(onClick = {
+                            onDismiss()
+                            goHome()
+                        }, text = R.string.back_to_home)  //CAMBIAR POR BOTON BLANCO
 
                     }
                 }
@@ -98,7 +103,7 @@ fun ErrorDialog(showDialog: Boolean, onDismiss: () -> Unit) {
         }
     }
 }
-
+/*
 @Preview
 @Composable
 fun ErrorScreen() {
@@ -112,4 +117,4 @@ fun ErrorScreen() {
 
     }
 
-}
+}*/

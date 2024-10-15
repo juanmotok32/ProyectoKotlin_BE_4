@@ -1,4 +1,5 @@
 package ar.com.be_tp3_g4.ui.screens
+
 import CustomBottomNavBar
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,14 +17,18 @@ import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.data.favoritesProduccts
 import CustomBottomNavBarPreview
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.navigation.NavController
 import ar.com.be_tp3_g4.data.Items
+import ar.com.be_tp3_g4.navigation.NavDestinations
+import ar.com.be_tp3_g4.ui.components.ErrorDialog
 
 @Composable
-fun FavoritesScreen(navController : NavController) {
+fun FavoritesScreen(navController: NavController) {
     // Usa una lista mutable de productos favoritos
     val favoriteItems = remember { mutableStateListOf(*favoritesProduccts.toTypedArray()) }
+    var showError = remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -35,7 +40,8 @@ fun FavoritesScreen(navController : NavController) {
                 selectedItem = "Favorite",
                 onItemSelected = {},
                 navController = navController
-            )},
+            )
+        },
         content = { paddingValues ->
             Column(
                 modifier = Modifier
@@ -59,7 +65,7 @@ fun FavoritesScreen(navController : NavController) {
                 }
 
                 Btn(
-                    onClick = { /* func */ },
+                    onClick = { showError.value = true },
                     text = R.string.favorites_btn,
                     modifier = Modifier
                         .fillMaxWidth()
@@ -68,6 +74,10 @@ fun FavoritesScreen(navController : NavController) {
             }
         }
     )
+    ErrorDialog(showDialog = showError.value, onDismiss = { showError.value = false },
+        goHome = { navController.navigate(NavDestinations.Home) })
+
+
 }
 
 /*

@@ -1,6 +1,5 @@
 package ar.com.be_tp3_g4.ui.components
 
-import BtnInverso
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut

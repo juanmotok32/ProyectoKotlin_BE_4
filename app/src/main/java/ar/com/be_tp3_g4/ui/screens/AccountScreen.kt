@@ -21,17 +21,17 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.data.Items
+import ar.com.be_tp3_g4.model.MenuItem
 import ar.com.be_tp3_g4.model.User
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
+import ar.com.be_tp3_g4.ui.theme.ThemeViewModel
 import logout
 
-//data class Account(val name: String, val email: String, val imageRes: Int)
-data class MenuItem(val title: String, val iconRes: Int, val isSwitch: Boolean = false)
 
 @Composable
-fun AccountScreen(navController: NavController, user: User) {
-    Scaffold(modifier = Modifier.background(MaterialTheme.colorScheme.primary)        ,
+fun AccountScreen(navController: NavController, user: User, themeViewModel: ThemeViewModel) {
+    Scaffold(modifier = Modifier.background(MaterialTheme.colorScheme.primary),
         topBar = {
             TopAppBar(tittle = R.string.account, menu = { })
         },
@@ -43,7 +43,7 @@ fun AccountScreen(navController: NavController, user: User) {
                 navController = navController,
 
 
-            )
+                )
         },
         content = { paddingValues ->
             Column(
@@ -54,13 +54,40 @@ fun AccountScreen(navController: NavController, user: User) {
                 DetailsAccount() // user
                 Spacer(modifier = Modifier.height(16.dp))
                 MenuScreen()
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Dark Mode",
+                        modifier = Modifier.weight(1f), // Ocupa el espacio disponible
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.inversePrimary
+                    )
+
+                    Switch(checked = themeViewModel.isDarkTheme,
+                        onCheckedChange = {
+
+                            themeViewModel.isDarkTheme =
+                                !themeViewModel.isDarkTheme
+                        })
+                }
+
             }
         },
-        floatingActionButton = {
-            logout()
-        }
+        floatingActionButtonPosition = FabPosition.Center,
 
-    )
+
+        floatingActionButton =
+
+        {
+            logout()
+
+        })
+
+
 }
 
 
@@ -70,8 +97,7 @@ fun DetailsAccount() { // user: User
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
-            .background(MaterialTheme.colorScheme.primary)
-        ,
+            .background(MaterialTheme.colorScheme.primary),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -89,7 +115,8 @@ fun DetailsAccount() { // user: User
                 Image(
                     painter = painterResource(R.drawable.gatotierno), // id = user.imageRes
                     contentDescription = "Enrique", //  user.username
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier
+                        .fillMaxSize()
                         .background(MaterialTheme.colorScheme.primary)
                 )
             }
@@ -131,8 +158,7 @@ fun MenuScreen() {
         MenuItem("Payment Methods", R.drawable.tarjeta),
         MenuItem("Promo Cord", R.drawable.promocard),
         MenuItem("Notifications", R.drawable.notificacion),
-        MenuItem("Help", R.drawable.help),
-        MenuItem("Dark mode", R.drawable.darkmode, isSwitch = true)
+        MenuItem("Help", R.drawable.help)
     )
     Column(modifier = Modifier.padding(16.dp)) {
         menuItems.forEachIndexed { index, item ->
@@ -161,21 +187,18 @@ fun MenuItemView(item: MenuItem) {
         Spacer(modifier = Modifier.width(16.dp))
         Text(text = item.title, style = MaterialTheme.typography.bodyLarge)
         Spacer(modifier = Modifier.weight(1f))
-        if (item.isSwitch) {
-            val switchState = remember { false }
-            Switch(
-                checked = switchState,
-                onCheckedChange = { }
-            )
-        } else {
-            Icon(
-                painter = painterResource(id = R.drawable.flecha),
-                contentDescription = null,
-                modifier = Modifier.size(10.dp)
-            )
-        }
+
+
+        Icon(
+            painter = painterResource(id = R.drawable.flecha),
+            contentDescription = null,
+            modifier = Modifier.size(10.dp)
+        )
+
     }
 }
+
+/*
 
 @Preview(showBackground = true)
 @Composable
@@ -192,3 +215,4 @@ fun PreviewAccountScreen() {
         AccountScreen(user = exampleAccount, navController = navController)
     }
 }
+*/
