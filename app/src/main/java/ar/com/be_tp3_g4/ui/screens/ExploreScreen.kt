@@ -18,6 +18,7 @@ import ar.com.be_tp3_g4.ui.components.CardCategory
 import ar.com.be_tp3_g4.ui.components.SearchBar
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -35,7 +36,7 @@ fun ExploreScreen(navController: NavController) {
         mutableStateOf(false)
 
     }
-    Scaffold(topBar = {
+    Scaffold(containerColor = MaterialTheme.colorScheme.primary, topBar = {
         TopAppBar(tittle = R.string.find_products, menu = { })
     },
 

@@ -2,6 +2,7 @@ package ar.com.be_tp3_g4.ui.screens
 
 import Desplegable
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -33,43 +34,45 @@ import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 @Composable
 fun SelectLocationScreen(goBack: () -> Unit, submit: () -> Unit) {
-    Column(
-        modifier = Modifier
-            .padding(20.dp)
-            .fillMaxSize()
-    ) {
+    Box (modifier = Modifier.background(MaterialTheme.colorScheme.primary)){
+        Column(
+            modifier = Modifier
+                .padding(20.dp)
+                .fillMaxSize()
+        ) {
 
-        Spacer(modifier = Modifier.height(15.dp))
+            Spacer(modifier = Modifier.height(15.dp))
 
-        IconButton(onClick = { goBack() }) {
-            Icon(
-                imageVector = Icons.Filled.KeyboardArrowLeft,
-                contentDescription = "Back",
-                modifier = Modifier.size(40.dp),
-                tint = MaterialTheme.colorScheme.tertiary
+            IconButton(onClick = { goBack() }) {
+                Icon(
+                    imageVector = Icons.Filled.KeyboardArrowLeft,
+                    contentDescription = "Back",
+                    modifier = Modifier.size(40.dp),
+                    tint = MaterialTheme.colorScheme.tertiary
+                )
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            BackImg()
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            TittleSub(tittle = R.string.location_tittle, sub = R.string.location_subtittle)
+
+            Spacer(modifier = Modifier.height(50.dp))
+
+            Desplegable(label = R.string.zone, opciones = Lugares, placeholder = "")
+
+            Desplegable(label = R.string.area, opciones = Areas, placeholder = "Types of your area")
+
+            Spacer(modifier = Modifier.height(26.dp))
+
+            Btn(
+                onClick = { submit() },
+                text = R.string.submit
             )
         }
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        BackImg()
-
-        Spacer(modifier = Modifier.height(30.dp))
-
-        TittleSub(tittle = R.string.location_tittle, sub = R.string.location_subtittle)
-
-        Spacer(modifier = Modifier.height(50.dp))
-
-        Desplegable(label = R.string.zone, opciones = Lugares, placeholder = "")
-
-        Desplegable(label = R.string.area, opciones = Areas, placeholder = "Types of your area")
-
-        Spacer(modifier = Modifier.height(26.dp))
-
-        Btn(
-            onClick = { submit() },
-            text = R.string.submit
-        )
     }
 }
 

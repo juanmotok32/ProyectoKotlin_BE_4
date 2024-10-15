@@ -28,9 +28,9 @@ fun Categories(categoryName: String, navController: NavController) {
     val filteredProducts = productList.filter { it.category == categoryName }
 
 
-    Scaffold(topBar = {
+    Scaffold(containerColor = MaterialTheme.colorScheme.primary, topBar = {
         TopAppBar(tittle = categoryName, menu = { })
-    }, content = { paddind ->
+    }, content = { padding ->
 
         if (filteredProducts.isNotEmpty()) {
 
@@ -38,7 +38,7 @@ fun Categories(categoryName: String, navController: NavController) {
                 columns = GridCells.Fixed(2),
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddind),
+                    .padding(padding),
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
             ) {
                 items(filteredProducts) { product ->  // Cambiado aquí
@@ -54,7 +54,7 @@ fun Categories(categoryName: String, navController: NavController) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(paddind)
+                    .padding(padding)
                     .wrapContentSize(Alignment.Center)
             ) {
                 Text(

@@ -19,6 +19,7 @@ import ar.com.be_tp3_g4.ui.components.SearchBar
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -41,7 +42,7 @@ fun SearchScreen(search: String, navController: NavController) {
 
 
 
-    Scaffold(
+    Scaffold(containerColor = MaterialTheme.colorScheme.primary,
         topBar = {
             TopAppBar(tittle = R.string.search_screen_name, menu = { })
         },

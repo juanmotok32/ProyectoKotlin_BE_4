@@ -22,9 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val themeViewModel: ThemeViewModel = viewModel()
             BE_TP3_G4Theme(darkTheme = themeViewModel.isDarkTheme) {
-                Surface(color = MaterialTheme.colorScheme.primary) {
                     AppNavigation(userRepository,themeViewModel)
-                }
             }
         }
     }

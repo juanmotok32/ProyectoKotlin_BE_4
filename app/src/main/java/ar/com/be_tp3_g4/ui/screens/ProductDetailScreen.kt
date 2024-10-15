@@ -28,7 +28,7 @@ import logout
 
 @Composable
 fun ProductDetailScreen(product: Product, onAddToCart: () -> Unit) {
-    Scaffold(
+    Scaffold(containerColor = MaterialTheme.colorScheme.primary,
         topBar = {
             TopAppBar(tittle = R.string.product_detail, menu = { })
         },

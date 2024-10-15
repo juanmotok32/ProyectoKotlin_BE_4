@@ -1,7 +1,9 @@
 package ar.com.be_tp3_g4.ui.screens.auth
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -51,61 +53,69 @@ fun RegisterScreen(
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(
-                start = paddingValue, end = paddingValue, bottom = 30.dp
+    Box (modifier = Modifier.background(MaterialTheme.colorScheme.primary)){
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(
+                    start = paddingValue, end = paddingValue, bottom = 30.dp
+                )
+                .verticalScroll(scrollState)
+        ) {
+            LogoZanahoria()
+
+            TittleSub(tittle = R.string.sign_up, sub = R.string.enter_credentials)
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            InputField(
+                value = authViewModel.username, onValueChange = {}, label = R.string.username,
             )
-            .verticalScroll(scrollState)
-    ) {
-        LogoZanahoria()
 
-        TittleSub(tittle = R.string.sign_up, sub = R.string.enter_credentials)
+            Spacer(modifier = Modifier.height(22.dp))
 
-        Spacer(modifier = Modifier.height(30.dp))
+            InputField(
+                value = authViewModel.email, onValueChange = {}, label = R.string.email,
+            )
 
-        InputField(
-            value = authViewModel.username, onValueChange = {}, label = R.string.username,
-        )
+            Spacer(modifier = Modifier.height(22.dp))
 
-        Spacer(modifier = Modifier.height(22.dp))
+            InputField(
+                value = authViewModel.password, onValueChange = {}, label = R.string.password,
+                isPassword = true,
+            )
 
-        InputField(
-            value = authViewModel.email, onValueChange = {}, label = R.string.email,
-        )
+            Spacer(modifier = Modifier.height(10.dp))
 
-        Spacer(modifier = Modifier.height(22.dp))
-
-        InputField(
-            value = authViewModel.password, onValueChange = {}, label = R.string.password,
-            isPassword = true,
-        )
-
-        Spacer(modifier = Modifier.height(10.dp))
-
-        //cambiar por parrafo
-        Text(
-            text = stringResource(id = R.string.forgot_password),
-            color = MaterialTheme.colorScheme.tertiary,
-            style = MaterialTheme.typography.displaySmall,
-        )
-
-        Spacer(modifier = Modifier.height(22.dp))
-
-        Btn(onClick = { goToLocation() }, text = R.string.sign_up)    /*como no hay logica de registro en el vm todavia, solo lo navego a location*/
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
-        ) {   //IMPORTANTE! para centrar un elemento horizontamente, hagan que ocupe tod el ancho, sinoi se van a romper la cabeza 10 hs como yo
-            Text(text = stringResource(id = R.string.has_account), color = MaterialTheme.colorScheme.inversePrimary)
+            //cambiar por parrafo
             Text(
-                text = "SingIn",
-                color = MaterialTheme.colorScheme.secondary,
-                modifier = Modifier.clickable { signIn() })
+                text = stringResource(id = R.string.forgot_password),
+                color = MaterialTheme.colorScheme.tertiary,
+                style = MaterialTheme.typography.displaySmall,
+            )
+
+            Spacer(modifier = Modifier.height(22.dp))
+
+            Btn(
+                onClick = { goToLocation() },
+                text = R.string.sign_up
+            )    /*como no hay logica de registro en el vm todavia, solo lo navego a location*/
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {   //IMPORTANTE! para centrar un elemento horizontamente, hagan que ocupe tod el ancho, sinoi se van a romper la cabeza 10 hs como yo
+                Text(
+                    text = stringResource(id = R.string.has_account),
+                    color = MaterialTheme.colorScheme.inversePrimary
+                )
+                Text(
+                    text = "SingIn",
+                    color = MaterialTheme.colorScheme.secondary,
+                    modifier = Modifier.clickable { signIn() })
+            }
         }
     }
 }

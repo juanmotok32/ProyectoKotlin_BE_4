@@ -32,7 +32,10 @@ private fun OnBoardingSection(
     getStarted: () -> Unit,
     modifier: Modifier = Modifier
 ) {  //aca le paso el modifier para acomodarlo dsps en protrait y landscape
-    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = modifier) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
         Image(
             painter = painterResource(id = R.drawable.zanahoria_logo),
             contentDescription = null,
@@ -60,15 +63,6 @@ private fun OnBoardingSection(
     }
 }
 
-/*
-@Preview()
-@Composable
-fun OnBoardingSectionPreview() {
-    BE_TP3_G4Theme {
-        OnBoardingSection(getStarted = {})
-    }
-}
- */
 
 @Composable
 private fun BackgroundImage() {
@@ -79,16 +73,6 @@ private fun BackgroundImage() {
         contentScale = ContentScale.Crop // Esto hace q la imagen ocupe toda la pantalla, junto con el fill maxsize
     )
 }
-
-/*
-@Preview
-@Composable
-fun BackgroundImagePreview() {
-    BE_TP3_G4Theme {
-        BackgroundImage()
-    }
-}
- */
 
 
 @Composable
@@ -103,7 +87,6 @@ private fun OnboardingScreenPortrait(getStarted: () -> Unit) {
         )
     }
 }
-
 
 
 @Preview

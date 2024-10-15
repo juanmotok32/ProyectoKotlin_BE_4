@@ -27,7 +27,7 @@ fun CartScreen(navController: NavController) {
 
     var showDialog = remember { mutableStateOf(false) }
 
-    Scaffold(topBar = {
+    Scaffold(containerColor = MaterialTheme.colorScheme.primary, topBar = {
         TopAppBar(tittle = R.string.myCart_topbar, menu = { })
     }, bottomBar = {
         CustomBottomNavBar(
