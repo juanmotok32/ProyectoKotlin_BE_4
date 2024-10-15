@@ -1,4 +1,5 @@
 package ar.com.be_tp3_g4.ui.screens
+import CustomBottomNavBar
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -16,9 +17,11 @@ import ar.com.be_tp3_g4.data.favoritesProduccts
 import CustomBottomNavBarPreview
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
+import androidx.navigation.NavController
+import ar.com.be_tp3_g4.data.Items
 
 @Composable
-fun FavoritesScreen() {
+fun FavoritesScreen(navController : NavController) {
     // Usa una lista mutable de productos favoritos
     val favoriteItems = remember { mutableStateListOf(*favoritesProduccts.toTypedArray()) }
 
@@ -27,8 +30,12 @@ fun FavoritesScreen() {
             TopAppBar(tittle = R.string.favorites_topbar, menu = { })
         },
         bottomBar = {
-            CustomBottomNavBarPreview()
-        },
+            CustomBottomNavBar(
+                items = Items,
+                selectedItem = "Shop",
+                onItemSelected = {},
+                navController = navController
+            )},
         content = { paddingValues ->
             Column(
                 modifier = Modifier
@@ -63,6 +70,7 @@ fun FavoritesScreen() {
     )
 }
 
+/*
 
 @Preview(showBackground = true)
 @Composable
@@ -71,3 +79,4 @@ fun PreviewFavoritesScreen() {
         FavoritesScreen()
     }
 }
+*/

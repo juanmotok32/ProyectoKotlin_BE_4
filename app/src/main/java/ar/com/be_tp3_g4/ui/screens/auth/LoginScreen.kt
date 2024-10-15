@@ -1,6 +1,8 @@
 package ar.com.be_tp3_g4.ui.screens.auth
 
+import android.annotation.SuppressLint
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,6 +14,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.BasicAlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
@@ -19,14 +25,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ar.com.be_tp3_g4.R
+import ar.com.be_tp3_g4.data.favoritesProduccts
 import ar.com.be_tp3_g4.helpers.WindowSizeHelper
 import ar.com.be_tp3_g4.repository.UserRepository
 import ar.com.be_tp3_g4.repository.UserRepositoryImp
@@ -37,6 +48,8 @@ import ar.com.be_tp3_g4.ui.components.TittleSub
 
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
+@SuppressLint("RememberReturnType")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
     userRepository: UserRepositoryImp,
@@ -49,6 +62,7 @@ fun LoginScreen(
     successLogin: () -> Unit,
     windowSizeHelper: WindowSizeHelper
 ) {
+    //var success = remember{ mutableStateOf(true)}
     val windowSize = windowSizeHelper.getWindowSizeClass()
     var paddingValue = 0.dp
     val scrollState = rememberScrollState() //para poder hacer scroll cuando rota la pantalla
@@ -74,11 +88,15 @@ fun LoginScreen(
                 // Si el login es exitoso, llama a successLogin
                 successLogin()
             } else {
+
                 // Puedes manejar el error aquí si es necesario
                 Log.e("LoginScreen", "${it.errorMessage}")
             }
         }
     }
+
+
+
 
     Column(
         modifier = Modifier
@@ -124,6 +142,12 @@ fun LoginScreen(
             onClick = { authViewModel.login(authViewModel.username, authViewModel.password) },
             text = R.string.log_in
         )
+/*
+
+        if(success){
+            ShowToastExample()
+        }
+*/
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -140,6 +164,20 @@ fun LoginScreen(
                 color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.clickable { signUp() })
         }
+    }
+}
+
+@Composable
+fun ShowToastExample() {
+    // Obtenemos el contexto actual
+    val context = LocalContext.current
+
+
+    Button(onClick = {
+        // Mostramos un Toast al hacer clic en el botón
+        Toast.makeText(context, "¡Hola, este es un Toast!", Toast.LENGTH_SHORT).show()
+    }) {
+        Text("Mostrar Toast")
     }
 }
 

@@ -1,4 +1,5 @@
 package ar.com.be_tp3_g4.ui.screens
+import CustomBottomNavBar
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,17 +16,23 @@ import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.ui.components.CartProductItem
 import ar.com.be_tp3_g4.data.productList
 import CustomBottomNavBarPreview
+import androidx.navigation.NavController
+import ar.com.be_tp3_g4.data.Items
 
 @Composable
-fun CartScreen() {
+fun CartScreen(navController : NavController) {
 
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.myCart_topbar, menu = { })
         },
         bottomBar = {
-            CustomBottomNavBarPreview()
-        },
+            CustomBottomNavBar(
+                items = Items,
+                selectedItem = "Shop",
+                onItemSelected = {},
+                navController = navController
+            )},
         content = { paddingValues ->
             Column(
                 modifier = Modifier
@@ -59,6 +66,7 @@ fun CartScreen() {
         }
     )
 }
+/*
 
 @Preview
 @Composable
@@ -67,3 +75,4 @@ fun PreviewCartScreen() {
         CartScreen()
     }
 }
+*/
