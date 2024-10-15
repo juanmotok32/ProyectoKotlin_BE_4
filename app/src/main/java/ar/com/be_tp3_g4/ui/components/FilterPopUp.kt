@@ -1,5 +1,6 @@
 package ar.com.be_tp3_g4.ui.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,24 +21,22 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.data.categories
 import ar.com.be_tp3_g4.data.productList
-import ar.com.be_tp3_g4.model.Categorie
-import ar.com.be_tp3_g4.model.Product
-import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 
 
 @Composable
 fun FilterDialog(
-    showDialog: Boolean, onDismiss: () -> Unit, categories: List<Categorie>, brands: List<Product>
-) {
+    showDialog: MutableState<Boolean>, onDismiss: () -> Unit) {
+    val categories = categories
+    val brands = productList
     val LIMIT_LIST_ITEMS = 4
-    if (showDialog) {
+
+    if (showDialog.value) {
         Dialog(
             onDismissRequest = onDismiss,
             properties = DialogProperties(dismissOnClickOutside = false)
@@ -63,7 +63,7 @@ fun FilterDialog(
                     Spacer(modifier = Modifier.padding(10.dp))
                     brands.take(LIMIT_LIST_ITEMS).forEach { product ->
                         FilterRow(
-                            text = product.brand
+                            text = product.brand,
                         )
 
                     }
@@ -85,7 +85,9 @@ fun FilterRow(
 ) {
     var isChecked by remember { mutableStateOf(false) }
 
-    Row(verticalAlignment = Alignment.CenterVertically) {
+    Row(verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.clickable { isChecked = !isChecked }
+            .fillMaxWidth()) {
         Checkbox(
             checked = isChecked,
             onCheckedChange = { checked -> isChecked = checked },
@@ -101,6 +103,7 @@ fun FilterRow(
         )
     }
 }
+/*
 
 @Preview
 @Composable
@@ -109,10 +112,11 @@ fun PreviewFilter() {
 
         FilterDialog(
             showDialog = true,
-            onDismiss = { /*TODO*/ },
-            categories = categories,
-            brands = productList
+            onDismiss = { */
+/*TODO*//*
+ }
         )
 
     }
 }
+*/

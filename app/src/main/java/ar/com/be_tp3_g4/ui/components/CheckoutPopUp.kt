@@ -19,10 +19,14 @@ import androidx.compose.ui.window.DialogProperties
 import ar.com.be_tp3_g4.R
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 import ar.com.be_tp3_g4.ui.components.Btn
+import ar.com.be_tp3_g4.ui.components.OrderAccepted
 
 
 @Composable
 fun CheckoutDialog(showDialog: Boolean, onDismiss: () -> Unit) {
+    var orderAccepted = remember {
+        mutableStateOf(false)
+    }
     if (showDialog) {
         Dialog(
             onDismissRequest = onDismiss,
@@ -66,13 +70,19 @@ fun CheckoutDialog(showDialog: Boolean, onDismiss: () -> Unit) {
                     TermsAndConditionsText()
 
                     Btn(
-                        onClick = { /*func*/ },
+                        onClick = { orderAccepted.value = true },
                         text = R.string.place_order
                     )
 
                 }
+                OrderAccepted(
+                    showPopup = orderAccepted.value,
+                    onDismiss = { orderAccepted.value = false })
+
+
             }
         }
+
     }
 }
 
@@ -122,6 +132,7 @@ fun TermsAndConditionsText() {
         )
     }
 }
+
 
 @Preview
 @Composable

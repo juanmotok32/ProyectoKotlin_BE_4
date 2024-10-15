@@ -83,7 +83,7 @@ fun OrderAccepted(showPopup: Boolean, onDismiss: () -> Unit) {
                     Btn(onClick = { onDismiss() }, text = R.string.track_order) //actualmente cierra el dialog porque no se implementa el track
 
                     Btn(
-                        onClick = {/*NAVIGATE_HOME_FUN*/ }, text = R.string.back_to_home
+                        onClick = {onDismiss() }, text = R.string.back_to_home
                     )  //CAMBIAR POR BOTON BLANCO
 
                 }

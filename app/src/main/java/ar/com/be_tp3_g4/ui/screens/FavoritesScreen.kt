@@ -32,7 +32,7 @@ fun FavoritesScreen(navController : NavController) {
         bottomBar = {
             CustomBottomNavBar(
                 items = Items,
-                selectedItem = "Shop",
+                selectedItem = "Favorite",
                 onItemSelected = {},
                 navController = navController
             )},

@@ -18,11 +18,17 @@ import ar.com.be_tp3_g4.ui.components.SearchBar
 import ar.com.be_tp3_g4.ui.components.TopAppBar
 import ar.com.be_tp3_g4.ui.theme.BE_TP3_G4Theme
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import ar.com.be_tp3_g4.data.productList
 import ar.com.be_tp3_g4.ui.components.Card
+import ar.com.be_tp3_g4.ui.components.FilterDialog
 
 @Composable
 fun SearchScreen() {
+
+    var showFilter = remember {
+        mutableStateOf(false)}
     Scaffold(
         topBar = {
             TopAppBar(tittle = R.string.search_screen_name, menu = { })
@@ -42,10 +48,11 @@ fun SearchScreen() {
             ) {
                 Spacer(modifier = Modifier.padding(2.dp))
 
-                SearchBar(
-                    searchValue = stringResource(id = R.string.placeholder_search),
-                    onSearch = { })
-                    //onFilter = { /*TODO*/ }) //COMPLETAR LA IMPLEMENTACION
+
+                SearchBar(searchValue = stringResource(id = R.string.placeholder_search),
+                    onSearch = { },
+                    onFilter = { showFilter.value = true })
+
 
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(2),
@@ -62,6 +69,7 @@ fun SearchScreen() {
 
 
             }
+            FilterDialog(showDialog = showFilter, onDismiss = { showFilter.value = false })
         }
     )
 }
